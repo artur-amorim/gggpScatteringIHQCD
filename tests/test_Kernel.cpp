@@ -10,13 +10,13 @@ using namespace std;
 int main()
 {
     // Compute Chebyschev matrices
-    chebSetN(400);
+    chebSetN(800);
 
     // Setup gluon kernel and compute the Reggeons for t = 0
     vector<double> gluon_pars = {1/0.178};
-    GluonKernel gluon(4, gluon_pars);
+    GluonKernel gluon(2, gluon_pars);
     gluon.computeReggeTrajectories();
-    vector<Reggeon> reggeons = computeReggeons(gluon, 0.0, 4);
+    vector<Reggeon> reggeons = computeReggeons(gluon, 0.0, 2);
     // Print the J of each reggeon and save the wave function
     for(int i = 0; i < reggeons.size(); i++)
     {

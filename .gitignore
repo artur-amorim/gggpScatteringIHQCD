@@ -4,3 +4,10 @@
 # Ignore .o .exe files
 *.o
 *.exe
+
+# Ignore .csv files
+*.csv
+*.txt
+
+*checkpoint.ipynb
+*.tar
