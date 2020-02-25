@@ -12,8 +12,13 @@ clean:
 
 # test code
 
-tests: bin/test_U1NNMode.exe bin/test_schrodinger.exe
+tests: bin/test_U1NNMode.exe bin/test_schrodinger.exe bin/test_Kernel.exe bin/test_alphaQED.exe
 
+bin/test_alphaQED.exe: bin/tests/test_alphaQED.o bin/alphaQED.o
+	$(CXX) -o $@ $^ $(LIBS)
+
+bin/test_Kernel.exe: bin/tests/test_Kernel.o bin/IHQCD.o bin/Reggeon.o bin/Kernel.o bin/GluonKernel.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o
+	$(CXX) -o $@ $^ $(LIBS)
 
 bin/test_U1NNMode.exe: bin/tests/test_U1NNMode.o bin/U1NNMode.o bin/IHQCD.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o
 	$(CXX) -o $@ $^ -lblas $(LIBS_GFORTRAN)
