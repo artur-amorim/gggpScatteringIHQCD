@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include "alphaQED.h"
 #include "IHQCD.h"
 #include "DeepInelasticScattering.h"
 #include "F2.h"
@@ -28,12 +29,12 @@ extern"C"
                 int * limit, int * lenw, int * last, int * iwork, double * work);
 }
 
-F2::F2(const bool rrsslog, std::string file_path) : DeepInelasticScattering(rrsslog, file_path)
+F2_alphaQED::F2_alphaQED(const bool rrsslog, std::string file_path) : DeepInelasticScattering(rrsslog, file_path)
 {
     std::cout << "Loaded F2." << std::endl;
 }
 
-double F2::IzN(const std::vector<double> &kin, const Reggeon &reg)
+double F2_alphaQED::IzN(const std::vector<double> &kin, const Reggeon &reg)
 {
     // Get the kinematical values and J
     const double Q2 = kin[0];
@@ -65,7 +66,7 @@ double F2::IzN(const std::vector<double> &kin, const Reggeon &reg)
     double * work = new double[lenw];
     // Evaluate the integral
     dqags_(f, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
-    izn = std::pow(Q2, J) * izn;
+    izn = std::pow(Q2, J) * izn / alphaQED(Q2);
     // Free workspace from memory
     delete[] iwork;
     delete[] work;
