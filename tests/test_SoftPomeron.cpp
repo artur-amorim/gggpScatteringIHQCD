@@ -2,7 +2,7 @@
 #include <fstream>
 #include <vector>
 #include "Reggeon.h"
-#include "GluonKernel.h"
+#include "SoftPomeron.h"
 #include "schrodinger/schrodinger.h"
 
 using namespace std;
@@ -14,9 +14,9 @@ int main()
 
     // Setup gluon kernel and compute the Reggeons for t = 0
     vector<double> gluon_pars = {1/0.178};
-    GluonKernel gluon(2, gluon_pars);
-    gluon.computeReggeTrajectories();
-    vector<Reggeon> reggeons = computeReggeons(gluon, 0.0, 2);
+    SoftPomeron soft(gluon_pars);
+    soft.computeReggeTrajectories();
+    vector<Reggeon> reggeons = computeReggeons(soft, 0.0, 2);
     // Print the J of each reggeon and save the wave function
     for(int i = 0; i < reggeons.size(); i++)
     {
