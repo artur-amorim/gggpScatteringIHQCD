@@ -19,7 +19,7 @@ class PhotonScattering
     private :
         std::vector< std::vector<double> > datapts ;
     protected:
-        void copy(const PhotonScattering & rhs);
+        virtual void copy(const PhotonScattering & rhs);
         virtual void  loadData(std::string file_path = "");
     public :
         PhotonScattering();
