@@ -273,7 +273,7 @@ std::vector<kinStruct>  F2Photon::getIzsBar(const std::vector< std::vector<doubl
     return ans ;
 }
 
-std::vector<double>  predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points, const bool savePredictions)
+std::vector<double>  F2Photon::predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points, const bool savePredictions)
 {
     // Check that Izs, IzsBar and points have the same size
     if (points.size() == 0) throw std::runtime_error("points has length 0. Aborting F2Photon::predict.");
