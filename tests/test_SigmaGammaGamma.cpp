@@ -46,7 +46,7 @@ int main(int argc, char ** argv)
 
     // Compute the IzNBars using the IzNBar function
      // gs vector
-    vector<double> gs = {1, 2};
+    vector<double> gs = {0, 0};
     cout << "j0: " << reggeons[0].getJ() << " j1: " << reggeons[1].getJ() << endl;
     cout << "Testing IzNBar function" << endl;
     cout << "W\tIzNBar.1\tIzNBar.2" << endl;
@@ -67,7 +67,10 @@ int main(int argc, char ** argv)
     }
 
     cout << "Testing predict function" << endl;
-    vector<double> preds = sigma.predict(izs, izbars, Ws, true);
+    vector<double> preds = sigma.predict(izs, izbars, Ws, false);
+
+    double chi2 = sigma.rss(izs, izbars, Ws);
+    cout << "chi2: " << chi2 << endl;
 
     return 0;
 }

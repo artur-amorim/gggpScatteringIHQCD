@@ -54,7 +54,7 @@ int main(int argc, char ** argv)
     }
     // Compute the IzNBars using the IzNBar function
      // gs vector
-    vector<double> gs = {1, 2, 3, 4};
+    vector<double> gs = {0, 0, 0, 0};
     cout << "j0: " << reggeons[0].getJ() << " j1: " << reggeons[1].getJ() << " j2: " << reggeons[2].getJ() << " j3: " << reggeons[3].getJ() << endl;
     cout << "Testing IzNBar function" << endl;
     cout << "x\tIzNBar.1\tIzNBar.2\tIzNBar.3\tIzNBar.4" << endl;
@@ -66,8 +66,6 @@ int main(int argc, char ** argv)
     // Compute the IzNBars using the function getIzsBar
     vector<kinStruct> izbars = f2.getIzsBar(kinPts, {spec}, gs);
     cout << "Testing getIzsBar function" << endl;
-    cout << "izbars should have the same size as Ws[0]" << endl;
-    cout << "izbars size: " << izbars.size() << " kinPts[1] size: " << kinPts[1].size() << endl;
     cout << "Check that we have the same values" << endl;
     for(int i = 0; i < kinPts[1].size(); i++)
     {
@@ -79,7 +77,10 @@ int main(int argc, char ** argv)
     }
 
     cout << "Testing predict function" << endl;
-    vector<double> preds = f2.predict(izs, izbars, kinPts, true);
+    vector<double> preds = f2.predict(izs, izbars, kinPts, false);
+
+    double chi2 = f2.rss(izs, izbars, kinPts);
+    cout << "chi2: " << chi2 << endl;
 
     return 0;
 }
