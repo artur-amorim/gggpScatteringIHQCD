@@ -5,10 +5,30 @@ LIBS_GFORTRAN = -L/usr/local/lib/gcc/9 -lgfortran
 
 FC = gfortran
 
-all: mkfolder tests
+all: mkfolder tests physics
 
 clean:
 	rm -r bin
+
+
+# physics code
+physics: bin/fitF2Photon_HardPomeron_4Reggeons.exe bin/fitSigma_HardPomeron_2Reggeons.exe bin/fitSigma_HardPomeron_4Reggeons.exe bin/fitSigma_SoftPomeron.exe bin/fitSigmaF2Photon_HardPomeron_4Reggeons.exe
+
+bin/fitF2Photon_HardPomeron_4Reggeons.exe: bin/fitF2Photon_HardPomeron_4Reggeons.o bin/IHQCD.o bin/PhotonScattering.o bin/F2Photon.o bin/alphaQED.o bin/U1NNMode.o bin/Kernel.o bin/HardPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
+bin/fitSigma_HardPomeron_2Reggeons.exe: bin/fitSigma_HardPomeron_2Reggeons.o bin/IHQCD.o bin/PhotonScattering.o bin/SigmaGammaGamma.o bin/alphaQED.o bin/U1NNMode.o bin/Kernel.o bin/HardPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
+bin/fitSigma_HardPomeron_4Reggeons.exe: bin/fitSigma_HardPomeron_4Reggeons.o bin/IHQCD.o bin/PhotonScattering.o bin/SigmaGammaGamma.o bin/U1NNMode.o bin/Kernel.o bin/HardPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
+bin/fitSigma_SoftPomeron.exe: bin/fitSigma_SoftPomeron.o bin/IHQCD.o bin/PhotonScattering.o bin/SigmaGammaGamma.o bin/U1NNMode.o bin/Kernel.o bin/SoftPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
+bin/fitSigmaF2Photon_HardPomeron_4Reggeons.exe: bin/fitSigmaF2Photon_HardPomeron_4Reggeons.o bin/IHQCD.o bin/PhotonScattering.o bin/SigmaGammaGamma.o bin/F2Photon.o bin/alphaQED.o bin/U1NNMode.o bin/Kernel.o bin/HardPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
 
 # test code
 
@@ -43,8 +63,13 @@ bin/test_U1NNMode.exe: bin/tests/test_U1NNMode.o bin/U1NNMode.o bin/IHQCD.o bin/
 
 bin/test_schrodinger.exe: bin/tests/test_schrodinger.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o
 	$(CXX) -o $@ $^ $(LIBS)
-# test files
 
+
+# physics files
+bin/%.o: physics/%.cpp
+	$(CXX) -o $@ $^ $(CXXFLAGS)
+
+# test files
 bin/tests/%.o: tests/%.cpp
 	$(CXX) -o $@ $^ $(CXXFLAGS)
 
