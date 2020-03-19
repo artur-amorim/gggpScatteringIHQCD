@@ -12,7 +12,13 @@ clean:
 
 # test code
 
-tests: bin/test_U1NNMode.exe bin/test_schrodinger.exe bin/test_SoftPomeron.exe bin/test_HardPomeron.exe bin/test_alphaQED.exe bin/test_PhotonScattering.exe bin/test_SigmaGammaGamma.exe bin/test_F2Photon.exe
+tests: bin/test_U1NNMode.exe bin/test_schrodinger.exe bin/test_SoftPomeron.exe bin/test_HardPomeron.exe bin/test_alphaQED.exe bin/test_PhotonScattering.exe bin/test_SigmaGammaGamma.exe bin/test_F2Photon.exe bin/test_HQCDP_SoftPomeron.exe bin/test_HQCDP_HardPomeron.exe
+
+bin/test_HQCDP_HardPomeron.exe: bin/tests/test_HQCDP_HardPomeron.o bin/IHQCD.o bin/PhotonScattering.o bin/F2Photon.o bin/alphaQED.o bin/U1NNMode.o bin/Kernel.o bin/HardPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
+
+bin/test_HQCDP_SoftPomeron.exe: bin/tests/test_HQCDP_SoftPomeron.o bin/IHQCD.o bin/PhotonScattering.o bin/SigmaGammaGamma.o bin/U1NNMode.o bin/Kernel.o bin/SoftPomeron.o bin/HQCDP.o bin/Reggeon.o bin/Spectra.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o
+	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)
 
 bin/test_F2Photon.exe: bin/tests/test_F2Photon.o bin/PhotonScattering.o bin/F2Photon.o bin/Reggeon.o bin/Spectra.o bin/IHQCD.o bin/Kernel.o bin/HardPomeron.o bin/quadpack/dqags.o bin/quadpack/dqagse.o bin/quadpack/dqelg.o bin/quadpack/dqk21.o bin/quadpack/dqpsrt.o bin/quadpack/xerror.o bin/quadpack/xerrwv.o bin/quadpack/fdump.o bin/quadpack/j4save.o bin/quadpack/xerabt.o bin/quadpack/xerctl.o bin/quadpack/xerprt.o bin/quadpack/xersav.o bin/quadpack/xgetua.o bin/quadpack/s88fmt.o bin/quadpack/d1mach.o bin/quadpack/i1mach.o bin/schrodinger/common.o bin/schrodinger/solvspec.o bin/schrodinger/chebspec.o bin/schrodinger/numerov.o bin/schrodinger/schrodinger.o bin/U1NNMode.o bin/Fortran/colnew.o bin/Fortran/dgefa.o bin/Fortran/dgesl.o bin/alphaQED.o
 	$(CXX) -o $@ $^ $(LIBS) $(LIBS_GFORTRAN)

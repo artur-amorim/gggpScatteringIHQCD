@@ -158,7 +158,7 @@ std::vector<double> optimFunction(const std::vector<double> &x, T &func, std::ve
     NelderMead NM(1e-3) ;
 	// Start the optimization process
 	std::vector<double> xguess = x;
-	std::vector<double> optParams = NM.minimize(xguess, deltas, func
+	std::vector<double> optParams = NM.minimize(xguess, deltas, func);
 	// Return the optimal set of parameters
     return optParams;
 };
