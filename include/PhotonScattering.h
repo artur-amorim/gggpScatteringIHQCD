@@ -38,7 +38,7 @@ class PhotonScattering
                                                   const std::vector<double>  &gs);
         virtual std::vector<double>  predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar,
                                                 const std::vector< std::vector<double> >  &points, const bool savePredictions = false);
-        std::vector<double>  diffObsWeighted(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points);
+        virtual std::vector<double>  diffObsWeighted(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points);
         double rss(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points) ;   
         PhotonScattering& operator= (const PhotonScattering &procs);
         virtual ~PhotonScattering();

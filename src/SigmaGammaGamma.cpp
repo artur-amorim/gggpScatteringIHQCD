@@ -59,12 +59,14 @@ void SigmaGammaGamma::loadData(std::string file_path)
    std::string line ;
    getline(file, line) ;
    std::cout << "Loading sigma(gamma gamma -> hadrons) data" << std::endl;
-   std::vector<double> Ws, sigmas, sigmaErrs;
+   std::vector<double> Ws, WsPlus, WsMinus, sigmas, sigmaErrs;
    std::vector<std::string> result;
    while(getline(file, line))
     {
         boost::split(result, line, boost::is_any_of("\t") ) ;
         Ws.push_back(stod(result[0])) ;
+        WsPlus.push_back(stod(result[0]) + stod(result[1]));
+        WsMinus.push_back(stod(result[0]) - stod(result[2]));
         sigmas.push_back(stod(result[3]));
         sigmaErrs.push_back(std::max(stod(result[4]), stod(result[5])));
     }
@@ -73,7 +75,7 @@ void SigmaGammaGamma::loadData(std::string file_path)
     {
         throw std::runtime_error("Ws, sigma and sigmaErrs vector containers in SigmaGammaGamma don't have the same size"); 
     }
-    this->setDataPts({Ws, sigmas, sigmaErrs});
+    this->setDataPts({Ws, WsPlus, WsMinus, sigmas, sigmaErrs});
 }
 
 SigmaGammaGamma::SigmaGammaGamma(std::string file_path): PhotonScattering()
@@ -84,13 +86,13 @@ SigmaGammaGamma::SigmaGammaGamma(std::string file_path): PhotonScattering()
 std::vector<double> SigmaGammaGamma::expVal()
 {
     // Returns a std::vector container with the values of sigma
-    return this->getDataPts()[1];
+    return this->getDataPts()[3];
 }
 
 std::vector<double>  SigmaGammaGamma::expErr()
 {
     // Returns a std::vector container with the values of sigmaErrs
-    return this->getDataPts()[2];
+    return this->getDataPts()[4];
 }
 
 std::vector<std::vector<double> >  SigmaGammaGamma::expKinematics()
@@ -100,8 +102,8 @@ std::vector<std::vector<double> >  SigmaGammaGamma::expKinematics()
         This format is just to make it uniform with processed that depend
         in more than one kinematical variable
     */
-   std::vector<double> Ws = this->getDataPts()[0];
-   return {Ws};
+   std::vector<double> Ws = this->getDataPts()[0], WsPlus = this->getDataPts()[1], WsMinus = this->getDataPts()[2];
+   return {Ws, WsPlus, WsMinus};
 }
 
 double SigmaGammaGamma::IzN(const std::vector<double> &kin, const Reggeon &reg)
@@ -190,19 +192,21 @@ std::vector<kinStruct> SigmaGammaGamma::getIzsBar(const std::vector< std::vector
         Computes all the IzNbars relevant to sigma(gamma gamma -> hadrons)
     */
     // Create list of unique Ws
-    std::vector<double> Ws = points[0];
-    std::sort(Ws.begin(), Ws.end());
-    Ws.erase(unique(Ws.begin(), Ws.end()), Ws.end());
+    std::vector<double> Ws = points[0], WsPlus = points[1], WsMinus = points[2];
     const int n_Ws = Ws.size();
     std::vector<kinStruct> ans(n_Ws) ;
     // Get kernels in spec. For sigma(gamma gamma -> hadrons) there is only one value of t, i.e. 0
     std::vector<Reggeon> reggeons = spec[0].getReggeons();
     const int n_reggeons = reggeons.size();
-    std::vector<double> kinematics, iznbars(n_reggeons,0);
+    std::vector<double> iznbars(3 * n_reggeons,0);
     for(int i = 0; i < n_Ws; i++)
     {
-        kinematics = {Ws[i]};
-        for(int reg_index = 0; reg_index < n_reggeons; reg_index++) iznbars[reg_index] = IzNBar(kinematics, reggeons[reg_index], gs);
+        for(int reg_index = 0; reg_index < n_reggeons; reg_index++)
+        {
+            iznbars[reg_index] = IzNBar({Ws[i]}, reggeons[reg_index], gs);
+            iznbars[n_reggeons + reg_index] = IzNBar({WsPlus[i]}, reggeons[reg_index], gs);
+            iznbars[2*n_reggeons + reg_index] = IzNBar({WsMinus[i]}, reggeons[reg_index], gs);
+        }
         kinStruct izbars(Ws[i], iznbars);
         ans[i] = izbars;
     }
@@ -216,13 +220,17 @@ std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs
     if (points.size() == 0) throw std::runtime_error("points has length 0. Aborting SigmaGammaGamma::predict.");
     std::vector<double> ans(points[0].size()) ;
     kinStruct iznStruct, iznbarStruct;
-    std::vector<double> izn, iznbar;
+    std::vector<double> izn, iznbar, central_value_iznbar;
     for(int i = 0; i < points[0].size(); i++)
     {
         iznStruct = binary_search<kinStruct>(Izs, kinStruct({0.0},{}));
         iznbarStruct = binary_search<kinStruct>(IzsBar, kinStruct(points[0][i],{}));
         izn = iznStruct.izns; iznbar = iznbarStruct.izns;
-        ans[i] = sum(izn * iznbar);
+        // IzNBar has three times the number of elements of izn.
+        // To predict the cross section we only need the IzBars computed at W
+        // To do that we select the first izn.size() elements
+        for(int j = 0; j < izn.size(); j++) central_value_iznbar.push_back(iznbar[i]);
+        ans[i] = sum(izn * central_value_iznbar);
     }
     if(savePredictions)
     {
@@ -235,6 +243,40 @@ std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs
         for(int i = 0; i < points[0].size(); i++) myfile << points[0][i] << '\t' << ans[i] << std::endl;
     }
     return ans ;
+}
+
+std::vector<double> PhotonScattering::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
+{
+    if( points.size() == 0) std::vector< std::vector< double > > points = this->expKinematics() ;   // If points is NULL provide the experimental ones
+    std::vector<double> Opred(points[0].size()), OWPlus(points[0].size()), OWMinus(points[0].size()) ;
+    kinStruct iznStruct, iznbarStruct;
+    std::vector<double> izn, iznbar, W_iznbar, Wplus_iznbar, Wminus_iznbar;
+    for(int i = 0; i < points[0].size(); i++)
+    {
+        iznStruct = binary_search<kinStruct>(Izs, kinStruct({0.0},{}));
+        iznbarStruct = binary_search<kinStruct>(IzsBar, kinStruct(points[0][i],{}));
+        izn = iznStruct.izns; iznbar = iznbarStruct.izns;
+        // IzNBar has three times the number of elements of izn.
+        // To predict the cross section we only need the IzBars computed at W
+        // To do that we select the first izn.size() elements
+        const int izn_size = izn.size();
+        for(int j = 0; j < izn_size; j++)
+        {
+            W_iznbar.push_back(iznbar[j]);
+            Wplus_iznbar.push_back(iznbar[izn_size + j]);
+            Wminus_iznbar.push_back(iznbar[2 * izn_size + j]);
+        }
+        Opred[i] = sum(izn * W_iznbar);
+        OWPlus[i] = sum(izn * Wplus_iznbar);
+        OWMinus[i] = sum(izn * Wminus_iznbar);
+    }
+    const std::vector<double> Oexp  = this->expVal() ;                                              // Experimental values of the process
+    std::vector<double> Oerr  = this->expErr() ;                                              // Experimental errors of the process
+    // Because we have uncertainty in W we need to add the effective uncertainty
+    const std::vector<double> Oeff_uncert = maximum(abs(Opred-OWPlus), abs(Opred - OWMinus) );
+    Oerr = sqrt(Oerr * Oerr + Oeff_uncert * Oeff_uncert) ;
+    return (Opred - Oexp) / Oerr ;
+
 }
 
 SigmaGammaGamma::~SigmaGammaGamma()

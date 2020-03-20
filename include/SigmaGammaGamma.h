@@ -19,6 +19,7 @@ class SigmaGammaGamma: public PhotonScattering
         std::vector<kinStruct>  getIzs(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec);
         std::vector<kinStruct>  getIzsBar(const std::vector< std::vector<double> >  &points, const std::vector<Spectra> &spec,
                                           const std::vector<double>  &gs);
+        std::vector<double>  diffObsWeighted(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, const std::vector< std::vector<double> >  &points);
         std::vector<double>  predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar,
                                      const std::vector< std::vector<double> >  &points, const bool savePredictions);
         SigmaGammaGamma& operator= (const SigmaGammaGamma &procs);

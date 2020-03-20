@@ -205,6 +205,26 @@ T norm(const std::vector<T> &x)
 }
 
 template<class T>
+std::vector<T> abs(const std::vector<T> &x)
+{
+    const int n = x.size();
+    std::vector<T> ans(n);
+    for (int i = 0; i < n; i++) ans[i] = std::fabs(x[i]);
+    return ans;
+}
+
+template<class T>
+std::vector<T> maximum(const std::vector<T> &x, const std::vector<T> &y)
+{
+    // Check the size of x is equal to the size of y
+    if (x.size() != y.size()) throw std::runtime_error("x and y arguments in maximum don't have the same size.");
+    const int n = x.size();
+    std::vector<T> ans(n);
+    for (int i = 0; i < n; i++) ans[i] = std::max(x[i], y[i]);
+    return ans;
+}
+
+template<class T>
 std::vector<T> sqrt(const std::vector<T> &x)
 {
     // Computes the log of a vector
