@@ -12,7 +12,7 @@ int main(int argc, char ** argv)
 {
     double g1, g2;
     string data_path;
-    if (argc < 4)
+    if (argc < 3)
     {
         g1 = 0.0; g2 = 0.0;
         data_path = "expdata/gammagammaScatteringL3Processed.txt";
@@ -45,7 +45,7 @@ int main(int argc, char ** argv)
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2};
-    double gns_delta = 0.1;
+    double gns_delta = 10;
     hqcdp.fit(gns_guess, gns_delta);
 
     return 0;

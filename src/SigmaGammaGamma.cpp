@@ -229,7 +229,8 @@ std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs
         // IzNBar has three times the number of elements of izn.
         // To predict the cross section we only need the IzBars computed at W
         // To do that we select the first izn.size() elements
-        for(int j = 0; j < izn.size(); j++) central_value_iznbar.push_back(iznbar[i]);
+        central_value_iznbar = {};
+        for(int j = 0; j < izn.size(); j++) central_value_iznbar.push_back(iznbar[j]);
         ans[i] = sum(izn * central_value_iznbar);
     }
     if(savePredictions)
@@ -245,7 +246,7 @@ std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs
     return ans ;
 }
 
-std::vector<double> PhotonScattering::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
+std::vector<double> SigmaGammaGamma::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
 {
     if( points.size() == 0) std::vector< std::vector< double > > points = this->expKinematics() ;   // If points is NULL provide the experimental ones
     std::vector<double> Opred(points[0].size()), OWPlus(points[0].size()), OWMinus(points[0].size()) ;
@@ -260,6 +261,7 @@ std::vector<double> PhotonScattering::diffObsWeighted(const std::vector<kinStruc
         // To predict the cross section we only need the IzBars computed at W
         // To do that we select the first izn.size() elements
         const int izn_size = izn.size();
+        W_iznbar = {}; Wplus_iznbar = {}; Wminus_iznbar = {};
         for(int j = 0; j < izn_size; j++)
         {
             W_iznbar.push_back(iznbar[j]);
@@ -271,7 +273,7 @@ std::vector<double> PhotonScattering::diffObsWeighted(const std::vector<kinStruc
         OWMinus[i] = sum(izn * Wminus_iznbar);
     }
     const std::vector<double> Oexp  = this->expVal() ;                                              // Experimental values of the process
-    std::vector<double> Oerr  = this->expErr() ;                                              // Experimental errors of the process
+    std::vector<double> Oerr  = this->expErr() ;                                                    // Experimental errors of the process
     // Because we have uncertainty in W we need to add the effective uncertainty
     const std::vector<double> Oeff_uncert = maximum(abs(Opred-OWPlus), abs(Opred - OWMinus) );
     Oerr = sqrt(Oerr * Oerr + Oeff_uncert * Oeff_uncert) ;

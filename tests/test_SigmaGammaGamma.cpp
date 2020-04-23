@@ -11,18 +11,20 @@ using namespace std;
 int main(int argc, char ** argv)
 {
     string data_path = "expdata/gammagammaScatteringL3Processed.txt";
-    if (argc == 2) data_path = argv[1]; 
+    if (argc == 2) data_path = argv[1];
+
+    cout << "Loading data from " << data_path << endl; 
 
     SigmaGammaGamma sigma(data_path);
 
     // Testing if experimental data is dealt correctly
     vector<double> sigmas = sigma.expVal(), sigmaErr = sigma.expErr();
     vector<vector<double> > Ws = sigma.expKinematics();
-    cout << "W(GeV)\tsigma\tsigmaErr" << endl;
-    for(int i = 0; i < sigmas.size(); i++) cout << Ws[0][i] << '\t' << sigmas[i] << '\t' << sigmaErr[i] << endl;
+    cout << "W(GeV)\tWPlus\tWMinus\tsigma\tsigmaErr" << endl;
+    for(int i = 0; i < sigmas.size(); i++) cout << Ws[0][i] << '\t' << Ws[1][i] << '\t' << Ws[2][i] << '\t' << sigmas[i] << '\t' << sigmaErr[i] << endl;
 
     // Compute Chebyschev matrices
-    chebSetN(800);
+    chebSetN(2000);
 
     // Setup gluon kernel and compute the Reggeons for t = 0
     SoftPomeron soft;
@@ -44,19 +46,15 @@ int main(int argc, char ** argv)
     for(int i = 0; i < izns.size(); i++) cout << izns[i] << '\t';
     cout << endl;
 
-    // Compute the IzNBars using the IzNBar function
-     // gs vector
-    vector<double> gs = {0, 0};
+    // Compute the IzNBars using the getIzsBar function
+    // gs vector
+    vector<double> gs = {1, 2};
     cout << "j0: " << reggeons[0].getJ() << " j1: " << reggeons[1].getJ() << endl;
-    cout << "Testing IzNBar function" << endl;
-    cout << "W\tIzNBar.1\tIzNBar.2" << endl;
-    for(int i = 0; i < Ws[0].size(); i++) cout << Ws[0][i] << '\t' << sigma.IzNBar({Ws[0][i]}, reggeons[0], gs) << '\t' << sigma.IzNBar({Ws[0][i]}, reggeons[1], gs) << endl;
     // Compute the IzNBars using the function getIzsBar
     vector<kinStruct> izbars = sigma.getIzsBar(Ws, {spec}, gs);
     cout << "Testing getIzsBar function" << endl;
     cout << "izbars should have the same size as Ws[0]" << endl;
     cout << "izbars size: " << izbars.size() << " Ws[0] size: " << Ws[0].size() << endl;
-    cout << "Check that we have the same values" << endl;
     for(int i = 0; i < Ws[0].size(); i++)
     {
         kinStruct iznbar = binary_search<kinStruct>(izbars, kinStruct(Ws[0][i], {}));
@@ -67,7 +65,10 @@ int main(int argc, char ** argv)
     }
 
     cout << "Testing predict function" << endl;
-    vector<double> preds = sigma.predict(izs, izbars, Ws, false);
+    vector<double> preds = sigma.predict(izs, izbars, Ws, true);
+    
+    // Now let's test diffObsWeighted
+    vector<double> obs_weighted = sigma.diffObsWeighted(izs, izbars, Ws);
 
     double chi2 = sigma.rss(izs, izbars, Ws);
     cout << "chi2: " << chi2 << endl;
