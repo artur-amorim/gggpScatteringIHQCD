@@ -155,7 +155,7 @@ std::vector<double> optimFunction(const std::vector<double> &x, T &func, std::ve
 {
     // Given an initial guess of parameters X,
     // prints the value for which the function or functor f has a minimum
-    NelderMead NM(1e-3) ;
+    NelderMead NM(1e-12) ;
 	// Start the optimization process
 	std::vector<double> xguess = x;
 	std::vector<double> optParams = NM.minimize(xguess, deltas, func);

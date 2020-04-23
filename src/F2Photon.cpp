@@ -211,7 +211,7 @@ double F2Photon::IzNBar(const std::vector<double> &kin, const Reggeon &reg, cons
    const double x = kin[0];
    const double J = reg.getJ();
    const int reg_index = reg.getIndex();
-   double iznbar = std::pow(x, 1-J) * gs[reg_index-1] / (4 * M_PI * alpha0);
+   double iznbar = std::pow(x, 1-J) * gs[reg_index-1] / (4 * M_PI * M_PI * alpha0);
    return iznbar;
 }
 
