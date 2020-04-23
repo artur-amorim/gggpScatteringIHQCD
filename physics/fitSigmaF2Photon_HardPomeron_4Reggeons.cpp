@@ -44,7 +44,7 @@ int main(int argc, char ** argv)
     cout << "Number of degrees of freedom: " << hqcdp.NumberOfDegreesOfFreedom() << endl;
     
     // Compute the spectrum to check Reggeon properties
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2, g3, g4};

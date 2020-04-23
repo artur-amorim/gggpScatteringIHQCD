@@ -61,14 +61,15 @@ void SigmaGammaGamma::loadData(std::string file_path)
    std::cout << "Loading sigma(gamma gamma -> hadrons) data" << std::endl;
    std::vector<double> Ws, WsPlus, WsMinus, sigmas, sigmaErrs;
    std::vector<std::string> result;
+   const double nb_to_GEVMINUS2 = 1.0 / (3.894e5) ;
    while(getline(file, line))
     {
         boost::split(result, line, boost::is_any_of("\t") ) ;
         Ws.push_back(stod(result[0])) ;
         WsPlus.push_back(stod(result[0]) + stod(result[1]));
         WsMinus.push_back(stod(result[0]) - stod(result[2]));
-        sigmas.push_back(stod(result[3]));
-        sigmaErrs.push_back(std::max(stod(result[4]), stod(result[5])));
+        sigmas.push_back(stod(result[3]) * nb_to_GEVMINUS2);
+        sigmaErrs.push_back(std::max(stod(result[4]), stod(result[5])) * nb_to_GEVMINUS2);
     }
     // Check that all std::vector containers have the same side
     if( Ws.size() != sigmas.size() || Ws.size() != sigmaErrs.size() || sigmas.size() != sigmaErrs.size())
