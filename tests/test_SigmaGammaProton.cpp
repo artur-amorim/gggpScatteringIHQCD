@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "SigmaGammaGamma.h"
-#include "SoftPomeron.h"
+#include "SigmaGammaProton.h"
+#include "HardPomeron.h"
 #include "schrodinger/schrodinger.h"
 #include "methods/search.hpp"
 
@@ -10,12 +10,23 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
-    string data_path = "expdata/gammagammaScatteringL3Processed.txt";
-    if (argc == 2) data_path = argv[1];
+    string data_path = "expdata/GammaP/SigmaGammaProton.txt";
+    double g1, g2, g3, g4;
+    if (argc < 6)
+    {
+        data_path = "expdata/GammaP/SigmaGammaProton.txt";
+        g1 = 0.0; g2 = 0.0; g3 = 0.0; g4 = 0.0;
+    }
+    else
+    {
+        data_path = argv[1];
+        g1 = stod(argv[2]); g2 = stod(argv[3]); g3 = stod(argv[4]); g4 = stod(argv[5]);
+    }
+    
 
     cout << "Loading data from " << data_path << endl; 
 
-    SigmaGammaGamma sigma(data_path);
+    SigmaGammaProton sigma(data_path);
 
     // Testing if experimental data is dealt correctly
     vector<double> sigmas = sigma.expVal(), sigmaErr = sigma.expErr();
@@ -27,29 +38,35 @@ int main(int argc, char ** argv)
     chebSetN(1000);
 
     // Setup gluon kernel and compute the Reggeons for t = 0
-    SoftPomeron soft;
-    soft.computeReggeTrajectories();
-    vector<Reggeon> reggeons = computeReggeons(soft, 0.0, 2);
+    HardPomeron hard;
+    hard.computeReggeTrajectories();
+    vector<Reggeon> reggeons = computeReggeons(hard, 0.0, 4);
     Spectra spec(0.0, reggeons);
 
     // Compute the IzNs using the IzN function
     cout << "Testing IzN function" << endl;
-    cout << "W\tIzN.1\tIzN.2" << endl;
-    for(int i = 0; i < Ws[0].size(); i++) cout << Ws[0][i] << '\t' << sigma.IzN({Ws[0][i]}, reggeons[0]) << '\t' << sigma.IzN({Ws[0][i]}, reggeons[1]) << endl;
+    cout << "W\tIzN.1\tIzN.2\tIzN.3\tIzN.4" << endl;
+    for(int i = 0; i < Ws[0].size(); i++)
+    {
+        cout << Ws[0][i] << '\t';
+        for(int j = 0; j < reggeons.size(); j++) cout << sigma.IzN({Ws[0][i]}, reggeons[j]) << '\t';
+        cout << endl;
+    }
     // Compute the IzNs using the getIzs function
     cout << "Testing getIzs function" << endl;
     vector<kinStruct> izs = sigma.getIzs(Ws, {spec});
     cout << "Expecting izs to be of size 1" << endl;
     cout << "Size of izs: " << izs.size() << endl;
     vector<double> izns = izs[0].izns;
-    cout << "IzN.1\tIzN.2" << endl;
+    cout << "IzN.1\tIzN.2\tIzN.3\tIzN.4" << endl;
     for(int i = 0; i < izns.size(); i++) cout << izns[i] << '\t';
     cout << endl;
 
     // Compute the IzNBars using the getIzsBar function
     // gs vector
-    vector<double> gs = {1, 2};
-    cout << "j0: " << reggeons[0].getJ() << " j1: " << reggeons[1].getJ() << endl;
+    vector<double> gs = {g1, g2, g3, g4};
+    for(int i = 0; i < reggeons.size(); i++) cout << "j"+to_string(i)+": " << reggeons[i].getJ() << '\t';
+    cout << endl;
     // Compute the IzNBars using the function getIzsBar
     vector<kinStruct> izbars = sigma.getIzsBar(Ws, {spec}, gs);
     cout << "Testing getIzsBar function" << endl;

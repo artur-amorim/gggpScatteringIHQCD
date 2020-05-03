@@ -2,9 +2,8 @@
 #include <fstream>
 #include <stdexcept>
 #include <boost/algorithm/string.hpp>
-
 #include "IHQCD.h"
-#include "SigmaGammaGamma.h"
+#include "SigmaGammaProton.h"
 #include "methods/interpolation/Poly_Interp.hpp"
 #include "methods/vectorOperators.hpp"
 #include "methods/search.hpp"
@@ -35,10 +34,10 @@ double fSigma(double * x, void * params)
     return ((SigmaIzNIntegrand *) params)->operator()(*x);
 }
 
-void SigmaGammaGamma::loadData(std::string file_path)
+void SigmaGammaProton::loadData(std::string file_path)
 {
     /*
-        This function loads the data of sigma(gamma gamma -> hadrons) contained in the path file_path
+        This function loads the data of sigma(gamma proton -> hadrons) contained in the path file_path
         The data is assumed to be in 6 columns:
         W(GeV), WErrorp, WErrorm, sigma(np), Errorp and Errorm
         WErrorp is the positive error uncertainty in W
@@ -55,21 +54,21 @@ void SigmaGammaGamma::loadData(std::string file_path)
    }
    std::ifstream file;
    file.open(file_path);
-   if(file.fail()) std::runtime_error("Error: File with sigma(gamma gamma -> hadrons) data not opened."); 
+   if(file.fail()) std::runtime_error("Error: File with sigma(gamma p -> hadrons) data not opened."); 
    std::string line ;
    getline(file, line) ;
-   std::cout << "Loading sigma(gamma gamma -> hadrons) data" << std::endl;
+   std::cout << "Loading sigma(gamma p -> hadrons) data" << std::endl;
    std::vector<double> Ws, WsPlus, WsMinus, sigmas, sigmaErrs;
    std::vector<std::string> result;
-   const double nb_to_GEVMINUS2 = 1.0 / (3.894e5) ;
+   const double mub_to_GEVMINUS2 = 1.0 / (3.894e2) ;
    while(getline(file, line))
     {
         boost::split(result, line, boost::is_any_of("\t") ) ;
         Ws.push_back(stod(result[0])) ;
         WsPlus.push_back(stod(result[0]) + stod(result[1]));
         WsMinus.push_back(stod(result[0]) - stod(result[2]));
-        sigmas.push_back(stod(result[3]) * nb_to_GEVMINUS2);
-        sigmaErrs.push_back(std::max(stod(result[4]), stod(result[5])) * nb_to_GEVMINUS2);
+        sigmas.push_back(stod(result[3]) * mub_to_GEVMINUS2);
+        sigmaErrs.push_back(std::max(stod(result[4]), stod(result[5])) * mub_to_GEVMINUS2);
     }
     // Check that all std::vector containers have the same side
     if( Ws.size() != sigmas.size() || Ws.size() != sigmaErrs.size() || sigmas.size() != sigmaErrs.size())
@@ -79,24 +78,24 @@ void SigmaGammaGamma::loadData(std::string file_path)
     this->setDataPts({Ws, WsPlus, WsMinus, sigmas, sigmaErrs});
 }
 
-SigmaGammaGamma::SigmaGammaGamma(std::string file_path): PhotonScattering()
+SigmaGammaProton::SigmaGammaProton(std::string file_path): PhotonScattering()
 {
     loadData(file_path);
 }
 
-std::vector<double> SigmaGammaGamma::expVal()
+std::vector<double> SigmaGammaProton::expVal()
 {
     // Returns a std::vector container with the values of sigma
     return this->getDataPts()[3];
 }
 
-std::vector<double>  SigmaGammaGamma::expErr()
+std::vector<double>  SigmaGammaProton::expErr()
 {
     // Returns a std::vector container with the values of sigmaErrs
     return this->getDataPts()[4];
 }
 
-std::vector<std::vector<double> >  SigmaGammaGamma::expKinematics()
+std::vector<std::vector<double> >  SigmaGammaProton::expKinematics()
 {
     /*
         Returns a std::vector<std::vector<double> > with the values of Ws.
@@ -107,11 +106,11 @@ std::vector<std::vector<double> >  SigmaGammaGamma::expKinematics()
    return {Ws, WsPlus, WsMinus};
 }
 
-double SigmaGammaGamma::IzN(const std::vector<double> &kin, const Reggeon &reg)
+double SigmaGammaProton::IzN(const std::vector<double> &kin, const Reggeon &reg)
 {
     /*
         Computes the IzN integral that appears in the 
-        holographic computation of sigma(gamma gamma -> hadrons)
+        holographic computation of sigma(gamma proton -> hadrons)
         kin - std::vector<double> with just one element: W
         reg - Reggeon object from wich j_n and \psi_n can be accessed.
         returns izn = \int dz e^{-(j_n - 1.5) A_s} \psi_n
@@ -152,27 +151,28 @@ double SigmaGammaGamma::IzN(const std::vector<double> &kin, const Reggeon &reg)
     return izn;
 }
 
-double SigmaGammaGamma::IzNBar(const std::vector<double> &kin, const Reggeon &reg, const std::vector<double> &gs)
+double SigmaGammaProton::IzNBar(const std::vector<double> &kin, const Reggeon &reg, const std::vector<double> &gs)
 {
     /*
         Computes the IzNBar integral that appears in the 
-        holographic computation of sigma(gamma gamma -> hadrons)
+        holographic computation of sigma(gamma proton -> hadrons)
         kin - std::vector<double> with just one element: W
         reg - Reggeon object from wich the reggeon index can be accessed.
         gs - std::vector<double> that contains the constant quantities in our problem.
-        returns s^(j_n -1 ) g_n associated with reggeon n
+        returns 4 \pi^2 * alpha0 s^(j_n -1 ) g_n associated with reggeon n
     */
    // Compute s
    double s = std::pow(kin[0],2), J = reg.getJ();
+   const double alpha0 = 0.0072973525693;
    const int reg_index = reg.getIndex();
-   double iznbar = std::pow(s, J - 1) * gs[reg_index-1];
+   double iznbar = 4 * M_PI * M_PI * alpha0 * std::pow(s, J - 1) * gs[reg_index-1];
    return iznbar;
 }
 
-std::vector<kinStruct>  SigmaGammaGamma::getIzs(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec)
+std::vector<kinStruct>  SigmaGammaProton::getIzs(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec)
 {
     /*
-        Computes all the Izs relevant to sigma(gamma gamma -> hadrons)
+        Computes all the Izs relevant to sigma(gamma p -> hadrons)
     */
     // Get the Reggeons in spec
     const std::vector<Reggeon> reggeons = spec[0].getReggeons();
@@ -186,11 +186,11 @@ std::vector<kinStruct>  SigmaGammaGamma::getIzs(const std::vector< std::vector<d
     return ans ;
 }
 
-std::vector<kinStruct> SigmaGammaGamma::getIzsBar(const std::vector< std::vector<double> >  &points, const std::vector<Spectra> &spec,
+std::vector<kinStruct> SigmaGammaProton::getIzsBar(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec,
                                           const std::vector<double>  &gs)
 {
     /*
-        Computes all the IzNbars relevant to sigma(gamma gamma -> hadrons)
+        Computes all the IzNbars relevant to sigma(gamma proton -> hadrons)
     */
     // Create list of unique Ws
     std::vector<double> Ws = points[0], WsPlus = points[1], WsMinus = points[2];
@@ -214,11 +214,11 @@ std::vector<kinStruct> SigmaGammaGamma::getIzsBar(const std::vector< std::vector
     return ans ;
 }
 
-std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar,
+std::vector<double>  SigmaGammaProton::predict(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar,
                                      const std::vector< std::vector<double> >  &points, const bool savePredictions)
 {
     // Check that Izs, IzsBar and points have the same size
-    if (points.size() == 0) throw std::runtime_error("points has length 0. Aborting SigmaGammaGamma::predict.");
+    if (points.size() == 0) throw std::runtime_error("points has length 0. Aborting SigmaGammaProton::predict.");
     std::vector<double> ans(points[0].size()) ;
     kinStruct iznStruct, iznbarStruct;
     std::vector<double> izn, iznbar, central_value_iznbar;
@@ -238,16 +238,17 @@ std::vector<double>  SigmaGammaGamma::predict(const std::vector<kinStruct>  &Izs
     {
         std::ofstream myfile;
         std::string file_path;
-        std::cout << "Please introduce the path to save the predictions of sigma(gamma gamma -> hadrons)" << std::endl;
+        std::cout << "Please introduce the path to save the predictions of sigma(gamma p -> hadrons)" << std::endl;
         std::cin >> file_path;
         myfile.open(file_path);
+        const double GEVMINUS2_to_mub = 3.894e2;
         myfile << "W\tPred" << std::endl;
-        for(int i = 0; i < points[0].size(); i++) myfile << points[0][i] << '\t' << ans[i] << std::endl;
+        for(int i = 0; i < points[0].size(); i++) myfile << points[0][i] << '\t' << ans[i] * GEVMINUS2_to_mub << std::endl;
     }
     return ans ;
 }
 
-std::vector<double> SigmaGammaGamma::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
+std::vector<double> SigmaGammaProton::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
 {
     if( points.size() == 0) std::vector< std::vector< double > > points = this->expKinematics() ;   // If points is NULL provide the experimental ones
     std::vector<double> Opred(points[0].size()), OWPlus(points[0].size()), OWMinus(points[0].size()) ;
@@ -282,7 +283,7 @@ std::vector<double> SigmaGammaGamma::diffObsWeighted(const std::vector<kinStruct
 
 }
 
-SigmaGammaGamma::~SigmaGammaGamma()
+SigmaGammaProton::~SigmaGammaProton()
 {
     // Class destructor
 }
