@@ -1,0 +1,222 @@
+\documentclass[preprint, 12pt]{elsarticle}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage[portuguese, english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+\journal{Physics Letters B}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Photon Scattering in Improved Holographic QCD}
+
+\author[ath]{Artur Amorim~\corref{cor1}}
+\author[ath]{Miguel S. Costa~\corref{cor1}}
+\address[ath]{Centro de F\'{\i}sica do Porto e Departamento de F\'{\i}sica e Astronomia da Faculdade de Ci\^encias da Universidade do Porto, Rua do Campo Alegre 687, 4169-007 Porto, Portugal}
+
+\cortext[cor1]{Corresponding author}
+
+\begin{abstract}
+
+This document is a set of notes that I have elaborated while using the holographic models developed by us to fit $\sigma\left(\gamma \gamma \rightarrow X\right)$, $F_2^\gamma\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data. The kernel parameters of the holographic models are fixed by the structure functions $F_2$ and $F_L$ of the proton while the fitting parameters are the gravitational couplings that appear in the vertices of the Witten diagram.
+
+\end{abstract}
+
+\end{frontmatter}
+
+\section{$\gamma^{*}\gamma$ observables}
+\begin{figure}[!h]
+  \center
+  \includegraphics[height=4cm]{images/Witten_diagram} 
+  \caption{Tree level Witten diagram representing spin $J$    exchange in a $12\to34$ scattering. 
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:Witten_diagram}
+\end{figure}
+In this section we will present a holographic computation of  $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma\left(x, Q^2\right)$ in the context of the Improved Holographic QCD model. Although in these processes we have at most one off-shell photon involved we will first compute the general scattering amplitude $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$. Later, from this general amplitude, we specify for the case of $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma\left(x, Q^2\right)$. The Witten that is relevant for our calculations is the one in figure~\ref{fig:Witten_diagram}.
+
+
+\subsection{Kinematics}
+We start with kinematics first. Consider light-cone coordinates~$\left(+, -, \perp \right)$ with metric given by $ds^2 = - dx^{+} dx^{-} + d x_\perp^2$, where $x_\perp$ is a vector of the impact parameter space $\mathbb{R}^2$. The incoming photons have space-like momenta
+\begin{equation}
+k_1 = \left( \sqrt{s}, - \frac{Q_1^2}{\sqrt{s}}, 0 \right), \quad k_2 = \left( - \frac{Q_2^2}{\sqrt{s}}, \sqrt{s},  0 \right),
+\end{equation}
+while the outgoing off-shell photons have also the space-like momenta
+\begin{equation}
+k_3 = - \left( \sqrt{s},  \frac{q_\perp^2 - Q_3^2}{\sqrt{s}}, q_\perp \right), \quad k_4 = - \left(  \frac{q_\perp^2-Q_4^2}{\sqrt{s}}, \sqrt{s},  -q_\perp \right).
+\end{equation}
+The off-shellness of these 4-vectors is $k_i^2 = Q_i^2 > 0 \, \left( i = 1, \dots, 4\right)$. We consider the Regge limit of large s and fixed $t = -q_\perp^2$.
+
+We can now define the photons polarization vectors $n^\lambda_i$ that satisfy the condition
+\begin{equation}
+n_i^\lambda \cdot k_i = 0.
+\end{equation}
+The incoming photons have the following polarizations
+\begin{equation}
+    n_1=
+    \begin{cases}
+      \left(0,0,1,0\right), & \lambda=1 \\
+      \left(0,0,0,1\right), & \lambda=2 \\
+      \frac{1}{Q_1} \left( \sqrt{s}, \frac{Q_1^2}{\sqrt{s}}, 0, 0 \right), & \lambda = 3
+    \end{cases}
+\end{equation}
+\begin{equation}
+    n_2=
+    \begin{cases}
+      \left(0,0,1,0\right), & \lambda=1 \\
+      \left(0,0,0,1\right), & \lambda=2 \\
+      \frac{1}{Q_2} \left( \frac{Q_2^2}{\sqrt{s}}, \sqrt{s}, 0, 0 \right), & \lambda = 3
+    \end{cases}
+\end{equation}  
+and the outgoing off-shell photons have the following pollarization vectors
+\begin{equation}
+    n_3=
+    \begin{cases}
+      \left(0,\frac{2 q_x}{\sqrt{s}},1,0\right), & \lambda=1 \\
+      \left(0,\frac{2 q_y}{\sqrt{s}},0,1\right), & \lambda=2 \\
+      \frac{1}{Q_3} \left(\sqrt{s}, \frac{Q_3^2+q_\perp^2}{\sqrt{s}}, q_\perp \right), & \lambda = 3
+    \end{cases}
+\end{equation}  
+\begin{equation}
+    n_4=
+    \begin{cases}
+      \left(-\frac{2 q_x}{\sqrt{s}},0,1,0\right), & \lambda=1 \\
+      \left(-\frac{2 q_y}{\sqrt{s}},0,0,1\right), & \lambda=2 \\
+      \frac{1}{Q_4} \left(\frac{Q_4^2+q_\perp^2}{\sqrt{s}},\sqrt{s},- q_\perp \right), & \lambda = 3
+    \end{cases}
+\end{equation}
+Notice that the transverse photons~$\left(\lambda=1,2\right)$ are normalized such that~$n^2 = 1$ while the longitudinal photons~$\left(\lambda=3\right)$ are normalized such that~$n^2 = -1$
+
+\subsection{External states and Spin J fields}
+
+The off-shell photons the external states are sources of the conserved U(1) current $j^\mu = \psi \gamma^\mu \psi$, where quark field $\psi$ is associated with the open string sector. According to the gauge/gravity duality dictionary, these current operators are dual to the non-normalizable modes of a massless~$U(1)$ gauge field A. We assume that this field comes from the open string sector and that it has a minimal coupling to gravity. Then it satisfies the following action 
+\begin{equation}
+S_A = - \frac{1}{4} \int d^5 X \sqrt{-g} e^{- \Phi} F_{ab} F^{ab}
+\end{equation}
+where $F=dA$ and we use the notation $X^a=(z,x^\alpha)$ for five-dimensional points. 
+We will fix the gauge of the $U(1)$ bulk field to be $D_a A^a = 0$, which gives  
+$A_z = 0$ and $\partial_\mu A^\mu = 0$. In this gauge, the solution to the equation of motion 
+$ \nabla_a \left( e^{-\Phi} F^{ab} \right)=0$ is given by
+\begin{equation}
+ A_\mu^\lambda \left( X ; k\right) =  n_\mu^\lambda \, f_k ( z )\,e^{i k \cdot x}\,,
+\end{equation}
+where $f_k(z)$ solves the differential equation
+\begin{equation}
+  \label{eq:u1 eom gauge fixed}
+  \left[-Q^2+e^{\Phi-A}\partial_z\left(e^{A-\Phi}\partial_z \right) \right]f_Q(z)= 0 \,.
+\end{equation}
+The momentum  $k$ and the polarisation vector $n^\lambda$ satisfy
+\begin{equation}
+  k^2 = Q^2 \,, \qquad 
+  n^\lambda_z = 0 \,, \qquad
+   k \cdot n^\lambda = 0 \,,
+\end{equation}
+where the boundary polarisation are given by the expressions of the last section. 
+We choose as UV boundary condition $f(0)=1$ which gives the non-normalizable solution.
+Later it will be useful to use the identities
+\begin{align}
+&F_{\mu\nu}\left(X; k, n\right) = 2 i k_{[\mu}n_{\nu]} f_Q \left(z\right) e^{i k \cdot x}, \notag \\
+&F_{z\nu} \left(X; k, n\right) = n_\nu \dot{f}_Q e^{i k \cdot x}.
+\label{eq:F_expression}
+\end{align}
+
+To compute the Witten diagram we also need to know the external scattering states couple with the spin J fields $h_{a_1 \dots a_J}$ in the graviton Regge trajectory. 
+Furthermore, in the Regge limit we will only be interested in the TT components $h_{\alpha_1 \dots \alpha_J}$ of these fields. The derivation of this coupling has been done in~\cite{ballon_bayona_unity_2017} and hence we only present the result
+\begin{equation}
+  \kappa_J  \int  d^5 X \sqrt{-g} \, e^{-\Phi }   F^{\alpha_1 a} \partial^{\alpha_2} \dots \partial^{\alpha_{J-1}}F^{\alpha_J}_{\ \ a}
+  h_{\alpha_1\dots \alpha_J} .
+\end{equation}
+
+\subsection{Computation of the Witten diagram}
+The amplitude associated with the exchange of a spin J field in the Witten diagram is given by
+\begin{align}
+&A_J \left(k_i, \lambda_j\right) = - k_J^2 \int d^5X d^5 \bar{X} \sqrt{-g} \sqrt{-\bar{g}} e^{-\Phi} e^{-\bar{\Phi}} \times  \notag \\ 
+&F_{- a}^{(1)} \left(k_1, z\right) \partial_{-}^{J-2}F^{a \, (3)}_{-} \left(k_3, z \right)  F_{+ b}^{(2)} \left(k_2, \bar{z}\right) \bar{\partial}_{+}^{J-2}F^{b \, (4)}_{+} \left(k_4, \bar{z} \right) \times \notag \\
+& \Pi^{- \dots - , + \dots +}\left(X, \bar{X}\right)
+\end{align}
+Using the kinematics introduced and lowering the indeces of the bulk-to-bulk propagator of the spin J field we get
+\begin{align}
+&- k_J^2 {\left( \frac{i}{2} \sqrt{s}\right)}^{2J-4} \int d^5X d^5\bar{X} \frac{e^{5 (A+\bar{A}) }}{4} e^{-\Phi - \bar{\Phi}} {\left(4 e^{-2(A+\bar{A})}\right)}^J e^{-i q_\perp \cdot \left(x_\perp - \bar{x}_\perp\right)} \times \notag \\
+& \times F_{-a}^{(1)}F^{a \, (3)}_{-} \Pi_{+\dots+, - \dots -}\left(X, \bar{X}\right)  F_{+ b}^{(2)}F^{b \, (4)}_{+}
+\end{align}
+By performing the change of variables $w = x - \bar{x}$, using the propagator identities
+\begin{align}
+&\int d^2l_\perp e^{-i q_\perp \cdot l_\perp} \int \frac{dw^+ dw^-}{2} \Pi_{+\dots+, - \dots -}\left(w^+, w^-, l_\perp, z, \bar{z}\right) = - \frac{i}{2^J} {\left( e ^{A+\bar{A}}\right)}^{J-1} G_J \left(z, \bar{z}, t\right)  \notag \\
+& \int \frac{dx^+ dx^-}{2} d^2 x_\perp = {\left(2\pi\right)}^4 \delta^{(4)}\left(0\right) = V
+\end{align}
+and equation (\ref{eq:F_expression}) we get
+\begin{align}
+&\frac{i V k_J^2}{2^J} s^J \int dz d\bar{z} e^{3\left(A+\bar{A}\right)} e^{- \Phi - \bar{\Phi}} e^{-(1+J)(A+\bar{A})} F(1,3)F(2,4) G_J \left(z, \bar{z}, t\right), \notag \\
+& F(i,j) = 
+\begin{cases}
+f_{Q_i} f_{Q_j} , \lambda_i = \lambda_j = 1,2 \\
+\frac{\dot{f_{Q_1}}}{Q_i} \frac{\dot{f_{Q_j}}}{Q_j}, \lambda_i = \lambda_j = 3
+\end{cases}, \notag \\
+&G_J \left(z, \bar{z}, t\right) = e^{B+\bar{B}} \sum_n \frac{\psi_n\left(J, z\right) \psi_n \left(J, \bar{z}\right)}{t_n\left(J\right) - t},
+\end{align}
+where $B = \Phi - A/2$ in our models.
+
+We now need to sum the above amplitude over the even spin-J fields with $J>2$. Such sum can be computed through a Sommerfeld-Watson transform
+\begin{equation}
+\frac{1}{2} \sum_J s^J + (-s)^J = -\frac{\pi}{2} \int \frac{dJ}{2 \pi i} \frac{s^J + (-s)^J}{\sin \pi J}.
+\end{equation}
+This assumes that an analytic continuation of the amplitude to the complex J-plane is possible. We now deform the integral from the poles at even J, to the poles $J = j_n\left(t\right)$ defined by $t_n(J) = t$. The scattering domain of negative t contains these poles along the real axis for $J<2$. The forward scattering amplitude ( $t= 0$ ) of $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$ is then
+\begin{align}
+&\mathcal{A}^{\lambda_1, \lambda_2, \lambda_3, \lambda_4}_{Q_1, Q_2, Q_3, Q_4}\left(s,t = 0\right) = - \frac{\pi}{2} \sum_n s^{j_n\left(t\right)} \left( i + \cot\left(\frac{\pi j_n\left(0\right)}{2}\right) \right) \frac{k_{j_n\left(0\right)}^2}{2^{j_n\left(0\right)}} \frac{d j_n}{dt} \times \notag \\
+& \times \int dz e^{-(j_n - 1.5) A} F(1,3) \psi_n\left(z\right) \int d\bar{z} e^{-(j_n-1.5)\bar{A}} F(2,4) \psi_n\left(\bar{z}\right)
+\label{eq:scattering_amplitude}
+\end{align}
+
+From this expression of the scattering amplitude we can compute two observables: $F_2^\gamma$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$.
+\subsection{$F_2^\gamma$}
+In high-energy $e^{+}e^{-}$ interactions some of the electrons and positrons do not annihilate or scatter electromagnetically, but are scattered by radiating virtual photons. These virtual photons can fluctuate in quark-antiquark pairs and radiate themselves gluons producing a hadronic final state X.
+
+
+
+
+\section{$\gamma\, p$ observables}
+
+acjnaks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliographystyle{elsarticle-num}
+\bibliography{bib/pomeron.bib, bib/refs.bib, bib/AdSCFT.bib, bib/glueballs.bib, bib/HQCD.bib bib/exp_data.bib}
+\end{document}

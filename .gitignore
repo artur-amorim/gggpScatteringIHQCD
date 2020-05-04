@@ -1,3 +1,13 @@
+# Ignore files related to the notes.
+*.aux
+*.bbl
+*.blg
+*.log
+*spl
+*synctex.gz
+*.eps
+*.bib
+
 # Ignore PDF files
 *.pdf
 
