@@ -5,8 +5,6 @@
 #include <string>
 #include "methods/interpolation/Poly_Interp.hpp"
 
-void setupU1NNcomputation(const double aa = 0);
-
 class U1NNMode
 {
     private:
@@ -21,12 +19,9 @@ class U1NNMode
         static void guess(double * X, double * Z, double * DMVAL);
         // Static auxiliary variables to compute the mode profile
         static std::vector<double> z;
-        static double alpha;
-        static Poly_Interp<double> t0;
         static Poly_Interp<double> t1;
         static const int IFDIM = 5000;
         static const  int IIDIM = 5000;
-        friend void setupU1NNcomputation(const double aa);
     public:
         U1NNMode(const double q2 = 1.0);                     // Class constructor
         U1NNMode(const U1NNMode &mode);                      // Copy constructor
