@@ -172,7 +172,7 @@ We now need to sum the above amplitude over the even spin-J fields with $J>2$. S
 This assumes that an analytic continuation of the amplitude to the complex J-plane is possible. We now deform the integral from the poles at even J, to the poles $J = j_n\left(t\right)$ defined by $t_n(J) = t$. The scattering domain of negative t contains these poles along the real axis for $J<2$. The forward scattering amplitude ( $t= 0$ ) of $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$ is then
 \begin{align}
 &\mathcal{A}^{\lambda_1, \lambda_2, \lambda_3, \lambda_4}_{Q_1, Q_2, Q_3, Q_4}\left(s,t = 0\right) = - \frac{\pi}{2} \sum_n s^{j_n\left(t\right)} \left( i + \cot\left(\frac{\pi j_n\left(0\right)}{2}\right) \right) \frac{k_{j_n\left(0\right)}^2}{2^{j_n\left(0\right)}} \frac{d j_n}{dt} \times \notag \\
-& \times \int dz e^{-(j_n - 1.5) A} F(1,3) \psi_n\left(z\right) \int d\bar{z} e^{-(j_n-1.5)\bar{A}} F(2,4) \psi_n\left(\bar{z}\right)
+& \times \int dz e^{-\left(j_n - 3/2\right) A} F(1,3) \psi_n\left(z\right) \int d\bar{z} e^{-(j_n-3/2)\bar{A}} F(2,4) \psi_n\left(\bar{z}\right)
 \label{eq:scattering_amplitude}
 \end{align}
 
@@ -180,7 +180,36 @@ From this expression of the scattering amplitude we can compute two observables:
 \subsection{$F_2^\gamma$}
 In high-energy $e^{+}e^{-}$ interactions some of the electrons and positrons do not annihilate or scatter electromagnetically, but are scattered by radiating virtual photons. These virtual photons can fluctuate in quark-antiquark pairs and radiate themselves gluons producing a hadronic final state X.
 
+\begin{align}
+	\label{eq:F2_def}
+	&F_2^{\gamma} \left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \left[ \sigma_{TT}\left(s, Q^2, Q_2^2 = 0\right) +   \sigma_{LT}\left(s, Q^2, Q_2^2 = 0\right)\right] , \\
+	&F_L^{\gamma} \left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \sigma_{LT}\left(s, Q^2, Q_2^2 = 0\right)
+\end{align}
+As mentioned one the photons in this process is quasi-real. Let us assume that such photon is the represented by the lower part of the Witten diagram. Then the $\bar{z}$ integral simplifies to 
+\begin{equation}
+\int d\bar{z} e^{- \left(j_n - 3/2\right) A} \psi_n \left(j_n\left(0\right), \bar{z}\right).
+\end{equation}
+Defining
+\begin{equation}
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n\left(0\right)}{2} \right) \frac{k^2_{j_n\left(0\right)}}{2^{j_n\left(0\right)}} j_n'\left(0\right) \int d\bar{z} e^{- \left(j_n - 3/2\right) A} \psi_n \left(j_n\left(0\right), \bar{z}\right)
+\end{equation}
+and using the optical theorem we can write the total cross-sections $\sigma_{TT}$ and $\sigma_{LT}$ as
+\begin{align}
+&\sigma_{TT} =  \sum_n Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} f_Q^2 \psi_n\left(z\right) \\
+&\sigma_{LT} =  \sum_n  Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} \frac{\dot{f}_Q^2}{Q^2} \psi_n\left(z\right)
+\end{align}.
 
+Plugging the last formulas in equation (\ref{eq:F2_def}) gives
+\begin{equation}
+\label{eq:holographic_F2Photon}
+F_2^{\gamma} \left(x, Q^2\right) =  \sum_n \frac{ Im\left(g_n\right)}{4 \pi^2 \alpha} Q^{2 j_n} x^{1- j_n} \int dz e^{-\left(j_n - 3/2\right) A}\left( f_Q^2 + \frac{\dot{f}_Q^2}{Q^2}\right) \psi_n\left(z\right)
+\end{equation}
+
+\subsection{$\sigma\left(\gamma \gamma \rightarrow X\right)$}
+In this observable all the incoming photons are quasi-real and hence the only non-zero total cross-section is $\sigma_{TT}$. We have then
+\begin{equation}
+\sigma\left(\gamma \gamma \rightarrow X\right) =  \sum_n Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} \psi_n\left(z\right)
+\end{equation}
 
 
 \section{$\gamma\, p$ observables}
@@ -191,13 +220,52 @@ The total cross-section of the process $\gamma p \rightarrow X$ is related to th
 \end{equation}
 In IHQCD we have derived the following expressions for the structure functions
 \begin{align}
-&F_2(x, Q^2) = \sum_{n} g_n Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
-&F_L(x, Q^2) = \sum_{n} g_n Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
+&F_2(x, Q^2) = \sum_{n} \frac{g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
+&F_L(x, Q^2) = \sum_{n} \frac{g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
 \end{align}
 Using the fact that $x = Q^2 / s$ and that for $Q = 0, \, f_Q\left(z\right) = 1$ our holographic expression for this cross-section is
 \begin{equation}
-\sigma\left(\gamma p \rightarrow X\right) = 4 \pi^2 \alpha  \sum_{n} g_n \, s^{j_n -1 } \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \psi_n.
+\sigma\left(\gamma p \rightarrow X\right) =  \sum_{n} g_n \, s^{j_n -1 } \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \psi_n.
 \end{equation}
+Here the constants $g_n$ have a different definition from the ones defined previously. We have derived this expression with a proton target described by a bulk scalar field so the lower part of the Witten diagram has a different $\bar{z}$ integral. The corresponding definition is the imaginary part of the following expression
+\begin{equation}
+- \frac{\pi}{2} \left( i + \cot \frac{\pi j_n\left(0\right)}{2} \right) \frac{k_{j_n\left(0\right)}\bar{k}_{j_n\left(0\right)}}{2^{j_n\left(0\right)}} j_n'\left(0\right) \int d\bar{z} e^{- \left(j_n - 7/2\right) A} \upsilon_m^2\left(\bar{z}\right) \psi_n \left(j_n\left(0\right), \bar{z}\right)
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
