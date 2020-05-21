@@ -1,23 +1,27 @@
-#include <iostream>
-#include <algorithm> 
-#include <fstream>
-#include <string>
-#include <vector>
 #include "IHQCD.h"
-#include "DeepInelasticScattering.h"
 #include "F2.h"
-#include "Spectra.h"
-#include "Kernel.h"
-#include "Reggeon.h"
-#include "U1NNMode.h"
-#include "methods/search.hpp"
 #include "methods/interpolation/Poly_Interp.hpp"
 #include "methods/vectorOperators.hpp"
 
+class F2IzNIntegrand
+{
+    private:
+        Poly_Interp<double> func1, func3;
+        U1NNMode func2;
+    public:
+        F2IzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3);
+        double operator()(const double x);
+};
+
 F2IzNIntegrand::F2IzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3):
-                IzNIntegrand(f1, f2, f3) {}
+                func1(f1), func2(f2), func3(f3) {}
 
 double F2IzNIntegrand::operator()(const double x) {return func1.interp(x) * func2.factor(x) * func3.interp(x);}
+
+double fF2(double * x, void * params)
+{
+    return ((F2IzNIntegrand *) params)->operator()(*x);
+}
 
 extern"C"
 {
@@ -63,7 +67,7 @@ double F2::IzN(const std::vector<double> &kin, const Reggeon &reg)
     int * iwork = new int[limit];
     double * work = new double[lenw];
     // Evaluate the integral
-    dqags_(f, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
+    dqags_(fF2, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
     izn = std::pow(Q2, J) * izn;
     // Free workspace from memory
     delete[] iwork;

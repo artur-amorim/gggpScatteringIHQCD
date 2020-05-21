@@ -48,12 +48,12 @@ void HQCDP::computeNeededTVals()
     useTVals.erase(std::unique(useTVals.begin(), useTVals.end() ), useTVals.end() );
 }
 
-void HQCDP::addProcessObservable(PhotonScattering &photon)
+void HQCDP::addProcessObservable(Process &photon)
 {
     // Add a process to be fitted or predicted
     // For consistency change NMC, alpha and rsslog data members of proc
     // to be the same as the HQCDP object.
-    PhotonScattering * newProcess = &photon;
+    Process * newProcess = &photon;
     // Append the process observable proc
     processes.push_back(newProcess) ;
 }
@@ -134,7 +134,7 @@ double HQCDP::chi2()
     double chi2 = 0.0;
     for(int i = 0; i < processes.size(); i++)
     {
-        PhotonScattering * proc = processes[i];
+        Process * proc = processes[i];
         std::vector<std::vector<double> > points = proc->expKinematics();
         std::vector<kinStruct> izs = proc->getIzs(points, spectrum);
         std::vector<kinStruct> izsbar = proc->getIzsBar(points, spectrum, gns);

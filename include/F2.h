@@ -10,11 +10,4 @@ class F2 : public DeepInelasticScattering {
         double IzN(const std::vector<double> &kin, const Reggeon &reg);
 };
 
-class F2IzNIntegrand: public IzNIntegrand
-{
-    public:
-        F2IzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3);
-        double operator()(const double x);
-};
-
 #endif

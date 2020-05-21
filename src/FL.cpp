@@ -3,14 +3,30 @@
 #include "methods/interpolation/Poly_Interp.hpp"
 #include "methods/vectorOperators.hpp"
 
+class FLIzNIntegrand
+{
+    private:
+        Poly_Interp<double> func1, func3;
+        U1NNMode func2;
+    public:
+        FLIzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3);
+        double operator()(const double x);
+};
+
 FLIzNIntegrand::FLIzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3):
-                IzNIntegrand(f1, f2, f3) {}
+                func1(f1), func2(f2), func3(f3) {}
 
 double FLIzNIntegrand::operator()(const double x)
 {
     double dfq = func2.dfQ(x);
     return func1.interp(x) * (dfq * dfq / func2.Q2()) * func3.interp(x);
 }
+
+double fFL(double * x, void * params)
+{
+    return ((FLIzNIntegrand *) params)->operator()(*x);
+}
+
 
 extern"C"
 {
@@ -57,7 +73,7 @@ double FL::IzN(const std::vector<double> &kin, const Reggeon &reg)
     int * iwork = new int[limit];
     double * work = new double[lenw];
     // Evaluate the integral
-    dqags_(f, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
+    dqags_(fFL, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
     izn = std::pow(Q2, J) * izn;
     // Free workspace from memory
     delete[] iwork;

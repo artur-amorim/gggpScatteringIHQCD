@@ -7,9 +7,7 @@
 #include "methods/vectorOperators.hpp"
 #include "methods/interpolation/Spline_Interp.hpp"
 
-DeepInelasticScattering::DeepInelasticScattering(std::string file_path):
-    PhotonScattering(),
-    modes({})
+DeepInelasticScattering::DeepInelasticScattering(std::string file_path): Process(), modes({})
 {
     // Load data
     loadData(file_path);
@@ -18,7 +16,7 @@ DeepInelasticScattering::DeepInelasticScattering(std::string file_path):
 }
 
 DeepInelasticScattering::DeepInelasticScattering(const DeepInelasticScattering &dis):
-    PhotonScattering(dis), modes(dis.modes){}
+    Process(dis), modes(dis.modes){}
 
 void DeepInelasticScattering::loadData(std::string file_path)
 {
@@ -81,7 +79,7 @@ void DeepInelasticScattering::computeU1NNModes()
 
 void DeepInelasticScattering::copy(const DeepInelasticScattering &rhs)
 {
-    PhotonScattering::copy(rhs);
+    Process::copy(rhs);
     modes = rhs.modes;
 }
 
@@ -103,17 +101,6 @@ U1NNMode DeepInelasticScattering::searchMode(const double Q2)
        mode.computeMode();
        return mode;
    }
-}
-
-std::vector<U1NNMode> DeepInelasticScattering::getModes()
-{
-    /*
-        Returns all the relevant U(1) nonnormalizable modes.
-        If the modes have not been computed it computes the modes first.
-    */
-
-    if(modes.size()==0) this->computeU1NNModes();
-    return this->modes;
 }
 
 std::vector<double> DeepInelasticScattering::expVal()
@@ -143,14 +130,18 @@ std::vector < std::vector<double> > DeepInelasticScattering::expKinematics()
 double DeepInelasticScattering::IzNBar(std::vector<double> kin, const Reggeon &reg, const std::vector<double> &gs)
 {
     /*
-        Given a reggeon and it the kinematical point (Q2, x),
-        it returns the right gn from the list gs and multiplies
-        it by x^(1-J)
+        Computes the IzNBar integral that appears in the 
+        holographic computation of F2Photon
+        kin - std::vector<double> with just one element: W
+        reg - Reggeon object from wich the reggeon index can be accessed.
+        gs - std::vector<double> that contains the constant quantities in our problem.
+        returns x^(1-j_n) g_n / (4 pi^2 alphaE(0)) associated with reggeon n
     */
+   const double alpha0 = 0.0072973525693;
    const double x = kin[0];
    const double J = reg.getJ();
    const int reg_index = reg.getIndex();
-   double iznbar = std::pow(x, 1-J) * gs[reg_index-1];
+   double iznbar = std::pow(x, 1-J) * gs[reg_index-1] / (4 * M_PI * M_PI * alpha0);
    return iznbar;
 }
 
@@ -214,13 +205,13 @@ std::vector<kinStruct> DeepInelasticScattering::getIzsBar(const std::vector< std
     return ans ;
 }
 
-std::vector<double> DeepInelasticScattering::predictObs(const std::vector<kinStruct> &Izs,
+std::vector<double> DeepInelasticScattering::predict(const std::vector<kinStruct> &Izs,
                                                         const std::vector<kinStruct> &IzsBar,
                                                         const std::vector< std::vector<double> > &points,
                                                         const bool savePredictions)
 {
     // Check that Izs, IzsBar and points have the same size
-    if (points.size() == 0) throw std::runtime_error("points argument has 0 length. Aborting DIS predictObs.");
+    if (points.size() == 0) throw std::runtime_error("points argument has 0 length. Aborting DIS predict.");
     std::vector<double> ans(points[0].size()) ;
     kinStruct iznStruct, iznbarStruct;
     std::vector<double> izn, iznbar;
@@ -235,7 +226,7 @@ std::vector<double> DeepInelasticScattering::predictObs(const std::vector<kinStr
     {
         std::ofstream myfile;
         std::string file_path;
-        std::cout << "Please introduce the path to save the predictions of this DIS observable" << std::endl;
+        std::cout << "Please introduce the path to save the predictions of DIS observable" << std::endl;
         std::cin >> file_path;
         myfile.open(file_path);
         myfile << "Q2\tx\tPred" << std::endl;
@@ -247,23 +238,4 @@ std::vector<double> DeepInelasticScattering::predictObs(const std::vector<kinStr
     return ans ;
 }
 
-DeepInelasticScattering& DeepInelasticScattering::operator=(const DeepInelasticScattering &rhs)
-{
-    if (this == &rhs) return *this;
-    copy(rhs);
-    return *this;
-}
-
-DeepInelasticScattering::~DeepInelasticScattering()
-{}
-                         
-
-IzNIntegrand::IzNIntegrand(const Poly_Interp<double> &f1, const U1NNMode &f2, const Poly_Interp<double> &f3):
-                func1(f1), func2(f2), func3(f3) {}
-
-double IzNIntegrand::operator()(const double x) {return 0;}
-
-double f(double * x, void * params)
-{
-    return ((IzNIntegrand *) params)->operator()(*x);
-}
+DeepInelasticScattering::~DeepInelasticScattering() {}
