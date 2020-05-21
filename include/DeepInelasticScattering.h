@@ -20,11 +20,13 @@ class DeepInelasticScattering: public Process
         std::vector<double> expVal();                                                                       // Returns a vector with the experimental values of DIS Observable (F2 or FL)
         std::vector<double> expErr();                                                                       // Returns a vector with the experimental errors of DIS Observable (F2 or FL)
         std::vector< std::vector<double> > expKinematics();                                                 // Returns a vector of vectors with Q2, x as elements
-        double IzNBar(std::vector<double> kin, const Reggeon &reg, const std::vector<double> &gs);
+        double IzNBar(const std::vector<double> &kin, const Reggeon &reg, const std::vector<double> &gs);
         std::vector<kinStruct> getIzs(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec);                        // Gets all the Izs
         std::vector<kinStruct> getIzsBar(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec, const std::vector < double > &gs);              // Gets all the Izsbar
         std::vector<double> predict(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar,
                                     const std::vector< std::vector<double> > &points, const bool savePredictions = false);    // Predicts the DIS observable
+        std::vector<double>  diffObsWeighted(const std::vector<kinStruct>  &Izs, const std::vector<kinStruct>  &IzsBar, 
+                                                    const std::vector< std::vector<double> >  &points);
         ~DeepInelasticScattering();                                                                         // Class destructor
 };
 

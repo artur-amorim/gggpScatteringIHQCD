@@ -51,8 +51,6 @@ void HQCDP::computeNeededTVals()
 void HQCDP::addProcessObservable(Process &photon)
 {
     // Add a process to be fitted or predicted
-    // For consistency change NMC, alpha and rsslog data members of proc
-    // to be the same as the HQCDP object.
     Process * newProcess = &photon;
     // Append the process observable proc
     processes.push_back(newProcess) ;
@@ -138,7 +136,7 @@ double HQCDP::chi2()
         std::vector<std::vector<double> > points = proc->expKinematics();
         std::vector<kinStruct> izs = proc->getIzs(points, spectrum);
         std::vector<kinStruct> izsbar = proc->getIzsBar(points, spectrum, gns);
-        chi2 += proc->rss(izs, izsbar, points);
+        chi2 += proc->chi2(izs, izsbar, points);
     }
     return chi2;
 }

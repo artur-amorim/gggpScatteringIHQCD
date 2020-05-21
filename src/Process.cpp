@@ -1,6 +1,19 @@
 #include "Process.h"
 #include "methods/vectorOperators.hpp"
 
+// Constructor of kinStruct
+kinStruct::kinStruct(const double var, const std::vector<double> &izs): kinVar(var), izns(izs) {}
+
+bool kinStruct::operator<(const kinStruct &rhs) const
+{
+    return kinVar < rhs.kinVar ;
+}
+
+bool kinStruct::operator>(const kinStruct &rhs) const
+{
+    return kinVar > rhs.kinVar ;
+}
+
 void Process::copy(const Process &rhs)
 {
     dataPoints = rhs.dataPoints;
@@ -31,7 +44,7 @@ double Process::chi2(const std::vector<kinStruct> &Izs, const std::vector<kinStr
     const std::vector<double> obs = this->diffObsWeighted(Izs, IzsBar, points);
     const int n = obs.size() ;
     double ans = 0.0 ;
-    for(int i = 0; i < n ; i++) chi2 += obs[i] * obs[i] ;
+    for(int i = 0; i < n ; i++) ans += obs[i] * obs[i] ;
     return ans ;
 }
 

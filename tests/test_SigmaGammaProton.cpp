@@ -87,7 +87,7 @@ int main(int argc, char ** argv)
     // Now let's test diffObsWeighted
     vector<double> obs_weighted = sigma.diffObsWeighted(izs, izbars, Ws);
 
-    double chi2 = sigma.rss(izs, izbars, Ws);
+    double chi2 = sigma.chi2(izs, izbars, Ws);
     cout << "chi2: " << chi2 << endl;
 
     return 0;

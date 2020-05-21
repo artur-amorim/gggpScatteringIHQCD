@@ -62,7 +62,7 @@ int main(int argc, char ** argv)
     vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, false);
     
     // Compute F2 and FL chi2
-    double F2chi2 = f2.rss(F2IzNs, F2IzNBars, F2points);
+    double F2chi2 = f2.chi2(F2IzNs, F2IzNBars, F2points);
     cout << "The F2 chi2 is " << F2chi2 / (F2points[0].size() -4 ) << endl;
 
     // Compute more predicted points in order to plot

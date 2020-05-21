@@ -79,7 +79,7 @@ int main(int argc, char ** argv)
     cout << "Testing predict function" << endl;
     vector<double> preds = f2.predict(izs, izbars, kinPts, false);
 
-    double chi2 = f2.rss(izs, izbars, kinPts);
+    double chi2 = f2.chi2(izs, izbars, kinPts);
     cout << "chi2: " << chi2 << endl;
 
     return 0;

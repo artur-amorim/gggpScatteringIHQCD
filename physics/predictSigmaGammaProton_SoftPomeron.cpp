@@ -59,7 +59,7 @@ int main(int argc, char ** argv)
     vector<double> sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points, false);
     
     // Compute sigma(gamma p -> hadrons) chi2
-    double sigma_chi2 = sigma.rss(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points);
+    double sigma_chi2 = sigma.chi2(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points);
     cout << "The sigma(gamma p -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
 
     vector<double> Ws;

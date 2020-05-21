@@ -127,7 +127,7 @@ std::vector < std::vector<double> > DeepInelasticScattering::expKinematics()
     return ans ;
 }
 
-double DeepInelasticScattering::IzNBar(std::vector<double> kin, const Reggeon &reg, const std::vector<double> &gs)
+double DeepInelasticScattering::IzNBar(const std::vector<double> &kin, const Reggeon &reg, const std::vector<double> &gs)
 {
     /*
         Computes the IzNBar integral that appears in the 
@@ -236,6 +236,16 @@ std::vector<double> DeepInelasticScattering::predict(const std::vector<kinStruct
         }
     }
     return ans ;
+}
+
+std::vector<double> DeepInelasticScattering::diffObsWeighted(const std::vector<kinStruct> &Izs, const std::vector<kinStruct> &IzsBar, const std::vector< std::vector < double > > &points)
+{
+    if( points.size() == 0) std::vector< std::vector< double > > points = this->expKinematics() ;   // If points is NULL provide the experimental ones
+    const std::vector<double> Opred = this->predict(Izs, IzsBar, points, false) ;                   // Predictions of the model for the process
+    const std::vector<double> Oexp  = this->expVal() ;                                              // Experimental values of the process
+    const std::vector<double> Oerr  = this->expErr() ;                                              // Experimental errors of the process
+    return (Opred - Oexp) / Oerr ;
+
 }
 
 DeepInelasticScattering::~DeepInelasticScattering() {}
