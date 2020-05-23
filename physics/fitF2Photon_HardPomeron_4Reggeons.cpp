@@ -15,7 +15,7 @@ int main(int argc, char ** argv)
     if (argc < 6)
     {
         g1 = 0.0; g2 = 0.0; g3 = 0.0; g4 = 0.0;
-        data_path = "expdata/F2_photon/F2_photon_xmax_0.01.txt";
+        data_path = "expdata/F2_photon/F2Photon_data.txt";
     }
     else
     {
@@ -41,7 +41,7 @@ int main(int argc, char ** argv)
     cout << "Number of degrees of freedom: " << hqcdp.NumberOfDegreesOfFreedom() << endl;
     
     // Compute the spectrum to check Reggeon properties
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2, g3, g4};

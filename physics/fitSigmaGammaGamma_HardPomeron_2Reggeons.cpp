@@ -2,7 +2,7 @@
 #include <vector>
 #include "IHQCD.h"
 #include "SigmaGammaGamma.h"
-#include "SoftPomeron.h"
+#include "HardPomeron.h"
 #include "HQCDP.h"
 #include "schrodinger/schrodinger.h"
 
@@ -12,10 +12,10 @@ int main(int argc, char ** argv)
 {
     double g1, g2;
     string data_path;
-    if (argc < 3)
+    if (argc < 4)
     {
         g1 = 0.0; g2 = 0.0;
-        data_path = "expdata/gammagammaScatteringL3Processed.txt";
+        data_path = "expdata/GammaGamma/gammagammaScatteringL3Processed.txt";
     }
     else
     {
@@ -28,24 +28,24 @@ int main(int argc, char ** argv)
     SigmaGammaGamma sigma(data_path);
 
     // Setup SoftPomeron Kernel and GNs vector
-    SoftPomeron soft;
+    HardPomeron hard(2);
     vector<double> GNs = {g1, g2};
 
     // Setup HQCDP object
     HQCDP hqcdp;
     hqcdp.addProcessObservable(sigma);
-    hqcdp.addKernel(soft);
+    hqcdp.addKernel(hard);
     hqcdp.setGNs(GNs);
 
     cout << "Number of degrees of freedom: " << hqcdp.NumberOfDegreesOfFreedom() << endl;
 
     
     // Compute the spectrum to check Reggeon properties
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2};
-    double gns_delta = 10;
+    double gns_delta = 0.1;
     hqcdp.fit(gns_guess, gns_delta);
 
     return 0;
