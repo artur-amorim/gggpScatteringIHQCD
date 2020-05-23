@@ -60,7 +60,7 @@ void Sigma::loadData(const std::string & file_path, const double conv_factor)
    if(file.fail()) std::runtime_error("Error: File with sigma(gamma p -> hadrons) data not opened."); 
    std::string line ;
    getline(file, line) ;
-   std::cout << "Loading sigma(gamma p -> hadrons) data" << std::endl;
+   std::cout << "Loading sigma data" << std::endl;
    std::vector<double> Ws, WsPlus, WsMinus, sigmas, sigmaErrs;
    std::vector<std::string> result;
    while(getline(file, line))
