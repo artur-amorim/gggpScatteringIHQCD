@@ -48,11 +48,11 @@ int main(int argc, char ** argv)
     vector<Spectra> spectrum = hqcdp.getSpectrum();
 
     // Compute IzNBars
-    cout << "Computing SigmaGammaP IzNBars" << endl;
+    cout << "Computing sigma(gamma p -> hadrons) IzNBars" << endl;
     vector<kinStruct> SigmaGammaPIzNBars = sigma.getIzsBar(sigma_points, spectrum, GNs);
 
     // Compute IzNs
-    cout << "Computing SigmaGammaP IzNs" << endl;
+    cout << "Computing sigma(gamma p -> hadrons) IzNs" << endl;
     vector<kinStruct> SigmaGammaPIzNs = sigma.getIzs(sigma_points, spectrum);
 
     // Compute sigma(gamma p -> hadrons)
