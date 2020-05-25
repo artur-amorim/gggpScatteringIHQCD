@@ -181,7 +181,19 @@ From this expression of the scattering amplitude we can compute two observables:
 In high-energy $e^{+}e^{-}$ interactions some of the electrons and positrons do not annihilate or scatter electromagnetically, but are scattered by radiating virtual photons. These virtual photons can fluctuate in quark-antiquark pairs and radiate themselves gluons producing a hadronic final state X.
 
 
-
+\begin{equation}
+F_2^\gamma = \sum_n \frac{ Im \, g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1- j_n} \int dz e^{- \left( j_n - 3/2\right) A} \left( f_Q^2 + \frac{\dot{f}_Q}{Q^2} \right) \psi_n \, ,
+\end{equation}
+where $g_n$ is defined by
+\begin{equation}
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k^2_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 3/2 \right)A} \psi_n
+\end{equation}
+\subsection{$\sigma\left(\gamma \gamma \rightarrow X\right)$}
+In this process both photons are considered quasi-real
+\begin{equation}
+\sigma\left(\gamma \gamma \rightarrow X\right) = \sum_n Im \, g_n s^{j_n - 1} \int dz e^{- \left( j_n - 3/2\right) A}  \psi_n
+\end{equation}
+Here $g_n$ as the same definiton as in the $F_2^\gamma$ section.
 
 \section{$\gamma\, p$ observables}
 
@@ -191,15 +203,336 @@ The total cross-section of the process $\gamma p \rightarrow X$ is related to th
 \end{equation}
 In IHQCD we have derived the following expressions for the structure functions
 \begin{align}
-&F_2(x, Q^2) = \sum_{n} g_n Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
-&F_L(x, Q^2) = \sum_{n} g_n Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
+&F_2(x, Q^2) = \sum_{n} \frac{ Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
+&F_L(x, Q^2) = \sum_{n} \frac{Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
 \end{align}
 Using the fact that $x = Q^2 / s$ and that for $Q = 0, \, f_Q\left(z\right) = 1$ our holographic expression for this cross-section is
 \begin{equation}
-\sigma\left(\gamma p \rightarrow X\right) = 4 \pi^2 \alpha  \sum_{n} g_n \, s^{j_n -1 } \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \psi_n.
+\sigma\left(\gamma p \rightarrow X\right) =  \sum_{n} Im g_n \, s^{j_n -1 } \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \psi_n.
 \end{equation}
 
+\begin{equation}
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k_{j_n} \bar{k}_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 \psi_n
+\end{equation}
 
+\section{$\sigma\left(p p \rightarrow X\right)$}
+
+\begin{equation}
+\sigma\left(p p \rightarrow X\right) = \sum_n Im g_n \, s^{j_n -1}
+\end{equation}
+
+\begin{equation}
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{\bar{k}^2_{j_n}}{2^{j_n}} \frac{d j_n}{dt} {\left(\int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 \psi_n\right)}^2
+\end{equation}
+
+\section{Data analysis}
+
+
+
+\subsection{$\gamma^{*} \gamma$ processes}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHOJET unfolding. The total number of data points is 18 and a $\chi^2$ of 0.804515 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.00102487\\ 
+\hline
+$g_1$  & 0.00465463 \\ 
+\hline
+$g_2$  & 0.0340127  \\
+\hline
+$g_3$  & 0.0024513\\ 
+\hline
+\end{tabular}
+\label{table:SigmaGammaGamma_best_fit_PHOJET}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_PHOJET_data_only.pdf} 
+  \caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using PHOJET unforlding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_PHOJET}.}
+}
+  \label{fig:SigmaGammaGamma_best_fit_PHOJET_data_only}
+\end{figure}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHYTIA unfolding. The total number of data points is 18 and a $\chi^2$ of 0.927157 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.00194039 \\ 
+\hline
+$g_1$  & 0.00925169 \\ 
+\hline
+$g_2$  &  0.0738589 \\
+\hline
+$g_3$  &  0.00817258\\ 
+\hline
+\end{tabular}
+\label{table:SigmaGammaGamma_best_fit_PHYTIA}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_PHYTIA_data_only.pdf} 
+  \caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using PHYTIA unfolding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_PHYTIA}.}
+}
+  \label{fig:SigmaGammaGamma_best_fit_PHYTIA_data_only}
+\end{figure}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with the average of PHOJET and PYTHIA unfolding. The total number of data points is 18 and a $\chi^2$ of 0.711115 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.00173369 \\ 
+\hline
+$g_1$  & 0.008549 \\ 
+\hline
+$g_2$  &  0.0719086 \\
+\hline
+$g_3$  &  0.00825794\\ 
+\hline
+\end{tabular}
+\label{table:SigmaGammaGamma_best_fit_Processed}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_Processed_data_only.pdf} 
+  \caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using the average result of PHOJET and PHYTIA unfolding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_Processed}.}
+}
+  \label{fig:SigmaGammaGamma_best_fit_Processed_data_only}
+\end{figure}
+
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the fit with $F_2^{\gamma}\left(x, Q^2\right)$ data. The total number of data points is 22 and a $\chi^2$ of 1.00065 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 8.51615e-05\\ 
+\hline
+$g_1$  & 0.00071289 \\ 
+\hline
+$g_2$  & 0.000483367  \\
+\hline
+$g_3$  & -0.00316919\\ 
+\hline
+\end{tabular}
+\label{table:F2Photon_best_fit}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/F2Photon_F2Photon_data_only.pdf} 
+  \caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:F2Photon_best_fit}.}
+}
+  \label{fig:F2Photon_best_fit_F2_data_only}
+\end{figure}
+
+
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHOJET unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 1.37416 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.000157591\\ 
+\hline
+$g_1$  & 0.000299143 \\ 
+\hline
+$g_2$  & 0.000137773  \\
+\hline
+$g_3$  & -0.00181583\\ 
+\hline
+\end{tabular}
+\label{table:GammaGamma_best_fit_PHOJET}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/F2Photon_PHOJET.pdf} 
+  \caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_PHOJET}.}
+}
+  \label{fig:F2Photon_best_fit_PHOJET}
+\end{figure}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHYTIA unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 2.32196 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.000171144\\ 
+\hline
+$g_1$  & 0.00021032 \\ 
+\hline
+$g_2$  & 0.00015387  \\
+\hline
+$g_3$  & -0.0015843\\ 
+\hline
+\end{tabular}
+\label{table:GammaGamma_best_fit_PHYTIA}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/F2Photon_PHYTIA.pdf} 
+  \caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_PHYTIA}.}
+}
+  \label{fig:F2Photon_best_fit_PHYTIA}
+\end{figure}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with the average result of PHOJET and PHYTIA unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 1.70487 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.000166002\\ 
+\hline
+$g_1$  & 0.000247537 \\ 
+\hline
+$g_2$  & 0.000112687  \\
+\hline
+$g_3$  & -0.00169226\\ 
+\hline
+\end{tabular}
+\label{table:GammaGamma_best_fit_Processed}
+\end{table}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/F2Photon_Processed.pdf} 
+  \caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_Processed}.}
+}
+  \label{fig:F2Photon_best_fit_Processed}
+\end{figure}
+
+
+
+\subsection{$\gamma \, p$ processes}
+
+Here we present the fits results.
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 1.89 \, \text{GeV}$. This means a $\chi^2 / \text{N.d.f.}$ of 1.76745 with 392 experimental points.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.0488725\\ 
+\hline
+$g_1$  & 0.0269148 \\ 
+\hline
+$g_2$  & 0.00283532  \\
+\hline
+$g_3$  & -0.377856\\ 
+\hline
+\end{tabular}
+\label{table:GammaP_best_fit}
+\end{table}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 5.93 \, \text{GeV}$. This means a $\chi^2 / \text{N.d.f.}$ of 1.41597 with 345 experimental points.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 0.0496542\\ 
+\hline
+$g_1$  & 0.0215857 \\ 
+\hline
+$g_2$  & -0.00273519  \\
+\hline
+$g_3$  & -0.356926\\ 
+\hline
+\end{tabular}
+\label{table:GammaP_best_fit_2}
+\end{table}
+
+Here are the plots
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale = 0.75]{images/SigmaGammaP_vs_W.pdf} 
+  \caption{Our curve vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:GammaP_best_fit}
+\end{figure}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/Holographic_F2_splitted.pdf} 
+  \caption{$F_2\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:F2_best_fit}
+\end{figure}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/Holographic_FL_splitted.pdf} 
+  \caption{$F_L\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:FL_best_fit}
+\end{figure}
+
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale = 0.75]{images/SigmaGammaP_vs_W_2.pdf} 
+  \caption{Our curve vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:GammaP_best_fit_2}
+\end{figure}
+
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/Holographic_F2_splitted_2.pdf} 
+  \caption{$F_2\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:F2_best_fit_2}
+\end{figure}
+
+\begin{figure}[!h]
+  \center
+  \includegraphics[width = \textwidth]{images/Holographic_FL_splitted_2.pdf} 
+  \caption{$F_L\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
+%     Double lines are used to denote graviton's propagator. The $n_1$ and $n_3$ labels denote incoming/outgoing proton's polarizations respectively, for the forward scattering $n_1=n_3$.
+}
+  \label{fig:FL_best_fit_2}
+\end{figure}
 
 
 
