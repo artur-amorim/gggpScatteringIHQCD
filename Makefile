@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named predictSigmaProtonProton_HardPomeron.exe
+
+# Build rule for target.
+predictSigmaProtonProton_HardPomeron.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 predictSigmaProtonProton_HardPomeron.exe
+.PHONY : predictSigmaProtonProton_HardPomeron.exe
+
+# fast build rule for target.
+predictSigmaProtonProton_HardPomeron.exe/fast:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/build
+.PHONY : predictSigmaProtonProton_HardPomeron.exe/fast
+
+#=============================================================================
+# Target rules for targets named fitSigmaProtonProton_SoftPomeron.exe
+
+# Build rule for target.
+fitSigmaProtonProton_SoftPomeron.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fitSigmaProtonProton_SoftPomeron.exe
+.PHONY : fitSigmaProtonProton_SoftPomeron.exe
+
+# fast build rule for target.
+fitSigmaProtonProton_SoftPomeron.exe/fast:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build
+.PHONY : fitSigmaProtonProton_SoftPomeron.exe/fast
+
+#=============================================================================
+# Target rules for targets named fitSigmaProtonProton_HardPomeron.exe
+
+# Build rule for target.
+fitSigmaProtonProton_HardPomeron.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fitSigmaProtonProton_HardPomeron.exe
+.PHONY : fitSigmaProtonProton_HardPomeron.exe
+
+# fast build rule for target.
+fitSigmaProtonProton_HardPomeron.exe/fast:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build
+.PHONY : fitSigmaProtonProton_HardPomeron.exe/fast
+
+#=============================================================================
 # Target rules for targets named predictSigmaGammaProton_SoftPomeron.exe
 
 # Build rule for target.
@@ -135,6 +174,19 @@ predictF2Photon.exe: cmake_check_build_system
 predictF2Photon.exe/fast:
 	$(MAKE) -f CMakeFiles/predictF2Photon.exe.dir/build.make CMakeFiles/predictF2Photon.exe.dir/build
 .PHONY : predictF2Photon.exe/fast
+
+#=============================================================================
+# Target rules for targets named predictSigmaProtonProton_SoftPomeron.exe
+
+# Build rule for target.
+predictSigmaProtonProton_SoftPomeron.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 predictSigmaProtonProton_SoftPomeron.exe
+.PHONY : predictSigmaProtonProton_SoftPomeron.exe
+
+# fast build rule for target.
+predictSigmaProtonProton_SoftPomeron.exe/fast:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/build
+.PHONY : predictSigmaProtonProton_SoftPomeron.exe/fast
 
 #=============================================================================
 # Target rules for targets named predictSigmaGammaGamma_HardPomeron_4Reggeons.exe
@@ -651,6 +703,60 @@ physics/fitSigmaGammaProton_SoftPomeron.cpp.s:
 	$(MAKE) -f CMakeFiles/fitSigmaGammaProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaGammaProton_SoftPomeron.exe.dir/physics/fitSigmaGammaProton_SoftPomeron.cpp.s
 .PHONY : physics/fitSigmaGammaProton_SoftPomeron.cpp.s
 
+physics/fitSigmaProtonProton_HardPomeron.o: physics/fitSigmaProtonProton_HardPomeron.cpp.o
+
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.o
+
+# target to build an object file
+physics/fitSigmaProtonProton_HardPomeron.cpp.o:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/physics/fitSigmaProtonProton_HardPomeron.cpp.o
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.cpp.o
+
+physics/fitSigmaProtonProton_HardPomeron.i: physics/fitSigmaProtonProton_HardPomeron.cpp.i
+
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.i
+
+# target to preprocess a source file
+physics/fitSigmaProtonProton_HardPomeron.cpp.i:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/physics/fitSigmaProtonProton_HardPomeron.cpp.i
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.cpp.i
+
+physics/fitSigmaProtonProton_HardPomeron.s: physics/fitSigmaProtonProton_HardPomeron.cpp.s
+
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.s
+
+# target to generate assembly for a file
+physics/fitSigmaProtonProton_HardPomeron.cpp.s:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/physics/fitSigmaProtonProton_HardPomeron.cpp.s
+.PHONY : physics/fitSigmaProtonProton_HardPomeron.cpp.s
+
+physics/fitSigmaProtonProton_SoftPomeron.o: physics/fitSigmaProtonProton_SoftPomeron.cpp.o
+
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.o
+
+# target to build an object file
+physics/fitSigmaProtonProton_SoftPomeron.cpp.o:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/physics/fitSigmaProtonProton_SoftPomeron.cpp.o
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.cpp.o
+
+physics/fitSigmaProtonProton_SoftPomeron.i: physics/fitSigmaProtonProton_SoftPomeron.cpp.i
+
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.i
+
+# target to preprocess a source file
+physics/fitSigmaProtonProton_SoftPomeron.cpp.i:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/physics/fitSigmaProtonProton_SoftPomeron.cpp.i
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.cpp.i
+
+physics/fitSigmaProtonProton_SoftPomeron.s: physics/fitSigmaProtonProton_SoftPomeron.cpp.s
+
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.s
+
+# target to generate assembly for a file
+physics/fitSigmaProtonProton_SoftPomeron.cpp.s:
+	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/physics/fitSigmaProtonProton_SoftPomeron.cpp.s
+.PHONY : physics/fitSigmaProtonProton_SoftPomeron.cpp.s
+
 physics/predictDISStructureFunctions.o: physics/predictDISStructureFunctions.cpp.o
 
 .PHONY : physics/predictDISStructureFunctions.o
@@ -812,6 +918,60 @@ physics/predictSigmaGammaProton_SoftPomeron.s: physics/predictSigmaGammaProton_S
 physics/predictSigmaGammaProton_SoftPomeron.cpp.s:
 	$(MAKE) -f CMakeFiles/predictSigmaGammaProton_SoftPomeron.exe.dir/build.make CMakeFiles/predictSigmaGammaProton_SoftPomeron.exe.dir/physics/predictSigmaGammaProton_SoftPomeron.cpp.s
 .PHONY : physics/predictSigmaGammaProton_SoftPomeron.cpp.s
+
+physics/predictSigmaProtonProton_HardPomeron.o: physics/predictSigmaProtonProton_HardPomeron.cpp.o
+
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.o
+
+# target to build an object file
+physics/predictSigmaProtonProton_HardPomeron.cpp.o:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/physics/predictSigmaProtonProton_HardPomeron.cpp.o
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.cpp.o
+
+physics/predictSigmaProtonProton_HardPomeron.i: physics/predictSigmaProtonProton_HardPomeron.cpp.i
+
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.i
+
+# target to preprocess a source file
+physics/predictSigmaProtonProton_HardPomeron.cpp.i:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/physics/predictSigmaProtonProton_HardPomeron.cpp.i
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.cpp.i
+
+physics/predictSigmaProtonProton_HardPomeron.s: physics/predictSigmaProtonProton_HardPomeron.cpp.s
+
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.s
+
+# target to generate assembly for a file
+physics/predictSigmaProtonProton_HardPomeron.cpp.s:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_HardPomeron.exe.dir/physics/predictSigmaProtonProton_HardPomeron.cpp.s
+.PHONY : physics/predictSigmaProtonProton_HardPomeron.cpp.s
+
+physics/predictSigmaProtonProton_SoftPomeron.o: physics/predictSigmaProtonProton_SoftPomeron.cpp.o
+
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.o
+
+# target to build an object file
+physics/predictSigmaProtonProton_SoftPomeron.cpp.o:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/physics/predictSigmaProtonProton_SoftPomeron.cpp.o
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.cpp.o
+
+physics/predictSigmaProtonProton_SoftPomeron.i: physics/predictSigmaProtonProton_SoftPomeron.cpp.i
+
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.i
+
+# target to preprocess a source file
+physics/predictSigmaProtonProton_SoftPomeron.cpp.i:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/physics/predictSigmaProtonProton_SoftPomeron.cpp.i
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.cpp.i
+
+physics/predictSigmaProtonProton_SoftPomeron.s: physics/predictSigmaProtonProton_SoftPomeron.cpp.s
+
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.s
+
+# target to generate assembly for a file
+physics/predictSigmaProtonProton_SoftPomeron.cpp.s:
+	$(MAKE) -f CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/predictSigmaProtonProton_SoftPomeron.exe.dir/physics/predictSigmaProtonProton_SoftPomeron.cpp.s
+.PHONY : physics/predictSigmaProtonProton_SoftPomeron.cpp.s
 
 src/DeepInelasticScattering.o: src/DeepInelasticScattering.cpp.o
 
@@ -1244,6 +1404,33 @@ src/SigmaGammaProton.s: src/SigmaGammaProton.cpp.s
 src/SigmaGammaProton.cpp.s:
 	$(MAKE) -f CMakeFiles/ihqcd_lib.dir/build.make CMakeFiles/ihqcd_lib.dir/src/SigmaGammaProton.cpp.s
 .PHONY : src/SigmaGammaProton.cpp.s
+
+src/SigmaProtonProton.o: src/SigmaProtonProton.cpp.o
+
+.PHONY : src/SigmaProtonProton.o
+
+# target to build an object file
+src/SigmaProtonProton.cpp.o:
+	$(MAKE) -f CMakeFiles/ihqcd_lib.dir/build.make CMakeFiles/ihqcd_lib.dir/src/SigmaProtonProton.cpp.o
+.PHONY : src/SigmaProtonProton.cpp.o
+
+src/SigmaProtonProton.i: src/SigmaProtonProton.cpp.i
+
+.PHONY : src/SigmaProtonProton.i
+
+# target to preprocess a source file
+src/SigmaProtonProton.cpp.i:
+	$(MAKE) -f CMakeFiles/ihqcd_lib.dir/build.make CMakeFiles/ihqcd_lib.dir/src/SigmaProtonProton.cpp.i
+.PHONY : src/SigmaProtonProton.cpp.i
+
+src/SigmaProtonProton.s: src/SigmaProtonProton.cpp.s
+
+.PHONY : src/SigmaProtonProton.s
+
+# target to generate assembly for a file
+src/SigmaProtonProton.cpp.s:
+	$(MAKE) -f CMakeFiles/ihqcd_lib.dir/build.make CMakeFiles/ihqcd_lib.dir/src/SigmaProtonProton.cpp.s
+.PHONY : src/SigmaProtonProton.cpp.s
 
 src/SoftPomeron.o: src/SoftPomeron.cpp.o
 
@@ -2225,8 +2412,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... predictSigmaProtonProton_HardPomeron.exe"
+	@echo "... fitSigmaProtonProton_SoftPomeron.exe"
+	@echo "... fitSigmaProtonProton_HardPomeron.exe"
 	@echo "... predictSigmaGammaProton_SoftPomeron.exe"
 	@echo "... predictF2Photon.exe"
+	@echo "... predictSigmaProtonProton_SoftPomeron.exe"
 	@echo "... predictSigmaGammaGamma_HardPomeron_4Reggeons.exe"
 	@echo "... predictSigmaGammaGamma_SoftPomeron.exe"
 	@echo "... predictDISStructureFunctions.exe"
@@ -2274,6 +2465,12 @@ help:
 	@echo "... physics/fitSigmaGammaProton_SoftPomeron.o"
 	@echo "... physics/fitSigmaGammaProton_SoftPomeron.i"
 	@echo "... physics/fitSigmaGammaProton_SoftPomeron.s"
+	@echo "... physics/fitSigmaProtonProton_HardPomeron.o"
+	@echo "... physics/fitSigmaProtonProton_HardPomeron.i"
+	@echo "... physics/fitSigmaProtonProton_HardPomeron.s"
+	@echo "... physics/fitSigmaProtonProton_SoftPomeron.o"
+	@echo "... physics/fitSigmaProtonProton_SoftPomeron.i"
+	@echo "... physics/fitSigmaProtonProton_SoftPomeron.s"
 	@echo "... physics/predictDISStructureFunctions.o"
 	@echo "... physics/predictDISStructureFunctions.i"
 	@echo "... physics/predictDISStructureFunctions.s"
@@ -2292,6 +2489,12 @@ help:
 	@echo "... physics/predictSigmaGammaProton_SoftPomeron.o"
 	@echo "... physics/predictSigmaGammaProton_SoftPomeron.i"
 	@echo "... physics/predictSigmaGammaProton_SoftPomeron.s"
+	@echo "... physics/predictSigmaProtonProton_HardPomeron.o"
+	@echo "... physics/predictSigmaProtonProton_HardPomeron.i"
+	@echo "... physics/predictSigmaProtonProton_HardPomeron.s"
+	@echo "... physics/predictSigmaProtonProton_SoftPomeron.o"
+	@echo "... physics/predictSigmaProtonProton_SoftPomeron.i"
+	@echo "... physics/predictSigmaProtonProton_SoftPomeron.s"
 	@echo "... src/DeepInelasticScattering.o"
 	@echo "... src/DeepInelasticScattering.i"
 	@echo "... src/DeepInelasticScattering.s"
@@ -2340,6 +2543,9 @@ help:
 	@echo "... src/SigmaGammaProton.o"
 	@echo "... src/SigmaGammaProton.i"
 	@echo "... src/SigmaGammaProton.s"
+	@echo "... src/SigmaProtonProton.o"
+	@echo "... src/SigmaProtonProton.i"
+	@echo "... src/SigmaProtonProton.s"
 	@echo "... src/SoftPomeron.o"
 	@echo "... src/SoftPomeron.i"
 	@echo "... src/SoftPomeron.s"
