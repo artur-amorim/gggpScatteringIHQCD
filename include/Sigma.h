@@ -18,7 +18,7 @@ class Sigma: public Process
         std::vector<double> expVal();
         std::vector<double>  expErr();
         std::vector<std::vector<double> >  expKinematics();
-        double IzN(const std::vector<double> &kin, const Reggeon &reg);
+        virtual double IzN(const std::vector<double> &kin, const Reggeon &reg);
         double IzNBar(const std::vector<double> &kin, const Reggeon &reg, const std::vector<double> &gs);
         std::vector<kinStruct>  getIzs(const std::vector< std::vector<double> > &points, const std::vector<Spectra> &spec);
         std::vector<kinStruct>  getIzsBar(const std::vector< std::vector<double> >  &points, const std::vector<Spectra> &spec,
