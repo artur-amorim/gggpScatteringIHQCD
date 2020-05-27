@@ -63,7 +63,7 @@ int main(int argc, char ** argv)
     cout << "The sigma(p p -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
 
     vector<double> Ws;
-    for(double W = 1.5; W < 7000; W += 0.1) Ws.push_back(W);
+    for(double W = 1.5; W < 1000; W += 0.1) Ws.push_back(W);
     vector<double> WPlus(Ws.size(), 0.0), WMinus(Ws.size(), 0.0);
     vector<vector<double>> kinPts = {Ws, WPlus, WMinus};
     // Compute new IzNBars
