@@ -5,7 +5,7 @@
 #include "IHQCD.h"
 #include "HardPomeron.h"
 #include "Reggeon.h"
-#include "SigmaGammaProton.h"
+#include "SigmaProtonProton.h"
 #include "schrodinger/schrodinger.h"
 
 using namespace std;
@@ -16,8 +16,8 @@ int main(int argc, char ** argv)
     string data_path;
     if (argc < 6)
     {
-        data_path = "expdata/GammaP/SigmaGammaProton.txt";
-        g1 = 0.508067; g2 = 1.23958; g3 = 0.981595; g4 = -2.16804;
+        data_path = "expdata/SigmaProtonProton/SigmaProtonProton_data.txt";
+        g1 = 0; g2 = 0; g3 = 0; g4 = 0;
     }
     else
     {
@@ -29,7 +29,7 @@ int main(int argc, char ** argv)
     cout << "g1: " << g1 << " g2: " << g2 << " g3: " << g3 << " g4: " << g4 << endl;
     
     // Create SigmaGammaProton object
-    SigmaGammaProton sigma(data_path);
+    SigmaProtonProton sigma(data_path);
     vector<vector<double> > sigma_points = sigma.expKinematics();
 
     /// Setup HardPomeron Kernel and GNs vector
@@ -48,31 +48,31 @@ int main(int argc, char ** argv)
     vector<Spectra> spectrum = hqcdp.getSpectrum();
 
     // Compute IzNBars
-    cout << "Computing sigma(gamma p -> hadrons) IzNBars" << endl;
-    vector<kinStruct> SigmaGammaPIzNBars = sigma.getIzsBar(sigma_points, spectrum, GNs);
+    cout << "Computing sigma(p p -> hadrons) IzNBars" << endl;
+    vector<kinStruct> SigmaProtonProtonIzNBars = sigma.getIzsBar(sigma_points, spectrum, GNs);
 
     // Compute IzNs
-    cout << "Computing sigma(gamma p -> hadrons) IzNs" << endl;
-    vector<kinStruct> SigmaGammaPIzNs = sigma.getIzs(sigma_points, spectrum);
+    cout << "Computing sigma(p p -> hadrons) IzNs" << endl;
+    vector<kinStruct> SigmaProtonProtonIzNs = sigma.getIzs(sigma_points, spectrum);
 
-    // Compute sigma(gamma p -> hadrons)
-    vector<double> sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points, false);
+    // Compute sigma(p p -> hadrons)
+    vector<double> sigma_pred = sigma.predict(SigmaProtonProtonIzNs, SigmaProtonProtonIzNBars, sigma_points, false);
     
-    // Compute sigma(gamma p -> hadrons) chi2
-    double sigma_chi2 = sigma.chi2(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points);
-    cout << "The sigma(gamma p -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
+    // Compute sigma(p p -> hadrons) chi2
+    double sigma_chi2 = sigma.chi2(SigmaProtonProtonIzNs, SigmaProtonProtonIzNBars, sigma_points);
+    cout << "The sigma(p p -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
 
     vector<double> Ws;
-    for(double W = 1.5; W < 300; W += 0.1) Ws.push_back(W);
+    for(double W = 1.5; W < 1000; W += 0.1) Ws.push_back(W);
     vector<double> WPlus(Ws.size(), 0.0), WMinus(Ws.size(), 0.0);
     vector<vector<double>> kinPts = {Ws, WPlus, WMinus};
     // Compute new IzNBars
-    SigmaGammaPIzNBars = sigma.getIzsBar(kinPts, spectrum, GNs);
+    SigmaProtonProtonIzNBars = sigma.getIzsBar(kinPts, spectrum, GNs);
     // Compute new IzNs
-    SigmaGammaPIzNs = sigma.getIzs(kinPts, spectrum);
-    // Compute  predictions of sigma(gamma p -> hadrons)
-    std::cout << "Predicting sigma(gamma p -> hadrons) for the given values of sqrt(s)" << std::endl;
-    sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, kinPts, true);
+    SigmaProtonProtonIzNs = sigma.getIzs(kinPts, spectrum);
+    // Compute  predictions of sigma(p p -> hadrons)
+    std::cout << "Predicting sigma(p p -> hadrons) for the given values of sqrt(s)" << std::endl;
+    sigma_pred = sigma.predict(SigmaProtonProtonIzNs, SigmaProtonProtonIzNBars, kinPts, true);
 
     return 0;
 }

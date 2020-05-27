@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "IHQCD.h"
-#include "SigmaGammaGamma.h"
-#include "HardPomeron.h"
+#include "SigmaProtonProton.h"
+#include "SoftPomeron.h"
 #include "HQCDP.h"
 #include "schrodinger/schrodinger.h"
 
@@ -14,8 +14,8 @@ int main(int argc, char ** argv)
     string data_path;
     if (argc < 4)
     {
+        data_path = "expdata/SigmaProtonProton/SigmaProtonProton_data.txt";
         g1 = 0.0; g2 = 0.0;
-        data_path = "expdata/gammagammaScatteringL3Processed.txt";
     }
     else
     {
@@ -24,28 +24,28 @@ int main(int argc, char ** argv)
     }
     cout << "Starting fit with values:" << endl;
     cout << "g1: " << g1 << " g2: " << g2 << endl;  
-    // Setup sigma(gamma gamma -> hadrons) object
-    SigmaGammaGamma sigma(data_path);
+    // Setup sigma(proton proton -> hadrons) object
+    SigmaProtonProton sigma(data_path);
 
     // Setup SoftPomeron Kernel and GNs vector
-    HardPomeron hard(2);
+    SoftPomeron soft;
     vector<double> GNs = {g1, g2};
 
     // Setup HQCDP object
     HQCDP hqcdp;
     hqcdp.addProcessObservable(sigma);
-    hqcdp.addKernel(hard);
+    hqcdp.addKernel(soft);
     hqcdp.setGNs(GNs);
 
     cout << "Number of degrees of freedom: " << hqcdp.NumberOfDegreesOfFreedom() << endl;
 
     
     // Compute the spectrum to check Reggeon properties
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2};
-    double gns_delta = 0.1;
+    double gns_delta = 10;
     hqcdp.fit(gns_guess, gns_delta);
 
     return 0;

@@ -22,12 +22,12 @@ int main(int argc, char ** argv)
     }
     else
     {
-        g1 = stod(argv[1]); g2 = stod(argv[2]); g3 = stod(argv[3]); g4 = stod(argv[4]);
-        data_path_f2 = argv[5];
+        data_path_f2 = argv[1];
+        g1 = stod(argv[2]); g2 = stod(argv[3]); g3 = stod(argv[4]); g4 = stod(argv[5]);
     }
 
     cout << "Using values:" << endl;
-        cout << "g1: " << g1 << " g2: " << g2 << " g3: " << g3 << " g4: " << g4 << endl;
+    cout << "g1: " << g1 << " g2: " << g2 << " g3: " << g3 << " g4: " << g4 << endl;
     
     // Create F2 object
     F2Photon f2(data_path_f2);
@@ -44,26 +44,26 @@ int main(int argc, char ** argv)
     hqcdp.setGNs(GNs);
 
     // Compute the spectrum to geth the reggeons
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
     vector<Spectra> spectrum = hqcdp.getSpectrum();
     vector<Reggeon> reggeons = spectrum[0].getReggeons();
 
     // Compute IzNBars
-    cout << "Computing F2 IzNBars" << endl;
+    cout << "Computing F2Photon IzNBars" << endl;
     vector<kinStruct> F2IzNBars = f2.getIzsBar(F2points, spectrum, GNs);
 
     // Compute IzNs
-    cout << "Computing F2 IzNs" << endl;
+    cout << "Computing F2Photon IzNs" << endl;
     vector<kinStruct> F2IzNs = f2.getIzs(F2points, spectrum);
 
     // Compute F2 and FL
-    std::cout << "Predicting F2 for the given values of Q2 and x" << std::endl;
+    std::cout << "Predicting F2Photon for the given values of Q2 and x" << std::endl;
     vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, false);
     
-    // Compute F2 and FL chi2
-    double F2chi2 = f2.rss(F2IzNs, F2IzNBars, F2points);
-    cout << "The F2 chi2 is " << F2chi2 / (F2points[0].size() -4 ) << endl;
+    // Compute F2Photon chi2
+    double F2chi2 = f2.chi2(F2IzNs, F2IzNBars, F2points);
+    cout << "The F2 chi2 is " << F2chi2 / (F2points[0].size() - 4) << endl;
 
     // Compute more predicted points in order to plot
     // Getting list of Q2s of F2
@@ -71,7 +71,7 @@ int main(int argc, char ** argv)
     sort(F2Q2s.begin(), F2Q2s.end() );
     F2Q2s.erase( unique( F2Q2s.begin(), F2Q2s.end() ), F2Q2s.end() );
 
-    // Now we can generate the points where we want to compute the F2 and FL predictions
+    // Now we can generate the points where we want to compute the F2predictions
     // and also compute the predictions
     // Clear the necessary vectors
     F2points.clear(); F2IzNBars.clear();
@@ -89,19 +89,12 @@ int main(int argc, char ** argv)
     }
     F2points = {Q2s, xs};
     
-    cout << "Predicting Photon F2" << endl;
+    cout << "Predicting F2Photon" << endl;
 
     // Predict the central values of F2
     F2IzNBars = f2.getIzsBar(F2points, spectrum, GNs);
     F2IzNs = f2.getIzs(F2points, spectrum);
-    F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, false);
+    F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, true);
 
-    // Ok, now i can write all of this in a file
-    ofstream myfile;
-    myfile.open("F2Photon_pred.txt");
-    myfile << "Q2\tx\tF2" << endl;
-    for(int i = 0; i < F2points[0].size(); i++)
-        myfile << F2points[0][i] << '\t' << F2points[1][i] << '\t' << F2pred[i] << endl;
-    myfile.close();
     return 0;
 }

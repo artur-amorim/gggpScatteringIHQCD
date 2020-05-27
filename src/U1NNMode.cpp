@@ -22,8 +22,6 @@ extern"C"
 }
 
 std::vector<double> U1NNMode::z = ihqcdU1NNMode().getZ();
-double U1NNMode::alpha = 0;
-Poly_Interp<double> U1NNMode::t0 = Poly_Interp<double>(U1NNMode::z, std::vector<double>(U1NNMode::z.size(), 1.0), 4);
 Poly_Interp<double> U1NNMode::t1 = Poly_Interp<double>(U1NNMode::z, ihqcdU1NNMode().getdPhi() - ihqcdU1NNMode().getdAstring(), 4);
 
 U1NNMode::U1NNMode(const double qq2):
@@ -110,7 +108,7 @@ void U1NNMode::f(double * X, double * Z, double *F, double * PARS)
 {
     double q2 = *PARS;
     F[0] = Z[1];
-    F[1] = q2 * Z[0] * t0.interp(*X) + t1.interp(*X) * Z[1];
+    F[1] = q2 * Z[0] + t1.interp(*X) * Z[1];
     return ;
 }
 
@@ -120,7 +118,7 @@ void U1NNMode::df(double * X, double * Z, double * DF, double * PARS)
     // This function is parsed to Fortran code so make sure DF is column ordered
     double q2 = *PARS;
     DF[0] = 0.0;
-    DF[1] = q2 * t0.interp(*X) ;
+    DF[1] = q2;
     DF[2] = 1.0;
     DF[3] = t1.interp(*X); 
     return ;

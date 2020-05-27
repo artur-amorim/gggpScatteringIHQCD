@@ -15,7 +15,7 @@ int main(int argc, char ** argv)
     if (argc < 3)
     {
         g1 = 0.0; g2 = 0.0;
-        data_path = "expdata/gammagammaScatteringL3Processed.txt";
+        data_path = "expdata/GammaGamma/gammagammaScatteringL3Processed.txt";
     }
     else
     {
@@ -41,7 +41,7 @@ int main(int argc, char ** argv)
 
     
     // Compute the spectrum to check Reggeon properties
-    chebSetN(800);
+    chebSetN(1000);
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2};
