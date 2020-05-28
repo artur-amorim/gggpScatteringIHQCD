@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named globalFit_fixedKernel.exe
+
+# Build rule for target.
+globalFit_fixedKernel.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 globalFit_fixedKernel.exe
+.PHONY : globalFit_fixedKernel.exe
+
+# fast build rule for target.
+globalFit_fixedKernel.exe/fast:
+	$(MAKE) -f CMakeFiles/globalFit_fixedKernel.exe.dir/build.make CMakeFiles/globalFit_fixedKernel.exe.dir/build
+.PHONY : globalFit_fixedKernel.exe/fast
+
+#=============================================================================
 # Target rules for targets named predictSigmaProtonProton_HardPomeron.exe
 
 # Build rule for target.
@@ -137,19 +150,6 @@ fitSigmaProtonProton_SoftPomeron.exe/fast:
 .PHONY : fitSigmaProtonProton_SoftPomeron.exe/fast
 
 #=============================================================================
-# Target rules for targets named globalFit.exe
-
-# Build rule for target.
-globalFit.exe: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 globalFit.exe
-.PHONY : globalFit.exe
-
-# fast build rule for target.
-globalFit.exe/fast:
-	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/build
-.PHONY : globalFit.exe/fast
-
-#=============================================================================
 # Target rules for targets named fitSigmaProtonProton_HardPomeron.exe
 
 # Build rule for target.
@@ -161,6 +161,19 @@ fitSigmaProtonProton_HardPomeron.exe: cmake_check_build_system
 fitSigmaProtonProton_HardPomeron.exe/fast:
 	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_HardPomeron.exe.dir/build
 .PHONY : fitSigmaProtonProton_HardPomeron.exe/fast
+
+#=============================================================================
+# Target rules for targets named globalPomeronFit.exe
+
+# Build rule for target.
+globalPomeronFit.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 globalPomeronFit.exe
+.PHONY : globalPomeronFit.exe
+
+# fast build rule for target.
+globalPomeronFit.exe/fast:
+	$(MAKE) -f CMakeFiles/globalPomeronFit.exe.dir/build.make CMakeFiles/globalPomeronFit.exe.dir/build
+.PHONY : globalPomeronFit.exe/fast
 
 #=============================================================================
 # Target rules for targets named predictSigmaGammaProton_SoftPomeron.exe
@@ -770,32 +783,59 @@ physics/fitSigmaProtonProton_SoftPomeron.cpp.s:
 	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/physics/fitSigmaProtonProton_SoftPomeron.cpp.s
 .PHONY : physics/fitSigmaProtonProton_SoftPomeron.cpp.s
 
-physics/globalFit.o: physics/globalFit.cpp.o
+physics/globalFit_fixedKernel.o: physics/globalFit_fixedKernel.cpp.o
 
-.PHONY : physics/globalFit.o
+.PHONY : physics/globalFit_fixedKernel.o
 
 # target to build an object file
-physics/globalFit.cpp.o:
-	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.o
-.PHONY : physics/globalFit.cpp.o
+physics/globalFit_fixedKernel.cpp.o:
+	$(MAKE) -f CMakeFiles/globalFit_fixedKernel.exe.dir/build.make CMakeFiles/globalFit_fixedKernel.exe.dir/physics/globalFit_fixedKernel.cpp.o
+.PHONY : physics/globalFit_fixedKernel.cpp.o
 
-physics/globalFit.i: physics/globalFit.cpp.i
+physics/globalFit_fixedKernel.i: physics/globalFit_fixedKernel.cpp.i
 
-.PHONY : physics/globalFit.i
+.PHONY : physics/globalFit_fixedKernel.i
 
 # target to preprocess a source file
-physics/globalFit.cpp.i:
-	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.i
-.PHONY : physics/globalFit.cpp.i
+physics/globalFit_fixedKernel.cpp.i:
+	$(MAKE) -f CMakeFiles/globalFit_fixedKernel.exe.dir/build.make CMakeFiles/globalFit_fixedKernel.exe.dir/physics/globalFit_fixedKernel.cpp.i
+.PHONY : physics/globalFit_fixedKernel.cpp.i
 
-physics/globalFit.s: physics/globalFit.cpp.s
+physics/globalFit_fixedKernel.s: physics/globalFit_fixedKernel.cpp.s
 
-.PHONY : physics/globalFit.s
+.PHONY : physics/globalFit_fixedKernel.s
 
 # target to generate assembly for a file
-physics/globalFit.cpp.s:
-	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.s
-.PHONY : physics/globalFit.cpp.s
+physics/globalFit_fixedKernel.cpp.s:
+	$(MAKE) -f CMakeFiles/globalFit_fixedKernel.exe.dir/build.make CMakeFiles/globalFit_fixedKernel.exe.dir/physics/globalFit_fixedKernel.cpp.s
+.PHONY : physics/globalFit_fixedKernel.cpp.s
+
+physics/globalPomeronFit.o: physics/globalPomeronFit.cpp.o
+
+.PHONY : physics/globalPomeronFit.o
+
+# target to build an object file
+physics/globalPomeronFit.cpp.o:
+	$(MAKE) -f CMakeFiles/globalPomeronFit.exe.dir/build.make CMakeFiles/globalPomeronFit.exe.dir/physics/globalPomeronFit.cpp.o
+.PHONY : physics/globalPomeronFit.cpp.o
+
+physics/globalPomeronFit.i: physics/globalPomeronFit.cpp.i
+
+.PHONY : physics/globalPomeronFit.i
+
+# target to preprocess a source file
+physics/globalPomeronFit.cpp.i:
+	$(MAKE) -f CMakeFiles/globalPomeronFit.exe.dir/build.make CMakeFiles/globalPomeronFit.exe.dir/physics/globalPomeronFit.cpp.i
+.PHONY : physics/globalPomeronFit.cpp.i
+
+physics/globalPomeronFit.s: physics/globalPomeronFit.cpp.s
+
+.PHONY : physics/globalPomeronFit.s
+
+# target to generate assembly for a file
+physics/globalPomeronFit.cpp.s:
+	$(MAKE) -f CMakeFiles/globalPomeronFit.exe.dir/build.make CMakeFiles/globalPomeronFit.exe.dir/physics/globalPomeronFit.cpp.s
+.PHONY : physics/globalPomeronFit.cpp.s
 
 physics/predictDISStructureFunctions.o: physics/predictDISStructureFunctions.cpp.o
 
@@ -2452,10 +2492,11 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... globalFit_fixedKernel.exe"
 	@echo "... predictSigmaProtonProton_HardPomeron.exe"
 	@echo "... fitSigmaProtonProton_SoftPomeron.exe"
-	@echo "... globalFit.exe"
 	@echo "... fitSigmaProtonProton_HardPomeron.exe"
+	@echo "... globalPomeronFit.exe"
 	@echo "... predictSigmaGammaProton_SoftPomeron.exe"
 	@echo "... predictF2Photon.exe"
 	@echo "... predictSigmaProtonProton_SoftPomeron.exe"
@@ -2512,9 +2553,12 @@ help:
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.o"
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.i"
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.s"
-	@echo "... physics/globalFit.o"
-	@echo "... physics/globalFit.i"
-	@echo "... physics/globalFit.s"
+	@echo "... physics/globalFit_fixedKernel.o"
+	@echo "... physics/globalFit_fixedKernel.i"
+	@echo "... physics/globalFit_fixedKernel.s"
+	@echo "... physics/globalPomeronFit.o"
+	@echo "... physics/globalPomeronFit.i"
+	@echo "... physics/globalPomeronFit.s"
 	@echo "... physics/predictDISStructureFunctions.o"
 	@echo "... physics/predictDISStructureFunctions.i"
 	@echo "... physics/predictDISStructureFunctions.s"
