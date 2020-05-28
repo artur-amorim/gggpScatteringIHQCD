@@ -34,7 +34,7 @@ int main(int argc, char ** argv)
         sigma_pp_path = "expdata/SigmaProtonProton/SigmaProtonProton_data.txt";
         normal_distribution<> d_Re_k1(0,1), d_Im_k1(0, 1);
         normal_distribution<> d_Re_k2(0,1), d_Im_k2(0, 1);
-        normal_distribution<> d_Re_k3(0,10), d_Im_k3(0, 1);
+        normal_distribution<> d_Re_k3(0,1), d_Im_k3(0, 1);
         normal_distribution<> d_Re_k4(0,1), d_Im_k4(0, 1);
         normal_distribution<> d_Re_kbar1(0,1), d_Im_kbar1(0, 1);
         normal_distribution<> d_Re_kbar2(0,1), d_Im_kbar2(0, 1);
@@ -170,7 +170,7 @@ int main(int argc, char ** argv)
     // Start the fit now
     vector<double> X_guess = {Re_k1, Im_k1, Re_k2, Im_k2, Re_k3, Im_k3, Re_k4, Im_k4,
                             Re_kbar1, Im_kbar1, Re_kbar2, Im_kbar2, Re_kbar3, Im_kbar3, Re_kbar4, Im_kbar4};
-    double delta = 1;
+    double delta = 0.5;
     vector<double> X_opt = optimFunction(X_guess, f, delta);
     
     // Print X_opt

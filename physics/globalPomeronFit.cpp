@@ -31,8 +31,8 @@ int main(int argc, char ** argv)
         f2photon_path = "expdata/F2_photon/F2Photon_data.txt";
         f2_path = "expdata/DIS/F2_data.txt";
         fl_path = "expdata/DIS/FL_data.txt";
-        sigma_gp_path = "expdata/GammaP/SigmaGammaProton.txt";
-        sigma_gg_path = "expdata/GammaGamma/gammagammaScatteringL3Processed.txt";
+        sigma_gp_path = "expdata/GammaP/SigmaGammaProton_2.txt";
+        sigma_gg_path = "expdata/GammaGamma/gammagammaScatteringL3PHOJET.txt";
         sigma_pp_path = "expdata/SigmaProtonProton/SigmaProtonProton_data.txt";
         normal_distribution<> d_invls(6.491, 1), d_a(-4.567, 1), d_b(1.485, 1), d_c(0.653, 1), d_d(-0.113,1);
         normal_distribution<> d_Re_k1(0,1), d_Im_k1(0, 1);
