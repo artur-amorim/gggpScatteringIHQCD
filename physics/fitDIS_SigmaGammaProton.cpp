@@ -33,7 +33,7 @@ int main(int argc, char ** argv)
     FL fl(data_path_fl);
     SigmaGammaProton sigma(data_path_sigma);
 
-    // Setup SoftPomeron Kernel and GNs vector
+    // Setup HardPomeron Kernel and GNs vector
     HardPomeron hard;
     vector<double> GNs = {g1, g2, g3, g4};
 

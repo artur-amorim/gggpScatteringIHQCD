@@ -137,6 +137,19 @@ fitSigmaProtonProton_SoftPomeron.exe/fast:
 .PHONY : fitSigmaProtonProton_SoftPomeron.exe/fast
 
 #=============================================================================
+# Target rules for targets named globalFit.exe
+
+# Build rule for target.
+globalFit.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 globalFit.exe
+.PHONY : globalFit.exe
+
+# fast build rule for target.
+globalFit.exe/fast:
+	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/build
+.PHONY : globalFit.exe/fast
+
+#=============================================================================
 # Target rules for targets named fitSigmaProtonProton_HardPomeron.exe
 
 # Build rule for target.
@@ -756,6 +769,33 @@ physics/fitSigmaProtonProton_SoftPomeron.s: physics/fitSigmaProtonProton_SoftPom
 physics/fitSigmaProtonProton_SoftPomeron.cpp.s:
 	$(MAKE) -f CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/build.make CMakeFiles/fitSigmaProtonProton_SoftPomeron.exe.dir/physics/fitSigmaProtonProton_SoftPomeron.cpp.s
 .PHONY : physics/fitSigmaProtonProton_SoftPomeron.cpp.s
+
+physics/globalFit.o: physics/globalFit.cpp.o
+
+.PHONY : physics/globalFit.o
+
+# target to build an object file
+physics/globalFit.cpp.o:
+	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.o
+.PHONY : physics/globalFit.cpp.o
+
+physics/globalFit.i: physics/globalFit.cpp.i
+
+.PHONY : physics/globalFit.i
+
+# target to preprocess a source file
+physics/globalFit.cpp.i:
+	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.i
+.PHONY : physics/globalFit.cpp.i
+
+physics/globalFit.s: physics/globalFit.cpp.s
+
+.PHONY : physics/globalFit.s
+
+# target to generate assembly for a file
+physics/globalFit.cpp.s:
+	$(MAKE) -f CMakeFiles/globalFit.exe.dir/build.make CMakeFiles/globalFit.exe.dir/physics/globalFit.cpp.s
+.PHONY : physics/globalFit.cpp.s
 
 physics/predictDISStructureFunctions.o: physics/predictDISStructureFunctions.cpp.o
 
@@ -2414,6 +2454,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... predictSigmaProtonProton_HardPomeron.exe"
 	@echo "... fitSigmaProtonProton_SoftPomeron.exe"
+	@echo "... globalFit.exe"
 	@echo "... fitSigmaProtonProton_HardPomeron.exe"
 	@echo "... predictSigmaGammaProton_SoftPomeron.exe"
 	@echo "... predictF2Photon.exe"
@@ -2471,6 +2512,9 @@ help:
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.o"
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.i"
 	@echo "... physics/fitSigmaProtonProton_SoftPomeron.s"
+	@echo "... physics/globalFit.o"
+	@echo "... physics/globalFit.i"
+	@echo "... physics/globalFit.s"
 	@echo "... physics/predictDISStructureFunctions.o"
 	@echo "... physics/predictDISStructureFunctions.i"
 	@echo "... physics/predictDISStructureFunctions.s"
