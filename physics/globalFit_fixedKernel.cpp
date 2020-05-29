@@ -52,14 +52,14 @@ int main(int argc, char ** argv)
         f2photon_path = argv[1]; f2_path = argv[2];
         fl_path = argv[3]; sigma_gp_path = argv[4];
         sigma_gg_path = argv[5]; sigma_pp_path = argv[6];
-        normal_distribution<> d_Re_k1(stod(argv[7]),1), d_Im_k1(stod(argv[8]), 1);
-        normal_distribution<> d_Re_k2(stod(argv[9]),1), d_Im_k2(stod(argv[10]), 1);
-        normal_distribution<> d_Re_k3(stod(argv[11]),1), d_Im_k3(stod(argv[12]), 1);
-        normal_distribution<> d_Re_k4(stod(argv[13]),1), d_Im_k4(stod(argv[14]), 1);
-        normal_distribution<> d_Re_kbar1(stod(argv[15]),1), d_Im_kbar1(stod(argv[16]), 1);
-        normal_distribution<> d_Re_kbar2(stod(argv[17]),1), d_Im_kbar2(stod(argv[18]), 1);
-        normal_distribution<> d_Re_kbar3(stod(argv[19]),1), d_Im_kbar3(stod(argv[20]), 1);
-        normal_distribution<> d_Re_kbar4(stod(argv[21]),1), d_Im_kbar4(stod(argv[22]), 1);
+        normal_distribution<> d_Re_k1(stod(argv[7]),0.1), d_Im_k1(stod(argv[8]), 0.1);
+        normal_distribution<> d_Re_k2(stod(argv[9]),.1), d_Im_k2(stod(argv[10]), .1);
+        normal_distribution<> d_Re_k3(stod(argv[11]),.1), d_Im_k3(stod(argv[12]), .1);
+        normal_distribution<> d_Re_k4(stod(argv[13]),.1), d_Im_k4(stod(argv[14]), .1);
+        normal_distribution<> d_Re_kbar1(stod(argv[15]),.1), d_Im_kbar1(stod(argv[16]), .1);
+        normal_distribution<> d_Re_kbar2(stod(argv[17]),.1), d_Im_kbar2(stod(argv[18]), .1);
+        normal_distribution<> d_Re_kbar3(stod(argv[19]),.1), d_Im_kbar3(stod(argv[20]), .1);
+        normal_distribution<> d_Re_kbar4(stod(argv[21]),.1), d_Im_kbar4(stod(argv[22]), .1);
         Re_k1 = d_Re_k1(gen); Im_k1 = d_Im_k1(gen); Re_k2 = d_Re_k2(gen); Im_k2 = d_Im_k2(gen); Re_k3 = d_Re_k3(gen); Im_k3 = d_Im_k3(gen);
         Re_k4 = d_Re_k4(gen); Im_k4 = d_Im_k4(gen);
         Re_kbar1 = d_Re_kbar1(gen); Im_kbar1 = d_Im_kbar1(gen); Re_kbar2 = d_Re_kbar2(gen); Im_kbar2 = d_Im_kbar2(gen); Re_kbar3 = d_Re_kbar3(gen); Im_kbar3 = d_Im_kbar3(gen);
@@ -140,9 +140,9 @@ int main(int argc, char ** argv)
             gn = - M_PI_2 * gn * djndt / pow(2, jn);
             // Now we make the specific computations
             // The integrals that appear in the definition of Im_gn_gg are the same as the sigma_gg_IzNs
-            Im_gn_gg[i] = (gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]).imag();
-            Im_gn_gp[i] = (gn * ks[i] * kbars[i]).imag();
-            Im_gn_pp[i] = (gn * kbars[i]*kbars[i]).imag();
+            Im_gn_gg[i] = imag(gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]);
+            Im_gn_gp[i] = imag(gn * ks[i] * kbars[i]);
+            Im_gn_pp[i] = imag(gn * kbars[i]*kbars[i]);
         }
 
         // Compute the IzNsBar
