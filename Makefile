@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named gravitational_couplings_aux_calculations.exe
+
+# Build rule for target.
+gravitational_couplings_aux_calculations.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gravitational_couplings_aux_calculations.exe
+.PHONY : gravitational_couplings_aux_calculations.exe
+
+# fast build rule for target.
+gravitational_couplings_aux_calculations.exe/fast:
+	$(MAKE) -f CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/build.make CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/build
+.PHONY : gravitational_couplings_aux_calculations.exe/fast
+
+#=============================================================================
 # Target rules for targets named globalFit_fixedKernel.exe
 
 # Build rule for target.
@@ -836,6 +849,33 @@ physics/globalPomeronFit.s: physics/globalPomeronFit.cpp.s
 physics/globalPomeronFit.cpp.s:
 	$(MAKE) -f CMakeFiles/globalPomeronFit.exe.dir/build.make CMakeFiles/globalPomeronFit.exe.dir/physics/globalPomeronFit.cpp.s
 .PHONY : physics/globalPomeronFit.cpp.s
+
+physics/gravitational_couplings_aux_calculations.o: physics/gravitational_couplings_aux_calculations.cpp.o
+
+.PHONY : physics/gravitational_couplings_aux_calculations.o
+
+# target to build an object file
+physics/gravitational_couplings_aux_calculations.cpp.o:
+	$(MAKE) -f CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/build.make CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/physics/gravitational_couplings_aux_calculations.cpp.o
+.PHONY : physics/gravitational_couplings_aux_calculations.cpp.o
+
+physics/gravitational_couplings_aux_calculations.i: physics/gravitational_couplings_aux_calculations.cpp.i
+
+.PHONY : physics/gravitational_couplings_aux_calculations.i
+
+# target to preprocess a source file
+physics/gravitational_couplings_aux_calculations.cpp.i:
+	$(MAKE) -f CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/build.make CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/physics/gravitational_couplings_aux_calculations.cpp.i
+.PHONY : physics/gravitational_couplings_aux_calculations.cpp.i
+
+physics/gravitational_couplings_aux_calculations.s: physics/gravitational_couplings_aux_calculations.cpp.s
+
+.PHONY : physics/gravitational_couplings_aux_calculations.s
+
+# target to generate assembly for a file
+physics/gravitational_couplings_aux_calculations.cpp.s:
+	$(MAKE) -f CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/build.make CMakeFiles/gravitational_couplings_aux_calculations.exe.dir/physics/gravitational_couplings_aux_calculations.cpp.s
+.PHONY : physics/gravitational_couplings_aux_calculations.cpp.s
 
 physics/predictDISStructureFunctions.o: physics/predictDISStructureFunctions.cpp.o
 
@@ -2492,6 +2532,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... gravitational_couplings_aux_calculations.exe"
 	@echo "... globalFit_fixedKernel.exe"
 	@echo "... predictSigmaProtonProton_HardPomeron.exe"
 	@echo "... fitSigmaProtonProton_SoftPomeron.exe"
@@ -2559,6 +2600,9 @@ help:
 	@echo "... physics/globalPomeronFit.o"
 	@echo "... physics/globalPomeronFit.i"
 	@echo "... physics/globalPomeronFit.s"
+	@echo "... physics/gravitational_couplings_aux_calculations.o"
+	@echo "... physics/gravitational_couplings_aux_calculations.i"
+	@echo "... physics/gravitational_couplings_aux_calculations.s"
 	@echo "... physics/predictDISStructureFunctions.o"
 	@echo "... physics/predictDISStructureFunctions.i"
 	@echo "... physics/predictDISStructureFunctions.s"
