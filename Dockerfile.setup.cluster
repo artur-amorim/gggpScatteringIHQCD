@@ -1,0 +1,40 @@
+FROM scientificlinux/sl:latest
+LABEL mainteiner="arturj.c.amorimdesousa@gmail.com"
+LABEL version="0.1"
+LABEL decription="Container that simulates the cluster."
+
+RUN yum -y install vim-enhanced &&\
+    yum -y install git &&\
+    yum -y --setopt=group_package_types=mandatory,default,optional group install "Development Tools" &&\
+    yum -y install atlas-devel &&\
+    yum -y install blas-devel &&\
+    yum -y install lapack-devel &&\
+    yum -y install boost-devel &&\
+    yum -y install wget
+
+# Download boost and install it
+#RUN wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.gz &&\
+#    tar -xvf boost_1_68_0.tar.gz && cd boost_1_68_0 &&\
+#    ./bootstrap.sh && ./b2 install
+
+# Download armadillo and install it
+RUN wget http://sourceforge.net/projects/arma/files/armadillo-8.600.1.tar.xz &&\
+    tar -xvf armadillo-8.600.1.tar.xz && cd armadillo-8.600.1 &&\
+    ./configure && make && make install
+
+# create the directory
+#RUN mkdir photonScattering
+#ADD expdata photonScattering/expdata
+#ADD include photonScattering/include
+#ADD physics photonScattering/physics
+#ADD src photonScattering/src
+#ADD tests photonScattering/tests
+#COPY CMakeLists.txt photonScattering/
+
+#RUN cd photonScattering && cmake . && make
+
+#RUN cd ..
+
+RUN git clone https://4fed20e888498f68a34616e85af2bc8fa5accac4@github.com/artur-amorim/photonScattering
+COPY CMakeLists.txt photonScattering/
+RUN cd photonScattering && cmake . && make
