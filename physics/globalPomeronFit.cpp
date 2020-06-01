@@ -20,13 +20,13 @@ int main(int argc, char ** argv)
     // Kernel parameters
     double invls, a, b, c, d;
     // Gravitational photon couplings
-    double Re_k1, Im_k1, Re_k2, Im_k2, Re_k3, Im_k3, Re_k4, Im_k4;
+    double k1, k2, k3, k4;
     // Gravitational proton couplings
-    double Re_kbar1, Im_kbar1, Re_kbar2, Im_kbar2, Re_kbar3, Im_kbar3, Re_kbar4, Im_kbar4;
+    double kbar1, kbar2, kbar3, kbar4;
     string f2photon_path, f2_path, fl_path, sigma_gp_path, sigma_gg_path, sigma_pp_path;
     random_device rd{};
     mt19937 gen{rd()};
-    if(argc < 28)
+    if(argc < 20)
     {
         f2photon_path = "expdata/F2_photon/F2Photon_data.txt";
         f2_path = "expdata/DIS/F2_data.txt";
@@ -35,20 +35,12 @@ int main(int argc, char ** argv)
         sigma_gg_path = "expdata/GammaGamma/gammagammaScatteringL3PHOJET.txt";
         sigma_pp_path = "expdata/SigmaProtonProton/SigmaProtonProton_data.txt";
         normal_distribution<> d_invls(6.491, 1), d_a(-4.567, 1), d_b(1.485, 1), d_c(0.653, 1), d_d(-0.113,1);
-        normal_distribution<> d_Re_k1(0,1), d_Im_k1(0, 1);
-        normal_distribution<> d_Re_k2(0,1), d_Im_k2(0, 1);
-        normal_distribution<> d_Re_k3(0,1), d_Im_k3(0, 1);
-        normal_distribution<> d_Re_k4(0,1), d_Im_k4(0, 1);
-        normal_distribution<> d_Re_kbar1(0,1), d_Im_kbar1(0, 1);
-        normal_distribution<> d_Re_kbar2(0,1), d_Im_kbar2(0, 1);
-        normal_distribution<> d_Re_kbar3(0,1), d_Im_kbar3(0, 1);
-        normal_distribution<> d_Re_kbar4(0,1), d_Im_kbar4(0, 1);
+        normal_distribution<> d_k1(0,1), d_k2(0,1), d_k3(0, 1), d_k4(0, 1);
+        normal_distribution<> d_kbar1(0,1), d_kbar2(0, 1), d_kbar3(0, 1), d_kbar4(0, 1);
         invls = d_invls(gen); a = d_a(gen); b = d_b(gen); c = d_c(gen); d = d_d(gen);
-        Re_k1 = d_Re_k1(gen); Im_k1 = d_Im_k1(gen); Re_k2 = d_Re_k2(gen); Im_k2 = d_Im_k2(gen); Re_k3 = d_Re_k3(gen); Im_k3 = d_Im_k3(gen);
-        Re_k4 = d_Re_k4(gen); Im_k4 = d_Im_k4(gen);
-        Re_kbar1 = d_Re_kbar1(gen); Im_kbar1 = d_Im_kbar1(gen); Re_kbar2 = d_Re_kbar2(gen); Im_kbar2 = d_Im_kbar2(gen); Re_kbar3 = d_Re_kbar3(gen); Im_kbar3 = d_Im_kbar3(gen);
-        Re_kbar4 = d_Re_kbar4(gen); Im_kbar4 = d_Im_kbar4(gen);
-        cout << "Program usage: " + string(argv[0]) + " f2photon_path f2_path fl_path sigma_gp_path sigma_gg_path sigma_pp_path invls a b c d Re_k1 Im_k1 ..." << endl;
+        k1 = d_k1(gen); k2 = d_k2(gen); k3 = d_k3(gen); k4 = d_k4(gen);
+        kbar1 = d_kbar1(gen); kbar2 = d_kbar2(gen); kbar3 = d_kbar3(gen); kbar4 = d_kbar4(gen);
+        cout << "Program usage: " + string(argv[0]) + " f2photon_path f2_path fl_path sigma_gp_path sigma_gg_path sigma_pp_path invls a b c d k1 k2 k3 k4 ..." << endl;
         cout << "Using default values." << endl;
     }
     else
@@ -57,22 +49,13 @@ int main(int argc, char ** argv)
         fl_path = argv[3]; sigma_gp_path = argv[4];
         sigma_gg_path = argv[5]; sigma_pp_path = argv[6];
         normal_distribution<> d_invls(stod(argv[7]), 0.1), d_a(stod(argv[8]), 0.1), d_b(stod(argv[9]), 0.1), d_c(stod(argv[10]), 0.1), d_d(stod(argv[11]),0.1);
-        normal_distribution<> d_Re_k1(stod(argv[12]),1), d_Im_k1(stod(argv[13]), 1);
-        normal_distribution<> d_Re_k2(stod(argv[14]),1), d_Im_k2(stod(argv[15]), 1);
-        normal_distribution<> d_Re_k3(stod(argv[16]),1), d_Im_k3(stod(argv[17]), 1);
-        normal_distribution<> d_Re_k4(stod(argv[18]),1), d_Im_k4(stod(argv[19]), 1);
-        normal_distribution<> d_Re_kbar1(stod(argv[20]),1), d_Im_kbar1(stod(argv[21]), 1);
-        normal_distribution<> d_Re_kbar2(stod(argv[22]),1), d_Im_kbar2(stod(argv[23]), 1);
-        normal_distribution<> d_Re_kbar3(stod(argv[24]),1), d_Im_kbar3(stod(argv[25]), 1);
-        normal_distribution<> d_Re_kbar4(stod(argv[26]),1), d_Im_kbar4(stod(argv[27]), 1);
-        invls = d_invls(gen); a = d_a(gen); b = d_b(gen); c = d_c(gen); d = d_d(gen);
-        Re_k1 = d_Re_k1(gen); Im_k1 = d_Im_k1(gen); Re_k2 = d_Re_k2(gen); Im_k2 = d_Im_k2(gen); Re_k3 = d_Re_k3(gen); Im_k3 = d_Im_k3(gen);
-        Re_k4 = d_Re_k4(gen); Im_k4 = d_Im_k4(gen);
-        Re_kbar1 = d_Re_kbar1(gen); Im_kbar1 = d_Im_kbar1(gen); Re_kbar2 = d_Re_kbar2(gen); Im_kbar2 = d_Im_kbar2(gen); Re_kbar3 = d_Re_kbar3(gen); Im_kbar3 = d_Im_kbar3(gen);
-        Re_kbar4 = d_Re_kbar4(gen); Im_kbar4 = d_Im_kbar4(gen);
+        normal_distribution<> d_k1(stod(argv[12]),0.1), d_k2(stod(argv[13]),0.1), d_k3(stod(argv[14]),0.1), d_k4(stod(argv[15]),0.1);
+        normal_distribution<> d_kbar1(stod(argv[16]),0.1), d_kbar2(stod(argv[17]),0.1), d_kbar3(stod(argv[18]),0.1), d_kbar4(stod(argv[19]),0.1);
+        k1 = d_k1(gen); k2 = d_k2(gen); k3 = d_k3(gen); k4 = d_k4(gen);
+        kbar1 = d_kbar1(gen); kbar2 = d_kbar2(gen); kbar3 = d_kbar3(gen); kbar4 = d_kbar4(gen);
+        
     }
-    complex<double> k1(Re_k1, Im_k1), k2(Re_k2, Im_k2), k3(Re_k3, Im_k3), k4(Re_k4, Im_k4);
-    complex<double> kbar1(Re_kbar1, Im_kbar1), kbar2(Re_kbar2, Im_kbar2), kbar3(Re_kbar3, Im_kbar3), kbar4(Re_kbar4, Im_kbar4);
+
     cout << "Starting fit with values:" << endl;
     cout << "invls: " << invls << " a: " << a << " b: " << b << " c: " << c << " d: " << d << endl;
     cout << "k1: " << k1 << " k2: " << k2 << " k3: " << k3 << " k4: " << k4 << endl;
@@ -112,8 +95,8 @@ int main(int argc, char ** argv)
     {
         // X is a vector with the values of invls, a, b, c, d, k1, k2, k3, k4, kbar1, kbar2, kbar3, kbar4
         vector<double> kernel_pars = {X[0], X[1], X[2], X[3], X[4]};
-        vector<complex<double> > ks = {complex<double>(X[5],X[6]), complex<double>(X[7],X[8]), complex<double>(X[9],X[10]), complex<double>(X[11],X[12])};
-        vector<complex<double> > kbars = {complex<double>(X[13],X[14]), complex<double>(X[15],X[16]), complex<double>(X[17],X[18]), complex<double>(X[19],X[20])};
+        vector<double> ks = {X[5], X[6], X[7], X[8]};
+        vector<double> kbars = {X[9], X[10], X[11], X[12]};
         cout << "invls: " << kernel_pars[0] << " a: " << kernel_pars[1] << " b: " << kernel_pars[2] << " c: " << kernel_pars[3] << " d: " << kernel_pars[4] << endl;
         cout << "k1: " << ks[0] << " k2: " << ks[1] << " k3: " << ks[2] << " k4: " << ks[3] << " kbar1: " << kbars[0] << " kbar2: " << kbars[1] << " kbar3: " << kbars[2] << " kbar4: " << kbars[3] << endl;
         
@@ -169,8 +152,7 @@ int main(int argc, char ** argv)
 
 
     // Start the fit now
-    vector<double> X_guess = {invls, a, b, c, d, Re_k1, Im_k1, Re_k2, Im_k2, Re_k3, Im_k3, Re_k4, Im_k4,
-                            Re_kbar1, Im_kbar1, Re_kbar2, Im_kbar2, Re_kbar3, Im_kbar3, Re_kbar4, Im_kbar4};
+    vector<double> X_guess = {invls, a, b, c, d, k1, k2, k3, k4, kbar1, kbar2, kbar3, kbar4};
     double delta = 1;
     vector<double> X_opt = optimFunction(X_guess, f, delta);
     
