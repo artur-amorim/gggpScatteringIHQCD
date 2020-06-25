@@ -45,7 +45,7 @@ int main(int argc, char ** argv)
     hqcdp.computeSpectrum();
 
     vector<double> gns_guess = {g1, g2, g3, g4};
-    double gns_delta = 10;
+    double gns_delta = 100;
     hqcdp.fit(gns_guess, gns_delta);
 
     return 0;
