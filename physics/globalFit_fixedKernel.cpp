@@ -122,9 +122,19 @@ int main(int argc, char ** argv)
             gn = - M_PI_2 * gn * djndt / pow(2, jn);
             // Now we make the specific computations
             // The integrals that appear in the definition of Im_gn_gg are the same as the sigma_gg_IzNs
-            Im_gn_gg[i] = imag(gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]);
-            Im_gn_gp[i] = imag(gn * ks[i] * kbars[i]);
-            Im_gn_pp[i] = imag(gn * kbars[i]*kbars[i]);
+            if(i==1)
+            {
+                Im_gn_gg[i] = imag(gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]);
+                Im_gn_gp[i] = imag(gn * ks[i] * kbars[i]);
+                Im_gn_pp[i] = imag(gn * kbars[i]*kbars[i]);
+            }
+            else
+            {
+                Im_gn_gg[i] = imag(-gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]);
+                Im_gn_gp[i] = imag(-gn * ks[i] * kbars[i]);
+                Im_gn_pp[i] = imag(-gn * kbars[i]*kbars[i]);
+            }
+            
         }
 
         // Compute the IzNsBar
@@ -151,7 +161,7 @@ int main(int argc, char ** argv)
 
     // Start the fit now
     vector<double> X_guess = {k1, k2, k3, k4, kbar1, kbar2, kbar3, kbar4};
-    double delta = 0.5;
+    double delta = 0.1;
     vector<double> X_opt = optimFunction(X_guess, f, delta);
     
     // Print X_opt
