@@ -162,6 +162,8 @@ double Sigma::IzN(const std::vector<double> &kin, const Reggeon &reg)
     double * work = new double[lenw];
     // Evaluate the integral
     dqags_(fSigma, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
+    // Now we take into account the rescaling of psi_1 and psi_4
+    if (reg.getIndex() == 1 || reg.getIndex() == 4) izn = -izn;
     // Free workspace from memory
     delete[] iwork;
     delete[] work;

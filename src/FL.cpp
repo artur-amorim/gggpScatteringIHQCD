@@ -75,6 +75,8 @@ double FL::IzN(const std::vector<double> &kin, const Reggeon &reg)
     // Evaluate the integral
     dqags_(fFL, params, &a, &b, &epsabs, &epsrel, &izn, &abserr, &neval, &ier, &limit, &lenw, &last, iwork, work);
     izn = std::pow(Q2, J) * izn;
+    // Now we take into account the rescaling of psi_1 and psi_4
+    if (reg.getIndex() == 1 || reg.getIndex() == 4) izn = -izn;
     // Free workspace from memory
     delete[] iwork;
     delete[] work;
