@@ -27,7 +27,7 @@
 
 \begin{abstract}
 
-This document is a set of notes that I have elaborated while using the holographic models developed by us to fit $\sigma\left(\gamma \gamma \rightarrow X\right)$, $F_2^\gamma\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data. The kernel parameters of the holographic models are fixed by the structure functions $F_2$ and $F_L$ of the proton while the fitting parameters are the gravitational couplings that appear in the vertices of the Witten diagram.
+This document is a set of notes that I have elaborated while using the holographic model developed by us to fit $\sigma\left(\gamma \gamma \rightarrow X\right)$, $F_2^\gamma\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data. The kernel parameters of the holographic models are fixed by the structure functions $F_2$ and $F_L$ of the proton while the fitting parameters are related to the gravitational couplings that appear in the vertices of the Witten diagram.
 
 \end{abstract}
 
@@ -42,8 +42,35 @@ This document is a set of notes that I have elaborated while using the holograph
 }
   \label{fig:Witten_diagram}
 \end{figure}
-In this section we will present a holographic computation of  $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma\left(x, Q^2\right)$ in the context of the Improved Holographic QCD model. Although in these processes we have at most one off-shell photon involved we will first compute the general scattering amplitude $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$. Later, from this general amplitude, we specify for the case of $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma\left(x, Q^2\right)$. The Witten that is relevant for our calculations is the one in figure~\ref{fig:Witten_diagram}.
 
+In high-energy $e^{+}e^{-}$ interactions some electrons and positrons are scattered by emitting virtual photons whose virtualities can be computed by measuring the angles and energies of the scattered electrons and positrons. The virtual photons can then fluctuate into quark-anti-quark paris and hence generate a hadronic final state $X$. It is in this context that we refer to $\gamma^{*} \gamma^{*}$ scattering.
+
+%Then In the classical theory of electromagnetism two photons can not scatter since they don't have electric charge. However, in the context of Quantum Electrodynamics (QED) it is known that the photons can fluctuate into a fermion-anti-fermion pair and scattering can proceed. The fermion pair can either be leptons or quarks. If the pair is made of leptons the process can be calculated in QED. If a pair of quarks is produced the process is more complex due to the bigger spectrum of fluctuations as well QCD corrections. 
+
+The hadronic final state is produced by the virtual photons fluctuating into the quark-anti-quark pairs. Here the photon reveals its point-like and/or its hadron-like behaviour. In the point-like case one of the quarks takes part in the hard interaction while in the hadron-like case the photons fluctuate into hadrons with the same quantum numbers of the photon (i.e. vector mesons like $\rho$, $\omega$, $\phi$) and the interaction is the same as in hadron-hadron scattering. These pictures coexist together and are dominant in different kinematical regions. For high transverse momentum of the quarks or high virtuality of one of the photons the point-like nature is dominant. For lower values of the the photon virtuality the interaction is spread over longer times giving time for the quarks to form bound states through gluon exchange.
+
+The process $e^{+}e^{-} \rightarrow e^{+}e^{-} X$ is factorised into two three terms: one for the radiation of  the virtual photon from the electron, one for the radiation of the other virtual photon from the positron and the term that couples the $\gamma^{*} \gamma^{*}$ system to the final hadronic state $X$. Like we do in electron-proton \textit{Deep Inelastic Scattering} we can define the following variables
+\begin{align}
+	&y_1 = \frac{q_1 \cdot k_2}{k_1 \cdot k_2} \qquad y_2 = \frac{q_2 \cdot k_1}{k_1 \cdot k_2} \\
+	& x_1 = \frac{Q_1^2}{2 q_1 \cdot k_2} \qquad x_2 = \frac{Q^2_2}{2 q_2 \cdot k_1},
+\end{align}
+where $k_1$ and $k_2$ are the four-momentum of the incoming leptons, $q_1$ and $q_2$ the four-momentum of the two off-shell photons and $Q_i^2 = -q_i^2, \quad i = 1, 2$ are the photon virtualities. In terms of these variables we can write the differential cross-section for $e^{+}e^{-} \rightarrow e^{+}e^{-} X$ as~\cite{donnachie_dosch_landshoff_nachtmann_2002}
+\begin{align}
+\frac{d^4 \sigma}{d y_1 d y_2 d Q_1^2 d Q_2^2} &= {\left( \frac{\alpha}{2 \pi} \right)}^2 \left[ P^{T}_{\gamma/e^{-}} \left(y_1, Q_1^2\right) P^{T}_{\gamma/e^{+}} \left(y_2, Q_2^2\right) \sigma^{TT} \left(Q_1^2, Q_2^2, W^2\right) \right. \notag \\
+&\left. + P^{T}_{\gamma/e^{-}} \left(y_1, Q_1^2\right) P^{L}_{\gamma/e^{+}} \left(y_2\right) \sigma^{TL} \left(Q_1^2, Q_2^2, W^2\right) \right. \notag \\
+&\left. + P^{L}_{\gamma/e^{-}} \left(y_1\right) P^{T}_{\gamma/e^{+}} \left(y_2, Q_2^2\right) \sigma^{LT} \left(Q_1^2, Q_2^2, W^2\right) \right. \notag \\
+&\left.  + P^{L}_{\gamma/e^{-}} \left(y_1\right) P^{L}_{\gamma/e^{+}} \left(y_2\right) \sigma^{LL} \left(Q_1^2, Q_2^2, W^2\right) \right] \frac{1}{Q_1^2 Q_2^2}
+\end{align}
+where the functions $P^T_{\gamma / e}$ and $P^L_{\gamma / e}$ are related to flux factors and are given by
+\begin{align}
+&P^{T}_{\gamma/e} \left(y, Q^2\right) = \frac{1+{\left(1-y\right)}^2}{y} - \frac{2 m_e^2 y}{Q^2} \notag \\
+&P^{L}_{\gamma/e} \left(y\right) = 2\frac{1-y}{y}.
+\label{eq:ee_eeX_sigma}
+\end{align}
+The cross sections $\sigma^{ij}\left(Q_1^2, Q_2^2, W^2\right)$ are the total cross sections for $\gamma^*\left(Q_1^2\right) \gamma^{*}\left(Q_2^2\right) \rightarrow {\rm X}$ for incoming photons with transverse (T) or longitudinal (L) in their centre-of-mass frame. 
+The differential cross-section expression also results from integrating over the angle between the plane of the scattered leptons in the center-of-mass frame of the $\gamma^* \gamma^*$ system and does not include terms that are present for polarized lepton beams.
+
+The observables we want to study can be expressed in terms of the cross-sections $\sigma^{ij}\left(Q_1^2, Q_2^2, W^2\right)$. Hence we will compute these cross-sections holographically by starting to compute the general scattering amplitude of $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$ for arbitrary polarisation of the incoming and outgoing virtual photons. Later, from this general amplitude, we specify for the case of $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma\left(x, Q^2\right)$. The Witten diagram that is relevant for our calculations is the one in figure~\ref{fig:Witten_diagram} (this needs to be changed of course).
 
 \subsection{Kinematics}
 We start with kinematics first. Consider light-cone coordinates~$\left(+, -, \perp \right)$ with metric given by $ds^2 = - dx^{+} dx^{-} + d x_\perp^2$, where $x_\perp$ is a vector of the impact parameter space $\mathbb{R}^2$. The incoming photons have space-like momenta
@@ -98,7 +125,7 @@ Notice that the transverse photons~$\left(\lambda=1,2\right)$ are normalized suc
 
 \subsection{External states and Spin J fields}
 
-The off-shell photons the external states are sources of the conserved U(1) current $j^\mu = \psi \gamma^\mu \psi$, where quark field $\psi$ is associated with the open string sector. According to the gauge/gravity duality dictionary, these current operators are dual to the non-normalizable modes of a massless~$U(1)$ gauge field A. We assume that this field comes from the open string sector and that it has a minimal coupling to gravity. Then it satisfies the following action 
+The off-shell photons the external states are sources of the conserved U(1) current $j^\mu = \psi \gamma^\mu \psi$, where quark field $\psi$ is associated with the open string sector. According to the gauge/gravity duality dictionary, these current operators are dual to the non-normalizable modes of a massless~$U(1)$ gauge field A. We assume that this field comes from the open string sector and that it has a minimal coupling to gravity. Then its equations of motion can be derived from the action 
 \begin{equation}
 S_A = - \frac{1}{4} \int d^5 X \sqrt{-g} e^{- \Phi} F_{ab} F^{ab}
 \end{equation}
@@ -120,7 +147,7 @@ The momentum  $k$ and the polarisation vector $n^\lambda$ satisfy
   n^\lambda_z = 0 \,, \qquad
    k \cdot n^\lambda = 0 \,,
 \end{equation}
-where the boundary polarisation are given by the expressions of the last section. 
+where the boundary polarisations are given by the expressions of the last section. 
 We choose as UV boundary condition $f(0)=1$ which gives the non-normalizable solution.
 Later it will be useful to use the identities
 \begin{align}
@@ -129,12 +156,68 @@ Later it will be useful to use the identities
 \label{eq:F_expression}
 \end{align}
 
-To compute the Witten diagram we also need to know the external scattering states couple with the spin J fields $h_{a_1 \dots a_J}$ in the graviton Regge trajectory. 
-Furthermore, in the Regge limit we will only be interested in the TT components $h_{\alpha_1 \dots \alpha_J}$ of these fields. The derivation of this coupling has been done in~\cite{ballon_bayona_unity_2017} and hence we only present the result
+We will consider the holographic $F_2$ and $F_L$ structure functions of the proton and the cross-sections $\sigma\left(\gamma p \rightarrow X\right)$ and $\sigma\left(p p \rightarrow X\right)$ and hence we need to have a holographic external state for the proton.  The unpolarized proton will be dual to a scalar field $\Upsilon$ whose normalizable mode is of the form 
 \begin{equation}
-  \kappa_J  \int  d^5 X \sqrt{-g} \, e^{-\Phi }   F^{\alpha_1 a} \partial^{\alpha_2} \dots \partial^{\alpha_{J-1}}F^{\alpha_J}_{\ \ a}
-  h_{\alpha_1\dots \alpha_J} .
+\Upsilon(X;p )= \upsilon_m(z) \, e^{i p\cdot x} \,,
+\label{eq:proton}
 \end{equation}
+where $p$ is the momentum and $m^2=-p^2$.
+As explained in detail in~\cite{ballon_bayona_unity_2017},
+the specific details of the function $\upsilon_m(z)$ will not be important for it appears inside an integral that can be absorbed in a fitting parameter to be defined later.
+
+The spin $J$ fields in the Witten diagram are dual to the twist two operators and their exchange dominates at low $x$ in DIS processes. In~\cite{ballon_bayona_unity_2017}  it was shown that the equation
+\begin{align}
+&\left( \nabla^2 - 2 e^{-2A} \dot{\Phi} \nabla_z - \frac{\Delta\left(\Delta - 4\right)}{L^2} + J \dot{A}^2 e^{-2A} + \right. \notag \\
+&\left. + \left(J-2\right) e^{-2A} \left( a \ddot{\Phi} + b \left(\ddot{A}-\dot{A}^2\right) + c \dot{\Phi}^2 \right)\right) h^{TT}_{\alpha_1 \cdots \alpha_J} = 0 \, ,
+\end{align}
+with
+\begin{equation}
+\frac{\Delta\left(\Delta - 4\right)}{L^2}  = \frac{2}{l_s^2} \left( J - 2 \right) \left( 1+ \frac{d}{\lambda} \right) + \frac{1}{\lambda^{4/3}} \left(J^2 - 4 \right)
+\end{equation}
+was a good phenomenological equation for the TT components of the spin $J$ fields when considering data of the proton structure function $F_2\left(x, Q^2\right)$. 
+\begin{table}[t!]
+ \centering
+  \caption{Values of the parameters that appear in the equation of motion of the spin $J$ field. They were fixed by fitting the data of the proton structure functions $F_2\left(x,Q^2\right)$ and $F_L\left(x, Q^2\right)$ in~\cite{gluonPDF_IHQCD_2020}. All parameters are dimensionless except for $[l_s]=L$, whose inverse numerical value is expressed in ${\rm GeV}$ units. The intercept of the first four Pomeron trajectories are also shown}
+\label{table:pomeron_kernel_parameters}
+\vspace{0.5cm}
+  \begin{tabular}{|c|c|c|}
+  \hline
+  parameter & value  & Intercept  \\ \hline
+  $l_s^{-1}$  & 6.491 & $j_0 = 1.17$   \\ \hline
+  a           & -4.567  & $j_1 =1.08$   \\ \hline
+  b           & 1.485  & $j_2 =0.975$     \\ \hline
+  c           & 0.653  & $j_3 =0.913$    \\ \hline
+  d           & -0.113 &  \\ \hline
+  \end{tabular}
+  \end{table}
+In this work we will consider the same equation of motion but with the parameters given in table~\ref{table:pomeron_kernel_parameters}. These parameters were obtained in~\cite{gluonPDF_IHQCD_2020} by fitting the experimental data of the proton structure functions $F_2\left(x,Q^2\right)$ and $F_L\left(x, Q^2\right)$. In the Regge limit, due to the kinematics of the external states, we will only be interested in the component $\Pi_{+\cdots+,-\cdots -}\left(X, \bar{X}\right)$ of the spin $J$ propagators. This component satisfies the identity
+\begin{align}
+\label{eq:propagator_identity}
+&\int d^2l_\perp e^{-i q_\perp \cdot l_\perp} \int \frac{dw^+ dw^-}{2} \Pi_{+\dots+, - \dots -}\left(w^+, w^-, l_\perp, z, \bar{z}\right) = \notag \\
+&- \frac{i}{2^J} {\left( e ^{A+\bar{A}}\right)}^{J-1} G_J \left(z, \bar{z}, t\right) \, , \\
+& G_J\left(z, \bar{z}, t\right) = e^{\Phi + \bar{\Phi} - \frac{A + \bar{A}}{2}} \sum_n \frac{\psi_n \left(J, z\right) {\psi_n \left(J, \bar{z}\right)}^*}{t_n \left(J\right) - t}
+\end{align}
+where $w = \left(w^+, w^-, l_\perp\right)$ is the difference between the Minkowski indices of the bulk points $X$ and $\bar{X}$.
+The functions $\psi_n\left(J, z\right)$ are the normalisable modes of the spin $J$ field and are eigenfunctions of the Schr\"{o}dinger equation
+\begin{equation}
+  \left(-\frac{d^2}{dz^2}+U_J(z)\right)\psi_n(J,z)=t_n\left(J\right)\psi_n(J,z)\,,
+\end{equation}
+with eigenvalues $t_n \left(J\right)$. The associated Schr\"{o}dinger potential is defined by
+\begin{align}
+ & U_J(z)= \frac{3}{2}\left(\ddot A - \frac{2}{3}\ddot \Phi\right) + \frac{9}{4}{\left(\dot A - \frac{2}{3}\dot \Phi \right)}^2 + \\
+ &+ (J - 2)e^{-2A}\bigg[\frac{2}{l^2_s}\left(1+\frac{d}{\sqrt{\lambda}}\right) + \frac{J + 2}{\lambda^{4/3}}+e^{2A} \left(a \ddot \Phi + b \left(\ddot A - \dot{A}^2\right) + c \dot{\Phi}^2  \right)\bigg]\,.
+ \nonumber
+\end{align}
+where the first line represents the potential for the graviton while the other terms are deformations of it. Later, in order to perform the Sommerfeld-Watson transform in Regge theory, we will consider the analytical continuation of this potential and the value of the intercept $J = j_n$ is obtained as the  $n$-th  eigenvalue that solves the equation $t_n(J)=0$. This eigenvalue problem is solved with a Chebyschev pseudospectral method with 1000 points. The value of the intercepts for the values of $l_s$, $a$, $b$, $c$ and $d$ that we use are also presented in table~\ref{table:pomeron_kernel_parameters}. 
+The parameters of the spin $J$ field equation can be interpreted in terms of low energy effective string theory. $l_s$ is the string length; $a$, $b$ and $c$ come from a first order derivative expansion in effective field theory; $d$ is related to the anomalous dimension $\gamma_J$ of the twist 2 operators, or it can also be thought as a description of how the masses of the closed strings excitations are corrected in backgrounds with small curvature.
+
+Finally, in order to compute the Witten diagram we also need to know the external scattering states couple with the spin J fields $h_{a_1 \dots a_J}$ in the graviton Regge trajectory. 
+Furthermore, in the Regge limit we will only be interested in the TT components $h_{\alpha_1 \dots \alpha_J}$ of these fields. The derivation of this coupling for the $U\left(1\right)$ gauge and scalar fields has been done in~\cite{ballon_bayona_unity_2017} and hence we only present the results
+\begin{align}
+ &\kappa_J  \int  d^5 X \sqrt{-g} \, e^{-\Phi }   F^{\alpha_1 a} \partial^{\alpha_2} \dots \partial^{\alpha_{J-1}}F^{\alpha_J}_{\ \ a} h_{\alpha_1\dots \alpha_J}, \\
+ \label{eq:scalar_spin_J_coupling}
+ &\bar{\kappa}_J  \int  d^5 X \sqrt{-g} \, e^{-\Phi }   \Upsilon \partial^{\alpha_1} \dots \partial^{\alpha_{J}} \Upsilon h_{\alpha_1\dots \alpha_J} .
+\end{align}
 
 \subsection{Computation of the Witten diagram}
 The amplitude associated with the exchange of a spin J field in the Witten diagram is given by
@@ -148,427 +231,364 @@ Using the kinematics introduced and lowering the indeces of the bulk-to-bulk pro
 &- k_J^2 {\left( \frac{i}{2} \sqrt{s}\right)}^{2J-4} \int d^5X d^5\bar{X} \frac{e^{5 (A+\bar{A}) }}{4} e^{-\Phi - \bar{\Phi}} {\left(4 e^{-2(A+\bar{A})}\right)}^J e^{-i q_\perp \cdot \left(x_\perp - \bar{x}_\perp\right)} \times \notag \\
 & \times F_{-a}^{(1)}F^{a \, (3)}_{-} \Pi_{+\dots+, - \dots -}\left(X, \bar{X}\right)  F_{+ b}^{(2)}F^{b \, (4)}_{+}
 \end{align}
-By performing the change of variables $w = x - \bar{x}$, using the propagator identities
-\begin{align}
-&\int d^2l_\perp e^{-i q_\perp \cdot l_\perp} \int \frac{dw^+ dw^-}{2} \Pi_{+\dots+, - \dots -}\left(w^+, w^-, l_\perp, z, \bar{z}\right) = - \frac{i}{2^J} {\left( e ^{A+\bar{A}}\right)}^{J-1} G_J \left(z, \bar{z}, t\right)  \notag \\
-& \int \frac{dx^+ dx^-}{2} d^2 x_\perp = {\left(2\pi\right)}^4 \delta^{(4)}\left(0\right) = V
-\end{align}
-and equation (\ref{eq:F_expression}) we get
+By performing the change of variables $w = x - \bar{x}$, using the propagator identity in equation (\ref{eq:propagator_identity}) we get
 \begin{align}
 &\frac{i V k_J^2}{2^J} s^J \int dz d\bar{z} e^{3\left(A+\bar{A}\right)} e^{- \Phi - \bar{\Phi}} e^{-(1+J)(A+\bar{A})} F(1,3)F(2,4) G_J \left(z, \bar{z}, t\right), \notag \\
 & F(i,j) = 
 \begin{cases}
 f_{Q_i} f_{Q_j} , \lambda_i = \lambda_j = 1,2 \\
-\frac{\dot{f_{Q_1}}}{Q_i} \frac{\dot{f_{Q_j}}}{Q_j}, \lambda_i = \lambda_j = 3
+\frac{\dot{f_{Q_i}}}{Q_i} \frac{\dot{f_{Q_j}}}{Q_j}, \lambda_i = \lambda_j = 3
 \end{cases}, \notag \\
-&G_J \left(z, \bar{z}, t\right) = e^{B+\bar{B}} \sum_n \frac{\psi_n\left(J, z\right) \psi_n \left(J, \bar{z}\right)}{t_n\left(J\right) - t},
+&G_J \left(z, \bar{z}, t\right) = e^{B+\bar{B}} \sum_n \frac{\psi_n\left(J, z\right) {\psi_n \left(J, \bar{z}\right)}^*}{t_n\left(J\right) - t},
 \end{align}
-where $B = \Phi - A/2$ in our models.
+where $B = \Phi - A/2$ in IHQCD.
 
 We now need to sum the above amplitude over the even spin-J fields with $J>2$. Such sum can be computed through a Sommerfeld-Watson transform
 \begin{equation}
 \frac{1}{2} \sum_J s^J + (-s)^J = -\frac{\pi}{2} \int \frac{dJ}{2 \pi i} \frac{s^J + (-s)^J}{\sin \pi J}.
 \end{equation}
-This assumes that an analytic continuation of the amplitude to the complex J-plane is possible. We now deform the integral from the poles at even J, to the poles $J = j_n\left(t\right)$ defined by $t_n(J) = t$. The scattering domain of negative t contains these poles along the real axis for $J<2$. The forward scattering amplitude ( $t= 0$ ) of $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$ is then
+This assumes that an analytic continuation of the amplitude to the complex J-plane is possible. We now deform the integral from the poles at even J, to the poles $J = j_n\left(t\right)$ defined by $t_n(J) = t$. The scattering domain of negative t contains these poles along the real axis for $J<2$. The forward scattering amplitude ($t= 0$) of $\gamma^{*}\left(Q_1\right)\gamma^{*}\left(Q_2\right) \rightarrow \gamma^{*}\left(Q_3\right) \gamma^{*}\left(Q_4\right)$ is then
 \begin{align}
 &\mathcal{A}^{\lambda_1, \lambda_2, \lambda_3, \lambda_4}_{Q_1, Q_2, Q_3, Q_4}\left(s,t = 0\right) = - \frac{\pi}{2} \sum_n s^{j_n\left(t\right)} \left( i + \cot\left(\frac{\pi j_n\left(0\right)}{2}\right) \right) \frac{k_{j_n\left(0\right)}^2}{2^{j_n\left(0\right)}} \frac{d j_n}{dt} \times \notag \\
-& \times \int dz e^{-\left(j_n - 3/2\right) A} F(1,3) \psi_n\left(z\right) \int d\bar{z} e^{-(j_n-3/2)\bar{A}} F(2,4) \psi_n\left(\bar{z}\right)
+& \times \int dz e^{-\left(j_n - 3/2\right) A} F(1,3) \psi_n\left(z\right) \int d\bar{z} e^{-(j_n-3/2)\bar{A}} F(2,4) {\psi_n\left(\bar{z}\right)}^*
 \label{eq:scattering_amplitude}
 \end{align}
 
-From this expression of the scattering amplitude we can compute two observables: $F_2^\gamma$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$.
-\subsection{$F_2^\gamma$}
-In high-energy $e^{+}e^{-}$ interactions some of the electrons and positrons do not annihilate or scatter electromagnetically, but are scattered by radiating virtual photons. These virtual photons can fluctuate in quark-antiquark pairs and radiate themselves gluons producing a hadronic final state X.
+The total cross-sections $\sigma^{ij}\left(Q_1^2, Q_2^2, W^2\right)$ can now be computed using the optical theorem and appropriate photon polarisations as well by setting $Q_3^2 = Q_1^2$ and $Q_4^2 = Q_2^2$.
 
+\subsection{$F_2^\gamma$}
+
+We consider first the case of the scattering between a virtual photon and an on-shell photon. In analogy with deep inelastic $e^{\pm} p$ scattering we can think of this process as deep inelastic $e^{\pm} \gamma$ scattering. Just as in the case of deep inelastic $e^{\pm} p$ scattering we can define a hadronic tensor $W^{\mu \nu}$ and two structure functions related by
+\begin{align}
+\frac{W^{\mu \nu}\left(x, Q^2\right)}{8 \pi^2 \alpha} = &- \left( g^{\mu \nu} + \frac{q_1^\mu q_1^\nu}{Q^2}\right) F_1^\gamma\left(x, Q^2\right) + \notag \\
+& + \frac{1}{q_1 \cdot q_2} \left( q_2^\mu + q_1^\mu \frac{q_1 \cdot q_2}{Q^2} \right) \left( q_2^\nu + q_1^\nu \frac{q_1 \cdot q_2}{Q^2} \right) F_2^\gamma \left(x, Q^2\right)
+\end{align}
+and the cross section for the process $e \gamma \rightarrow e X$ can be written as
+\begin{equation}
+\frac{d^2 \sigma}{dx dy} = \frac{4 \pi \alpha ^2}{x y Q^2} \left[ \left(1-y\right) F_2^\gamma\left(x, Q^2\right) + x y^2 F^\gamma_1 \right]
+\end{equation}
+The structure functions are related to the total cross-sections of equation (\ref{eq:ee_eeX_sigma}) through the relations
 \begin{align}
 	\label{eq:F2_def}
 	&F_2^{\gamma} \left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \left[ \sigma_{TT}\left(s, Q^2, Q_2^2 = 0\right) +   \sigma_{LT}\left(s, Q^2, Q_2^2 = 0\right)\right] , \\
-	&F_L^{\gamma} \left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \sigma_{LT}\left(s, Q^2, Q_2^2 = 0\right)
+	&2 xF_1^{\gamma} \left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \sigma_{TT}\left(s, Q^2, Q_2^2 = 0\right)
 \end{align}
+
+Before continuing with the holographic computation let us discuss in which kinematical region will it be applicable. The hadronic photon structure function $F_2^\gamma$ differs from the proton structure function due to the point-like coupling of the photon to the quarks. This coupling makes the photon structure function to rise towards large values of Bjorken $x$ while in the case of the proton it decreases. Moreover $F_2^\gamma$ has positive scaling violations for all values of $x$ while $F_2^p$ has positive scaling violations only at small values of $x$. Also, the point-like part can be evaluated at all orders in perturbative QCD and dominates for large values of $Q^2$ and for values of $x > 0.1$.
+On the other hand, the hadronic-like part can not be computed in perturbative QCD. Like its $F_2^p$ counterpart, only its evolution with $Q^2$ can be determined. As in the case of the proton, an ansatz for the $x$ dependence at some scale $Q_0^2$ is given as input to QCD evolution equations. This ansatz can be derived from the Vector Meson Dominance model since the photon can fluctuate in a Vector Meson like the $\rho$ meson. After that they assume that the $F_2^\rho$ structure function is the same as the $F_2^{\pi^0}$ structure function which has been measured experimentally. Then this hadron-like component can be evolved using perturbative QCD and we can compare it with the $F_2^\gamma$ structure function that contains both the point-like and hadron-like contributions. The result is that although the hadron-like component is not important for high values of $Q^2$ and $x > 0.1$ it clearly dominates for very small values of $x$, meaning that we can use the Pomeron exchange picture to study this process. Hence our holographic expression is only valid for $x < 0.01$. We now proceed to the holographic computation of $F_2^\gamma$ in this kinematical region.
+
 As mentioned one the photons in this process is quasi-real. Let us assume that such photon is the represented by the lower part of the Witten diagram. Then the $\bar{z}$ integral simplifies to 
 \begin{equation}
-\int d\bar{z} e^{- \left(j_n - 3/2\right) A} \psi_n \left(j_n\left(0\right), \bar{z}\right).
+\int d\bar{z} e^{- \left(j_n - 3/2\right) A} {\psi_n \left(j_n\left(0\right), \bar{z}\right)}^{*}.
 \end{equation}
 Defining
 \begin{equation}
-g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n\left(0\right)}{2} \right) \frac{k^2_{j_n\left(0\right)}}{2^{j_n\left(0\right)}} j_n'\left(0\right) \int d\bar{z} e^{- \left(j_n - 3/2\right) A} \psi_n \left(j_n\left(0\right), \bar{z}\right)
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n\left(0\right)}{2} \right) \frac{k^2_{j_n\left(0\right)}}{2^{j_n\left(0\right)}} j_n'\left(0\right) \int d\bar{z} e^{- \left(j_n - 3/2\right) A} {\psi_n \left(j_n\left(0\right), \bar{z}\right)}^*
 \end{equation}
 and using the optical theorem we can write the total cross-sections $\sigma_{TT}$ and $\sigma_{LT}$ as
 \begin{align}
 &\sigma_{TT} =  \sum_n Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} f_Q^2 \psi_n\left(z\right) \\
-&\sigma_{LT} =  \sum_n  Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} \frac{\dot{f}_Q^2}{Q^2} \psi_n\left(z\right)
-\end{align}.
+&\sigma_{LT} =  \sum_n  Im\left(g_n\right) s^{j_n - 1} \int dz e^{-\left(j_n - 3/2\right) A} \frac{\dot{f}_Q^2}{Q^2} \psi_n\left(z\right).
+\end{align}
+Using the equation (\ref{eq:F2_def}) and $s  = Q^2 / x$ the holographic expression for $F_2^\gamma$ is then
+\begin{equation}
+F_2^\gamma = \sum_n \frac{ Im \, g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1- j_n} \int dz e^{- \left( j_n - 3/2\right) A} \left( f_Q^2 + \frac{\dot{f}_Q}{Q^2} \right) \psi_n \,.
+\end{equation}
 
-\begin{equation}
-F_2^\gamma = \sum_n \frac{ Im \, g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1- j_n} \int dz e^{- \left( j_n - 3/2\right) A} \left( f_Q^2 + \frac{\dot{f}_Q}{Q^2} \right) \psi_n \, ,
-\end{equation}
-where $g_n$ is defined by
-\begin{equation}
-g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k^2_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 3/2 \right)A} \psi_n
-\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$\sigma\left(\gamma \gamma \rightarrow X\right)$}
-In this process both photons are considered quasi-real
+In this process both photons are considered quasi-real, i.e. $Q_1^2 \approx 0$ and $Q_2^2 \approx 0$. In our holographic setup the non-normalizable modes of the bulk $U\left(1\right)$ gauge field
+satisfy
 \begin{equation}
-\sigma\left(\gamma \gamma \rightarrow X\right) = \sum_n Im \, g_n s^{j_n - 1} \int dz e^{- \left( j_n - 3/2\right) A}  \psi_n
+\lim_{Q \rightarrow 0} f_Q \left(z\right) = 1 \quad , \quad \lim_{Q \rightarrow 0} \frac{\dot{f_Q}}{Q} = 0
 \end{equation}
-Here $g_n$ as the same definiton as in the $F_2^\gamma$ section.
+This implies, by using equation (\ref{eq:scattering_amplitude}) and the optical theorem, that~$\sigma^{LL}\left( 0, 0, W\right) = \sigma^{TL}\left(0, 0, W\right) = \sigma^{LT}\left(0, 0, W\right)$ vanish. This is expected since real photons only have transverse polarisation and hence the cross-sections that involve at least one longitudinal on-shell photon do not contribute for this process.
+Then 
+\begin{equation}
+\sigma\left(\gamma \gamma \rightarrow X\right) =  \sigma^{TT}\left(0, 0, s = W^2\right) = \sum_n Im \, g_n s^{j_n - 1} \int dz e^{- \left( j_n - 3/2\right) A}  \psi_n.
+\end{equation}
+The numbers $Im \, g_n$ have the same definition as the ones in our  holographic expression $F_2^\gamma$ and then these observables are related through the identity
+\begin{equation}
+\sigma\left(\gamma \gamma \rightarrow X\right) = 4 \pi^2 \alpha \lim_{Q^2 \rightarrow 0} \frac{F_2^\gamma}{Q^2}
+\end{equation}
+This suggests that if we get good individual fits for $F^\gamma_2$ data and for $\sigma\left(\gamma \gamma \rightarrow X\right)$ data, a joint fit with these two observables should be attempted with the same set of parameters.
 
-\section{$\gamma\, p$ observables}
 
-The total cross-section of the process $\gamma p \rightarrow X$ is related to the DIS structure function $F_2\left(x, Q^2\right)$ through
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{$\gamma^*\, p$ observables}
+
+Like in the case of $\gamma^{*} \gamma$ processes we can study the proton structure functions $F_2$ and $F_L$ and the total cross-section $\sigma\left(\gamma p \rightarrow X\right)$. They are all related to the total cross-sections $\sigma^T_{\gamma^* p}$ and $\sigma^L_{\gamma^{*} p}$ of the inelastic process $\gamma^{*} p \rightarrow X$. Here, as in the previous case, T and L refer to the transverse and longitudinal polarisation of the incoming off-shell photon. At low-$x$ the proton structure functions are given by
+\begin{align}
+&F_2^p\left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha} \left( \sigma^T_{\gamma^* p}\left(s, Q^2\right) +  \sigma^L_{\gamma^* p}\left(s, Q^2\right)   \right) \\
+&F_L^p\left(x, Q^2\right) = \frac{Q^2}{4 \pi^2 \alpha}  \sigma^L_{\gamma^* p}\left(s, Q^2\right)
+\end{align}
+and since only on-shell photons have transverse polarisation states, the total cross-section of the process $\gamma p \rightarrow X$ is related to the proton structure function $F_2^p\left(x, Q^2\right)$ through
 \begin{equation}
 \sigma\left(\gamma p \rightarrow X\right) = 4 \pi^2 \alpha \lim_{Q^2 \rightarrow 0} \frac{F_2\left(x, Q^2\right)}{Q^2}.
 \end{equation}
+
+In previous works we have derived holographic expressions for $F_2$ and $F_L$ in the context of the IHQCD model. Hence we will present them below without further justification. For further details the reader can consult the references~\cite{ballon_bayona_unity_2017, Amorim:2018yod, gluonPDF_IHQCD_2020}. 
 In IHQCD we have derived the following expressions for the structure functions
 \begin{align}
-&F_2(x, Q^2) = \sum_{n} \frac{ Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
-&F_L(x, Q^2) = \sum_{n} \frac{Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
+&F_2^p(x, Q^2) = \sum_{n} \frac{ Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \left( f_Q^2  +  \frac{\dot{f}_Q^{2}}{Q^2}      \right) \psi_n , \\
+&F_L^p(x, Q^2) = \sum_{n} \frac{Im g_n}{4 \pi^2 \alpha} Q^{2 j_n} x^{1-j_n} \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \frac{\dot{f}_Q^{2}}{Q^2}  \psi_n.
 \end{align}
-Using the fact that $x = Q^2 / s$ and that for $Q = 0, \, f_Q\left(z\right) = 1$ our holographic expression for this cross-section is
+From the expression of $F_2^p$, using $x = Q^2 / s$ and that for $Q = 0, \, f_Q\left(z\right) = 1$ our holographic expression for the total  $\gamma p \rightarrow X$ cross-section is
 \begin{equation}
 \sigma\left(\gamma p \rightarrow X\right) =  \sum_{n} Im g_n \, s^{j_n -1 } \int dz \,e^{-\left(j_n-\frac{3}{2}\right)A}  \psi_n.
 \end{equation}
-
+The definition of $g_n$ for these processes is
 \begin{equation}
-g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k_{j_n} \bar{k}_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 \psi_n
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k_{j_n} \bar{k}_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 {\psi_n}^*
 \end{equation}
 
 \section{$\sigma\left(p p \rightarrow X\right)$}
 
+In this section we compute the total cross-section $\sigma\left(p p \rightarrow X \right)$ in terms of the holographic quantities in our model.
+In~\cite{Ballon-Bayona:2015wra} a fit to $p \bar{p}$ total cross-section data was performed by considering the graviton Regge trajectory in IHQCD as a model for the soft pomeron exchange that occurs for high energy scattering processes. The proton and the anti-proton were dual to two different scalar fields in the bulk and their coupling to the spin J fields of the graviton Regge trajectory is of the same form as equation (\ref{eq:scalar_spin_J_coupling}) but with different coupling constants for each scalar field. Since we are considering proton-proton scattering we can use equation (36) of~\cite{Ballon-Bayona:2015wra} and make $\upsilon_2' = \upsilon_1 = \upsilon_p$ and $k_J = k'_J = \bar{k}_J$ to compute the forward scattering amplotude. When we do that we obtain throught the optical theorem
 \begin{equation}
-\sigma\left(p p \rightarrow X\right) = \sum_n Im g_n \, s^{j_n -1}
+\sigma\left(p p \rightarrow X\right) = \sum_n Im g_n \, s^{j_n -1},
 \end{equation}
-
+where $g_n$ is defined in this case as
 \begin{equation}
-g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{\bar{k}^2_{j_n}}{2^{j_n}} \frac{d j_n}{dt} {\left(\int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 \psi_n\right)}^2
+g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{\bar{k}^2_{j_n}}{2^{j_n}} \frac{d j_n}{dt}  \int d z d\bar{z} e^{-\left(j_n - 7/2 \right)\left(A+\bar{A}\right)} {|\upsilon_p\left(z\right)|}^2 {|\upsilon_p\left(\bar{z}\right)|}^2 \psi_n\left(z\right){\psi_n}^{*}\left(\bar{z}\right)
 \label{eq:pp_fit_constant}
 \end{equation}
 
-\section{Data analysis}
+\section{Data analysis and results}
 
+Comparing the holographic formulas in the previous sections with experiments allows us to determine the constants ${\rm Im} \, g_n$ that describe best the available data. These constants have different definitions for $\gamma^*\gamma$, $\gamma^*p$ and $pp$ processes, so we will determine a set of values ${\rm Im} \, g_n$ for each process class. We will use the first four Reggeons, which were enough to describe the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ in~\cite{gluonPDF_IHQCD_2020}. Each ${\rm Im} \, g_n$ is associated with a Reggeon. The best set of parameters is obtained by performing a weighted $\chi^2$ fit to a dataset. For the structure functions of the proton and photon the weights are the inverse of the experimental error of each point. For total cross-section data we also need to take into account that some data points have uncertainties in the values of $s$ (e.g. in $\gamma \gamma \rightarrow X$ that is always the case because it is a measured quantity). To account for this we compute the total cross-section for $s + \Delta s$ and $s - \Delta s$ and compute
+\begin{equation}
+\Delta \sigma_{\rm eff.} = {\rm max} \left(|\sigma^{\rm pred}\left(s + \Delta s\right)-\sigma^{\rm pred}\left(s\right)|,|\sigma^{\rm pred}\left(s - \Delta s\right)-\sigma^{\rm pred}\left(s\right)| \right)
+\end{equation}
+The weight for these cases is the inverse of ${\left(\Delta \sigma_{\rm exp.}\right)}^2+{\left(\Delta \sigma_{\rm eff.}\right)} ^2$ where $\Delta \sigma_{\rm exp.}$ is the experimental error.
 
+For $\sigma\left(\gamma \gamma \rightarrow X\right)$,  $\sigma\left(\gamma p \rightarrow X\right)$ and $\sigma\left(p p \rightarrow X\right)$  fits we use the hadronic cross-section data files from Particle Data Group~\cite{pdg_2018}. These data sets are a compilation of experimental results obtained in the last decades from several collaborations. The datasets of  $\sigma\left(\gamma p \rightarrow X\right)$ and $\sigma\left(p p \rightarrow X\right)$ had cross-section values as a function of the laboratory momentum of the incoming on-shell photon and proton respectively. Hence we computed the respective center of mass energy $\sqrt{s}$ before performing the fits. For the fits involving total cross-sections we also considered only subsets with $\sqrt{s} > 4$, $\sqrt{s} > 4.6$ and $\sqrt{s} > 3 \, \text{GeV}$ for $\sigma\left(\gamma \gamma \rightarrow X\right)$, $\sigma\left(\gamma p \rightarrow X\right)$ and $\sigma\left(p p \rightarrow X \right)$ respectively. This gives us for $\sigma\left(\gamma \gamma \rightarrow X\right)$, $\sigma\left(\gamma p \rightarrow X\right)$ and $\sigma\left(p p \rightarrow X \right)$ 39, 45 and 150 data points, respectively.  The lower bound cuts result from the fact that our model does not realise the meson trajectory with an intercept around $0.35-0.55$. This trajectory dominates for smaller values of $s$ and the best our model can do is to mimic it in the intermediate range of $s$ through the third and fourth trajectories. In the future we plan to study how to include the meson trajectory and redo these fits.
 
-\subsection{$\gamma^{*} \gamma$ processes}
+The source of data for the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ we use the HERA measurements of these observables available in~\cite{Aaron:2009aa, Collaboration:2010ry}. There are 249 points in the kinematical region with $x < 10^{-2}$ and $Q^2 \leq 400 {\rm \, GeV}^2$ for $F_2$ and 64 points with $x < 10^{-2}$ and $Q^2 \leq 45 {\rm \, GeV}^2$ for $F_L$. For the photon structure function $F_2^\gamma\left(x, Q^2\right)$ we consider the measurements of ALEPH~\cite{Heister:2003an}, L3~\cite{Acciarri:1998ig} and OPAL~\cite{Ackerstaff:1997ng, Abbiendi:2000cw, Abbiendi:2002te} collaborations at LEP and of the TPC/Two Gamma collaboration ~\cite{Aihara:1986xw} at SLAC $e^+e^-$ storage ring PEP. These measurements contribute with 22 points with $x \leq 0.0235$ and $Q^2 \leq 17.8 {\rm GeV}^2$.
+
+The minimisation of the $\chi^2$ is done using an implementation in C++ of the Nelder-Mead (NM) algorithm presented in the book Numerical Recipes. We are performing fits with 4 free parameters and hence it is hard to tell if the minimum found by the NM algorithm is a local or global minimum. To solve this issue we tried several initial guesses in the parameter space and the values we quote are the lowest value for the $\chi^2$ per number of degrees of freedom (i.e. ${\rm N_{points} - N_{parameters}}$) we have found.
 
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHOJET unfolding. The total number of data points is 18 and a $\chi^2$ of 0.804515 was obtained.}
+\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data given by PDG with $\sqrt{s} > 4 {\rm \, GeV}$ and using the pomeron kernel of~\cite{gluonPDF_IHQCD_2020}. The total number of data points is 39 and a $\chi^2 / {N.d.o.f.}$ of 0.593086 was obtained.}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.00102487\\ 
+${\rm Im} \, g_0$  & 0.000805106 \\ 
 \hline
-$g_1$  & 0.00465463 \\ 
+${\rm Im} \, g_1$  & 0.00269262 \\ 
 \hline
-$g_2$  & 0.0340127  \\
+${\rm Im} \, g_2$  & 0.00678736 \\ 
 \hline
-$g_3$  & 0.0024513\\ 
-\hline
-\end{tabular}
-\label{table:SigmaGammaGamma_best_fit_PHOJET}
-\end{table}
-
-\begin{figure}[!h]
-  \center
-  \includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_PHOJET_data_only.pdf} 
-  \caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using PHOJET unforlding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_PHOJET}.}
-\label{fig:SigmaGammaGamma_best_fit_PHOJET_data_only}
-\end{figure}
-
-\begin{table}[b!]
-\centering
-\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHYTIA unfolding. The total number of data points is 18 and a $\chi^2$ of 0.927157 was obtained.}
-\vspace{0.5cm}
-\begin{tabular}{|c|c|}
-\hline
-couplings   & value \\
-\hline
-$g_0$  & 0.00194039 \\ 
-\hline
-$g_1$  & 0.00925169 \\ 
-\hline
-$g_2$  &  0.0738589 \\
-\hline
-$g_3$  &  0.00817258\\ 
+${\rm Im} \, g_3$  & -0.00216957 \\ 
 \hline
 \end{tabular}
-\label{table:SigmaGammaGamma_best_fit_PHYTIA}
+\label{table:SigmaGammaGamma_best_fit_PDG_W_gt_4_HardPomeron}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}[!b]
 \center
-\includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_PHYTIA_data_only.pdf} 
-\caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using PHYTIA unfolding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_PHYTIA}.}
-\label{fig:SigmaGammaGamma_best_fit_PHYTIA_data_only}
+\includegraphics[scale = 0.5]{images/SigmaGammaGamma_vs_W_HardPomeron_PDG_data_only_W_gt_4.pdf} 
+\caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points. Our curve was obtained using the parameter values in table ~\ref{table:SigmaGammaGamma_best_fit_PDG_W_gt_4_HardPomeron}.}
+\label{fig:SigmaGammaGamma_best_fit_Sigma_data_only}
 \end{figure}
 
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the fit with $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with the average of PHOJET and PYTHIA unfolding. The total number of data points is 18 and a $\chi^2$ of 0.711115 was obtained.}
+\caption{Values of the parameters for the fit with $F_2^{\gamma}\left(x, Q^2\right)$ data only and using the pomeron kernel of~\cite{gluonPDF_IHQCD_2020}. The total number of data points is 22 and a $\chi^2 / {N.d.o.f.}$ of 1.00065 was obtained.}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.00173369 \\ 
+${\rm Im} \, g_0$  & 8.51615e-05\\ 
 \hline
-$g_1$  & 0.008549 \\ 
+${\rm Im} \, g_1$  & 0.00071289 \\ 
 \hline
-$g_2$  &  0.0719086 \\
+${\rm Im} \, g_2$  & 0.000483367  \\
 \hline
-$g_3$  &  0.00825794\\ 
-\hline
-\end{tabular}
-\label{table:SigmaGammaGamma_best_fit_Processed}
-\end{table}
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = \textwidth]{images/SigmaGammaGamma_vs_W_Processed_data_only.pdf} 
-\caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points using the average result of PHOJET and PHYTIA unfolding. Our curve was obtained using the values from table ~\ref{table:SigmaGammaGamma_best_fit_Processed}.}
-\label{fig:SigmaGammaGamma_best_fit_Processed_data_only}
-\end{figure}
-
-
-\begin{table}[b!]
-\centering
-\caption{Values of the parameters for the fit with $F_2^{\gamma}\left(x, Q^2\right)$ data. The total number of data points is 22 and a $\chi^2$ of 1.00065 was obtained.}
-\vspace{0.5cm}
-\begin{tabular}{|c|c|}
-\hline
-couplings   & value \\
-\hline
-$g_0$  & 8.51615e-05\\ 
-\hline
-$g_1$  & 0.00071289 \\ 
-\hline
-$g_2$  & 0.000483367  \\
-\hline
-$g_3$  & -0.00316919\\ 
+${\rm Im} \, g_3$  & -0.00316919\\ 
 \hline
 \end{tabular}
 \label{table:F2Photon_best_fit}
 \end{table}
 
-\begin{figure}[!h]
+\begin{figure}[!b]
 \center
-\includegraphics[width = \textwidth]{images/F2Photon_F2Photon_data_only.pdf} 
+\includegraphics[scale = 0.5]{images/F2Photon_F2Photon_data_only.pdf} 
 \caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:F2Photon_best_fit}.}
 \label{fig:F2Photon_best_fit_F2_data_only}
 \end{figure}
 
-
-
+For the $\gamma^* \gamma$ processes we started to do individual fits of $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma$ data. We have found a $\chi^2$ around 0.6 and 1 for $\sigma\left(\gamma \gamma \rightarrow X\right)$ and $F_2^\gamma$ respectively. The corresponding best fit parameters can be found in tables~\ref{table:SigmaGammaGamma_best_fit_PDG_W_gt_4_HardPomeron} and~\ref{table:F2Photon_best_fit} and the comparison of the best fits with data can be seen in figures~\ref{fig:SigmaGammaGamma_best_fit_Sigma_data_only} and~\ref{fig:F2Photon_best_fit_F2_data_only}. 
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHOJET unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 1.37416 was obtained.}
+\caption{Values of the parameters for the joint fit of the photon structure function $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data from PDG with $\sqrt{s} > 4 {\rm \, GeV}$. The total number of data points is 61 and a $\chi^2 / {N.d.o.f.}$ of 1.05567 was obtained.}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.000157591\\ 
+${\rm Im} \, g_0$  & 0.000176017\\ 
 \hline
-$g_1$  & 0.000299143 \\ 
+${\rm Im} \, g_1$  & 0.00022995 \\ 
 \hline
-$g_2$  & 0.000137773  \\
+${\rm Im} \, g_2$  & -0.000173646 \\
 \hline
-$g_3$  & -0.00181583\\ 
+${\rm Im} \, g_3$  & -0.001411 \\ 
 \hline
 \end{tabular}
-\label{table:GammaGamma_best_fit_PHOJET}
+\label{table:GammaGamma_best_joint_fit}
 \end{table}
-
-\begin{figure}[!h]
+\begin{figure}[!b]
 \center
-\includegraphics[width = \textwidth]{images/F2Photon_PHOJET.pdf} 
-\caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_PHOJET}.}
-\label{fig:F2Photon_best_fit_PHOJET}
+\includegraphics[scale = 0.5]{images/SigmaGammaGamma_vs_W_joint_fit_PDG_W_gt_4.pdf} 
+\caption{Predicted $\sigma\left(\gamma \gamma \rightarrow X\right)$ vs experimental points. Our curve was obtained using the parameter values in table ~\ref{table:GammaGamma_best_joint_fit}.}
+\label{fig:SigmaGammaGamma_best_joint_fit}
 \end{figure}
+\begin{figure}[!b]
+\center
+\includegraphics[scale = 0.5]{images/F2Photon_PDG_W_gt_4.pdf} 
+\caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_joint_fit}.}
+\label{fig:F2Photon_best_joint_fit}
+\end{figure}
+Because the definition of the fitting parameters is the same for both processes and we have got individual good fits a joint fit was attempted with a total of  61 experimental points. A $\chi^2$ around $1.06$ was obtained and the best fit parameters are displayed in table~\ref{table:GammaGamma_best_joint_fit}.
 
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with PHYTIA unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 2.32196 was obtained.}
+\caption{Values of the parameters for the best fit of $\sigma\left(\gamma p \rightarrow X\right)$ using only data from PDG with $\sqrt{s} > 4.6 \, \text{GeV}$ and the pomeron kernel of~\cite{gluonPDF_IHQCD_2020}. A total number of 45 points has been used resulting in a~$\chi^2 / {N.d.o.f.}$ of 0.762536. }
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.000171144\\ 
+${\rm Im} \, g_0$  & 0.000410538\\ 
 \hline
-$g_1$  & 0.00021032 \\ 
+${\rm Im} \, g_1$  & -0.392161 \\ 
 \hline
-$g_2$  & 0.00015387  \\
+${\rm Im} \, g_2$  & -6.19442  \\
 \hline
-$g_3$  & -0.0015843\\ 
+${\rm Im} \, g_3$  & -1.53268\\ 
 \hline
 \end{tabular}
-\label{table:GammaGamma_best_fit_PHYTIA}
+\label{table:SigmaGammaP_HardPomeron_PDG_best_fit}
 \end{table}
-
-\begin{figure}[!h]
+\begin{figure}[!b]
 \center
-\includegraphics[width = \textwidth]{images/F2Photon_PHYTIA.pdf} 
-\caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_PHYTIA}.}
-\label{fig:F2Photon_best_fit_PHYTIA}
+\includegraphics[scale = 0.5]{images/SigmaGammaP_vs_W_PDG_data_only_W_gt_461.pdf} 
+\caption{Predicted $\sigma \left( \gamma p \rightarrow X \right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:SigmaGammaP_HardPomeron_PDG_best_fit}.}
+\label{fig:SigmaGammaProton_data_only_best_fit}
 \end{figure}
-
+For $\gamma^{*}p$ processes we started first with an individual fit of $\sigma\left(\gamma p \rightarrow X\right)$. We got a $\chi^2$ of $0.76$ with the parameters of table~\ref{table:SigmaGammaP_HardPomeron_PDG_best_fit} and our model prediction against the experimental points is displayed in figure~\ref{fig:SigmaGammaProton_data_only_best_fit}. The fit results using the proton structure functions $F_2$ and $F_L$ are present in~\cite{gluonPDF_IHQCD_2020} and a $\chi^2$ around $1.4$ was obtained. For the joint fit of the proton structure functions with $\sigma\left(\gamma p \rightarrow X\right)$, with a total of 358 points, we got also a $\chi^2$ of $1.4$ with the parameter values of table~\ref{table:joint_DIS_GammaP_best_joint_fit_PDG}. Our predictions against the $\sigma\left(\gamma p \rightarrow X\right)$ data are present in figure~\ref{fig:SigmaGammaProton_best_joint_fit} and agains the proton structure function $F_2$ and $F_L$ data are in figures~\ref{fig:F2_best_joint_fit} and~\ref{fig:FL_best_joint_fit}.
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the joint fit of the proton structure functions $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with the average result of PHOJET and PHYTIA unfolding for the later. The total number of data points is 40 and a $\chi^2$ of 1.70487 was obtained.}
+\caption{Values of the parameters for the best joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data from PDG with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 4.6 \, \text{GeV}$. This means a~$\chi^2 / {N.d.o.f.}$ of 1.43779 with 358 experimental points.}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.000166002\\ 
+${\rm Im} \, g_0$  & 0.0494111\\ 
 \hline
-$g_1$  & 0.000247537 \\ 
+${\rm Im} \, g_1$  & 0.0226401 \\ 
 \hline
-$g_2$  & 0.000112687  \\
+${\rm Im} \, g_2$  & -0.000212687  \\
 \hline
-$g_3$  & -0.00169226\\ 
+${\rm Im} \, g_3$  & -0.361222\\ 
 \hline
 \end{tabular}
-\label{table:GammaGamma_best_fit_Processed}
+\label{table:joint_DIS_GammaP_best_joint_fit_PDG}
 \end{table}
-
-\begin{figure}[!h]
+\begin{figure}[!b]
 \center
-\includegraphics[width = \textwidth]{images/F2Photon_Processed.pdf} 
-\caption{Predicted $F_2^\gamma\left(x, Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaGamma_best_fit_Processed}.}
-\label{fig:F2Photon_best_fit_Processed}
+\includegraphics[scale = 0.5]{images/SigmaGammaP_vs_W_PDG_data_W_gt_461.pdf} 
+\caption{Predicted $\sigma \left( \gamma p \rightarrow X \right)$ vs experimental points. Our curve was obtained with our model with the values of table~\ref{table:joint_DIS_GammaP_best_joint_fit_PDG}.}
+\label{fig:SigmaGammaProton_best_joint_fit}
+\end{figure}
+\begin{figure}[!b]
+\center
+\includegraphics[scale = 0.5]{images/Holographic_F2_splitted_joint_fit_PDG_1.pdf} 
+\caption{Predicted proton structure function $F_2\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using our model with the values of table~\ref{table:joint_DIS_GammaP_best_joint_fit_PDG}.}
+\label{fig:F2_best_joint_fit}
+\end{figure}
+\begin{figure}[!b]
+\center
+\includegraphics[scale = 0.5]{images/Holographic_FL_splitted_joint_fit_PDG_1.pdf} 
+\caption{Predicted proton structure function $F_L\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using our model with the values of table~\ref{table:joint_DIS_GammaP_best_joint_fit_PDG}.}
+\label{fig:FL_best_joint_fit}
 \end{figure}
 
 
+%\begin{table}[b!]
+%\centering
+%\caption{Values of the parameters for $\sigma\left(p p \rightarrow X\right)$ data with $4.54 < \sqrt{s} \leq 386 \text{GeV}$. This results in a $\chi^2 / {N.d.o.f.}$ of 1.05721 with 113 experimental points.}
+%\vspace{0.5cm}
+%\begin{tabular}{|c|c|}
+%\hline
+%couplings   & value \\
+%\hline
+%$g_0$  & 33.4557\\ 
+%\hline
+%$g_1$  & -64.087 \\ 
+%\hline
+%$g_2$  & 91.6046  \\
+%\hline
+%$g_3$  & 56.0437\\ 
+%\hline
+%\end{tabular}
+%\label{table:SigmaPP_best_fit_W_lt_386}
+%\end{table}
 
-\subsection{$\gamma \, p$ processes}
+%\begin{figure}[!h]
+%\center
+%\includegraphics[width = \textwidth]{images/SigmaProtonProton_HardPomeron_W_lt_386.pdf} 
+%\caption{Predicted $\sigma\left(p p \rightarrow X\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:SigmaPP_best_fit_W_lt_386}.}
+%\label{fig:SigmaPP_best_fit_W_lt_386}
+%\end{figure}
 
-Here we present the fits results.
+Finally we present our best fit results for $\sigma\left(p p \rightarrow X\right)$. We got a $\chi^2$ of 0.9 for this process using the values of table~\ref{table:SigmaPP_best_fit}. For those values the predicted dependence of the total cross-section of proton-proton scattering is the one appearing in figure~\ref{fig:SigmaPP_best_fit}. Recall that the first parameter is associated with the hard pomeron while the second parameter is associated with the soft pomeron. Having said this we can tell that for high center of mass energies the hard pomeron's contribution is small as compared to the soft-pomeron one. This is consistent with the claims that the hard-pomeron is not important to describe hadron-hadron total cross-section for center of mass energies below $1 {\rm \, TeV}$. In~\cite{Donnachie:2011aa} Donnachie and Landshoff have argued that a moderate hard-pomeron contribution is also present in hadron-hadron scattering in order to describe total cross-section at center of mass energies above $1 {\rm \, TeV}$.
 
 \begin{table}[b!]
 \centering
-\caption{Values of the parameters for the joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 1.89 \, \text{GeV}$. This means a $\chi^2 / \text{N.d.f.}$ of 1.76745 with 392 experimental points.}
+\caption{Values of the parameters for $\sigma\left(p p \rightarrow X\right)$ data with $ \sqrt{s} > 3 \text{GeV}$. This results in a $\chi^2 / {N.d.o.f.}$ of 0.881516 with 150 experimental points.}
 \vspace{0.5cm}
 \begin{tabular}{|c|c|}
 \hline
 couplings   & value \\
 \hline
-$g_0$  & 0.0488725\\ 
+${\rm Im} \, g_0$  & -7.47707\\ 
 \hline
-$g_1$  & 0.0269148 \\ 
+${\rm Im} \, g_1$  & 128.449 \\ 
 \hline
-$g_2$  & 0.00283532  \\
+${\rm Im} \, g_2$  & -361.212  \\
 \hline
-$g_3$  & -0.377856\\ 
-\hline
-\end{tabular}
-\label{table:GammaP_best_fit}
-\end{table}
-
-\begin{table}[b!]
-\centering
-\caption{Values of the parameters for the joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 5.93 \, \text{GeV}$. This means a $\chi^2 / \text{N.d.f.}$ of 1.41597 with 345 experimental points.}
-\vspace{0.5cm}
-\begin{tabular}{|c|c|}
-\hline
-couplings   & value \\
-\hline
-$g_0$  & 0.0496542\\ 
-\hline
-$g_1$  & 0.0215857 \\ 
-\hline
-$g_2$  & -0.00273519  \\
-\hline
-$g_3$  & -0.356926\\ 
-\hline
-\end{tabular}
-\label{table:GammaP_best_fit_2}
-\end{table}
-
-Here are the plots
-
-\begin{figure}[!h]
-\center
-\includegraphics[scale = 0.75]{images/SigmaGammaP_vs_W.pdf} 
-\caption{Our curve vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
-\label{fig:GammaP_best_fit}
-\end{figure}
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = \textwidth]{images/Holographic_F2_splitted.pdf} 
-\caption{$F_2\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
-\label{fig:F2_best_fit}
-\end{figure}
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = \textwidth]{images/Holographic_FL_splitted.pdf} 
-\caption{$F_L\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit}.}
-\label{fig:FL_best_fit}
-\end{figure}
-
-
-\begin{figure}[!h]
-\center
-\includegraphics[scale = 0.75]{images/SigmaGammaP_vs_W_2.pdf} 
-\caption{Our curve vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
-\label{fig:GammaP_best_fit_2}
-\end{figure}
-
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = \textwidth]{images/Holographic_F2_splitted_2.pdf} 
-\caption{$F_2\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
-\label{fig:F2_best_fit_2}
-\end{figure}
-
-\begin{figure}[!h]
-\center
-\includegraphics[width = \textwidth]{images/Holographic_FL_splitted_2.pdf} 
-\caption{$F_L\left(x,Q^2\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:GammaP_best_fit_2}.}
-\label{fig:FL_best_fit_2}
-\end{figure}
-
-\subsection{$\sigma\left( p p \rightarrow X\right)$}
-
-\begin{table}[b!]
-\centering
-\caption{Values of the parameters for $\sigma\left(p p \rightarrow X\right)$ data with $4.54 < \sqrt{s} \leq 386 \text{GeV}$. This results in a $\chi^2 / \text{N.d.f.}$ of 1.05721 with 113 experimental points.}
-\vspace{0.5cm}
-\begin{tabular}{|c|c|}
-\hline
-couplings   & value \\
-\hline
-$g_0$  & 33.4557\\ 
-\hline
-$g_1$  & -64.087 \\ 
-\hline
-$g_2$  & 91.6046  \\
-\hline
-$g_3$  & 56.0437\\ 
+${\rm Im} \, g_3$  & 370.23 \\ 
 \hline
 \end{tabular}
 \label{table:SigmaPP_best_fit}
 \end{table}
 
-The results of fits to the proton-proton total cross-section data are presented in table~\ref{table:SigmaPP_best_fit}. Since the fitting constants are related to the proton's gravitational coupling constants through equation~\ref{eq:pp_fit_constant} we can compute their numerical values.
-
 \begin{figure}[!h]
 \center
-\includegraphics[width = \textwidth]{images/SigmaProtonProton_HardPomeron.pdf} 
+\includegraphics[scale = 0.5]{images/SigmaProtonProton_HardPomeron.pdf} 
 \caption{Predicted $\sigma\left(p p \rightarrow X\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:SigmaPP_best_fit}.}
 \label{fig:SigmaPP_best_fit}
 \end{figure}
 
-\subsection{Global fit}
+\section{Acknowledgments}
 
-
+This research received funding from the Simons Foundation grants 488637  (Simons collaboration on the Non-perturbative bootstrap)
+and from the  grant CERN/FIS-PAR/0019/2017. 
+Centro de F\'\i sica do Porto is partially funded by Funda\c c\~ao para a Ci\^encia e a Tecnologia (FCT) under the grant
+UID-04650-FCUP.
+ AA is funded by FCT under the IDPASC doctorate programme with the fellowship  PD/BD/114158/2016.
 
 \bibliographystyle{elsarticle-num}
-\bibliography{bib/pomeron.bib, bib/refs.bib, bib/AdSCFT.bib, bib/glueballs.bib, bib/HQCD.bib bib/exp_data.bib}
+\bibliography{photonScattering_notes}
+
 \end{document}
