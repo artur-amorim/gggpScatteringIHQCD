@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_f2Spectrum.exe
+
+# Build rule for target.
+test_f2Spectrum.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_f2Spectrum.exe
+.PHONY : test_f2Spectrum.exe
+
+# fast build rule for target.
+test_f2Spectrum.exe/fast:
+	$(MAKE) -f CMakeFiles/test_f2Spectrum.exe.dir/build.make CMakeFiles/test_f2Spectrum.exe.dir/build
+.PHONY : test_f2Spectrum.exe/fast
+
+#=============================================================================
 # Target rules for targets named gravitational_couplings_aux_calculations.exe
 
 # Build rule for target.
@@ -2497,6 +2510,33 @@ tests/test_alphaQED.cpp.s:
 	$(MAKE) -f CMakeFiles/test_alphaQED.exe.dir/build.make CMakeFiles/test_alphaQED.exe.dir/tests/test_alphaQED.cpp.s
 .PHONY : tests/test_alphaQED.cpp.s
 
+tests/test_f2Spectrum.o: tests/test_f2Spectrum.cpp.o
+
+.PHONY : tests/test_f2Spectrum.o
+
+# target to build an object file
+tests/test_f2Spectrum.cpp.o:
+	$(MAKE) -f CMakeFiles/test_f2Spectrum.exe.dir/build.make CMakeFiles/test_f2Spectrum.exe.dir/tests/test_f2Spectrum.cpp.o
+.PHONY : tests/test_f2Spectrum.cpp.o
+
+tests/test_f2Spectrum.i: tests/test_f2Spectrum.cpp.i
+
+.PHONY : tests/test_f2Spectrum.i
+
+# target to preprocess a source file
+tests/test_f2Spectrum.cpp.i:
+	$(MAKE) -f CMakeFiles/test_f2Spectrum.exe.dir/build.make CMakeFiles/test_f2Spectrum.exe.dir/tests/test_f2Spectrum.cpp.i
+.PHONY : tests/test_f2Spectrum.cpp.i
+
+tests/test_f2Spectrum.s: tests/test_f2Spectrum.cpp.s
+
+.PHONY : tests/test_f2Spectrum.s
+
+# target to generate assembly for a file
+tests/test_f2Spectrum.cpp.s:
+	$(MAKE) -f CMakeFiles/test_f2Spectrum.exe.dir/build.make CMakeFiles/test_f2Spectrum.exe.dir/tests/test_f2Spectrum.cpp.s
+.PHONY : tests/test_f2Spectrum.cpp.s
+
 tests/test_schrodinger.o: tests/test_schrodinger.cpp.o
 
 .PHONY : tests/test_schrodinger.o
@@ -2532,6 +2572,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test_f2Spectrum.exe"
 	@echo "... gravitational_couplings_aux_calculations.exe"
 	@echo "... globalFit_fixedKernel.exe"
 	@echo "... predictSigmaProtonProton_HardPomeron.exe"
@@ -2783,6 +2824,9 @@ help:
 	@echo "... tests/test_alphaQED.o"
 	@echo "... tests/test_alphaQED.i"
 	@echo "... tests/test_alphaQED.s"
+	@echo "... tests/test_f2Spectrum.o"
+	@echo "... tests/test_f2Spectrum.i"
+	@echo "... tests/test_f2Spectrum.s"
 	@echo "... tests/test_schrodinger.o"
 	@echo "... tests/test_schrodinger.i"
 	@echo "... tests/test_schrodinger.s"
