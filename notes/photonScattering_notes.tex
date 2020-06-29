@@ -580,9 +580,7 @@ ${\rm Im} \, g_3$  & 370.23 \\
 \label{fig:SigmaPP_best_fit}
 \end{figure}
 
-\subsection{Rescale some wavefunctions}
-
-In the Mathematica notebook we realized that after computing the $\bar{z}$ integral for the $\gamma^{*} \gamma$ processes and using the best fit values of ${\rm Im} \, g_n$ one would obtain pure imaginary gravitational couplings $k_{j_1}$ and $k_{j_4}$. Our model predictions are symmetric under $\psi_n \rightarrow e^{i\phi} \psi_n$ because of the product $\psi_n {\psi_n}^*$. Hence we rescaled the wavefunctions for $n=1$ and $n=4$. After we have done that we repeated the joint fit of $F_2^\gamma$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$. We obtained again a $\chi^2$ around 1.6 with the parameter values of table~\ref{table:GammaGamma_best_joint_fit_scaled}. As expected the numerical values are very close to the ones of table~\ref{table:GammaGamma_best_joint_fit_scaled} except the minus sign of ${\rm Im} \, g_1$ and ${\rm Im} \, g_4$. 
+In the Mathematica notebook we realized that after computing the $\bar{z}$ integral for the $\gamma^{*} \gamma$ processes and using the best fit values of ${\rm Im} \, g_n$ one would obtain pure imaginary gravitational couplings $k_{j_1}$ and $k_{j_4}$. Our model predictions are symmetric under $\psi_n \rightarrow e^{i\phi} \psi_n$ because of the product $\psi_n {\psi_n}^*$. Hence we rescaled the wavefunctions for $n=1$ and $n=4$. After we have done that we repeated the joint fit of $F_2^\gamma$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$. We obtained again a $\chi^2$ around 1.06 with the parameter values of table~\ref{table:GammaGamma_best_joint_fit_scaled}. As expected the numerical values are very close to the ones of table~\ref{table:GammaGamma_best_joint_fit} except the minus sign of ${\rm Im} \, g_1$ and ${\rm Im} \, g_4$. 
 \begin{table}[b!]
 \centering
 \caption{Values of the parameters for the joint fit of the photon structure function $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data from PDG with $\sqrt{s} > 4 {\rm \, GeV}$. The total number of data points is 61 and a $\chi^2 / {N.d.o.f.}$ of 1.0556 was obtained.}
@@ -602,7 +600,7 @@ ${\rm Im} \, g_3$  & 0.00140601 \\
 \end{tabular}
 \label{table:GammaGamma_best_joint_fit_scaled}
 \end{table}
-I repeated the fit for the $\gamma^{*}p$ processes and got again a $\chi^2$ of 1.4 for the joint fit involving the proton structure functions $F_2$ and $F_L$ and $\sigma\left(\gamma^* p \rightarrow X\right)$. The parameters found are the ones present in table~\ref{table:GammaProton_best_joint_fit_scaled}.
+I repeated the fit for the $\gamma^{*}p$ processes and got again a $\chi^2$ of 1.4 for the joint fit involving the proton structure functions $F_2$ and $F_L$ and $\sigma\left(\gamma^* p \rightarrow X\right)$. The parameters found are the ones present in table~\ref{table:GammaProton_best_joint_fit_scaled} and, as expected, are also close to the values in table~\ref{table:joint_DIS_GammaP_best_joint_fit_PDG} except to the sign difference in ${\rm Im} \, g_1$ and ${\rm Im} \, g_4$ due to the wavefunction rescaling.
 \begin{table}[b!]
 \centering
 \caption{Values of the parameters for the best joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data from PDG with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 4.6 \, \text{GeV}$. This means a~$\chi^2 / {N.d.o.f.}$ of 1.4376 with 358 experimental points. The wavefunctions have been scaled.}
@@ -623,7 +621,36 @@ ${\rm Im} \, g_3$  & 0.360583 \\
 \label{table:GammaProton_best_joint_fit_scaled}
 \end{table}
 
+The definitions of $\rm{Im} \, g_n$ of $\gamma^* \gamma$ and of $\rm{Im} \, g_n$ of $\gamma^* p$ processes suggest that a joint fit of $F_2^\gamma$, $\sigma\left(\gamma \gamma \rightarrow X\right)$, $F_2$, $F_L$ and $\sigma\left(\gamma p \rightarrow X\right)$ should be possible. The fitting parameters in this fit are the gravitational couplings $k_{j_n}$ between the bulk $U\left(1\right)$ gauge field with the n-th reggeon and the product of the gravitational couplings $\bar{k}_{j_n}$ of the bulk field dual to the proton with the $\bar{z}$ integral.
+We have done such a fit making use of the combined 419 experimental points of the different observables. A $\chi^2$ of $1.38$ was obtained with the parameters of table~\ref{table:GammaGamma_GammaProton_best_joint_fit}.
+\begin{table}[b!]
+\centering
+\caption{Best fit values for the joint fit of $\gamma^*\gamma$ and $\gamma^*p$ processes. 419 experimental points were used resulting in a $\chi^2$ of $1.38$.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$k_{j_n}$ & value & $\bar{k}_{j_n} \times \rm{\bar{z} \, integral \, value}$ & value \\
+\hline
+$n = 1$ & 0.0480899 & n = 1 & -16.8191 \\
+\hline
+$n = 2$ & 0.0707613 & n = 2 & -6.26249 \\
+\hline
+$n = 3$ & 0.167822 & n = 3 & 0.126023 \\
+\hline
+$n = 4$ & 0.264574 & n = 4 & 52.6098 \\
+\hline
+\end{tabular}
+\label{table:GammaGamma_GammaProton_best_joint_fit}
+\end{table}
+
+This last fit allowed us to determine the product of gravitational couplings $\bar{k}_{j_n}$ of the bulk field dual to the proton with the $\bar{z}$ integral containing the wave function of the proton in the bulk. Then using equation (\ref{eq:pp_fit_constant}) one obtains
+\begin{align}
+& {\rm Im \, g_1} = -17.3092 \, , & {\rm Im \, g_2} = -1.97037 \notag \\
+& {\rm Im \, g_3} = -0.000535407 \, , & {\rm Im \, g_4} =	-71.5961
+\end{align}
+Comparing these values with the ones obtained in the fit using only $\sigma\left(p p \rightarrow X\right)$ data we see that they are off by orders of magnitude. Moreover since the $\bar{k}_{j_n}$ are real numbers we can see from equation (\ref{eq:pp_fit_constant}) that ${\rm Im \, g_n}$ should be negative for all n. However, the fit using only $\sigma\left(p p \rightarrow X\right)$ data demanded that some of the constants to be positive.
+
 \section{Acknowledgments}
+
 
 This research received funding from the Simons Foundation grants 488637  (Simons collaboration on the Non-perturbative bootstrap)
 and from the  grant CERN/FIS-PAR/0019/2017. 
