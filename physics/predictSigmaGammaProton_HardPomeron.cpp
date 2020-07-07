@@ -54,13 +54,13 @@ int main(int argc, char ** argv)
     // Compute IzNs
     cout << "Computing sigma(gamma p -> hadrons) IzNs" << endl;
     vector<kinStruct> SigmaGammaPIzNs = sigma.getIzs(sigma_points, spectrum);
-
-    // Compute sigma(gamma p -> hadrons)
-    vector<double> sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points, false);
     
     // Compute sigma(gamma p -> hadrons) chi2
+    const int nPoints = sigma_points[0].size();
     double sigma_chi2 = sigma.chi2(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points);
-    cout << "The sigma(gamma p -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
+    cout << "Number of points: " << nPoints << endl;
+    cout << "The sigma(gamma p -> hadrons) chi2 / points is " << sigma_chi2 / nPoints << endl;
+    cout << "The sigma(gamma p -> hadrons) chi2 / Ndof is " << sigma_chi2 / (nPoints -4 ) << endl;
 
     vector<double> Ws;
     for(double W = 1.5; W < 300; W += 0.1) Ws.push_back(W);
@@ -72,7 +72,7 @@ int main(int argc, char ** argv)
     SigmaGammaPIzNs = sigma.getIzs(kinPts, spectrum);
     // Compute  predictions of sigma(gamma p -> hadrons)
     std::cout << "Predicting sigma(gamma p -> hadrons) for the given values of sqrt(s)" << std::endl;
-    sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, kinPts, true);
+    vector<double> sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, kinPts, true);
 
     return 0;
 }

@@ -49,30 +49,30 @@ int main(int argc, char ** argv)
 
     // Compute IzNBars
     cout << "Computing sigma(gamma gamma -> hadrons) IzNBars" << endl;
-    vector<kinStruct> SigmaGammaPIzNBars = sigma.getIzsBar(sigma_points, spectrum, GNs);
+    vector<kinStruct> SigmaGammaGammaIzNBars = sigma.getIzsBar(sigma_points, spectrum, GNs);
 
     // Compute IzNs
     cout << "Computing sigma(gamma gamma -> hadrons) IzNs" << endl;
-    vector<kinStruct> SigmaGammaPIzNs = sigma.getIzs(sigma_points, spectrum);
-
-    // Compute sigma(gamma gamma -> hadrons)
-    vector<double> sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points, false);
+    vector<kinStruct> SigmaGammaGammaIzNs = sigma.getIzs(sigma_points, spectrum);
     
     // Compute sigma(gamma gamma -> hadrons) chi2
-    double sigma_chi2 = sigma.chi2(SigmaGammaPIzNs, SigmaGammaPIzNBars, sigma_points);
-    cout << "The sigma(gamma gamma -> hadrons) chi2 is " << sigma_chi2 / (sigma_points[0].size() -4 ) << endl;
+    const int nPoints = sigma_points[0].size();
+    double sigma_chi2 = sigma.chi2(SigmaGammaGammaIzNs, SigmaGammaGammaIzNBars, sigma_points);
+    cout << "Number of points: " << nPoints << endl;
+    cout << "The sigma(gamma gamma -> hadrons) chi2 / points is " << sigma_chi2 / nPoints << endl;
+    cout << "The sigma(gamma gamma -> hadrons) chi2 /Ndof is " << sigma_chi2 / (nPoints -4 ) << endl;
 
     vector<double> Ws;
     for(double W = 1.5; W < 300; W += 0.1) Ws.push_back(W);
     vector<double> WPlus(Ws.size(), 0.0), WMinus(Ws.size(), 0.0);
     vector<vector<double>> kinPts = {Ws, WPlus, WMinus};
     // Compute new IzNBars
-    SigmaGammaPIzNBars = sigma.getIzsBar(kinPts, spectrum, GNs);
+    SigmaGammaGammaIzNBars = sigma.getIzsBar(kinPts, spectrum, GNs);
     // Compute new IzNs
-    SigmaGammaPIzNs = sigma.getIzs(kinPts, spectrum);
+    SigmaGammaGammaIzNs = sigma.getIzs(kinPts, spectrum);
     // Compute  predictions of sigma(gamma gamma -> hadrons)
     std::cout << "Predicting sigma(gamma gamma -> hadrons) for the given values of sqrt(s)" << std::endl;
-    sigma_pred = sigma.predict(SigmaGammaPIzNs, SigmaGammaPIzNBars, kinPts, true);
+    vector<double> sigma_pred = sigma.predict(SigmaGammaGammaIzNs, SigmaGammaGammaIzNBars, kinPts, true);
 
     return 0;
 }

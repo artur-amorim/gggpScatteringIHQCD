@@ -63,19 +63,15 @@ int main(int argc, char ** argv)
     vector<kinStruct> F2IzNs = f2.getIzs(F2points, spectrum);
     cout << "Computing FL IzNs" << endl;
     vector<kinStruct> FLIzNs = fl.getIzs(FLpoints, spectrum);
-
-    // Compute F2 and FL
-    std::cout << "Predicting F2 for the given values of Q2 and x" << std::endl;
-    vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, false);
-    std::cout << "Predicting FL for the given values of Q2 and x" << std::endl;
-    vector<double> FLpred = fl.predict(FLIzNs, FLIzNBars, FLpoints, false);
     
     // Compute F2 and FL chi2
     double F2chi2 = f2.chi2(F2IzNs, F2IzNBars, F2points);
-    cout << "The F2 chi2 is " << F2chi2 / (F2points[0].size()) << endl;
     double FLchi2 = fl.chi2(FLIzNs, FLIzNBars, FLpoints);
-    cout << "The FL chi2 is " << FLchi2 / FLpoints[0].size() << endl;
-    cout << "Total chi2 is " << (F2chi2 + FLchi2) / (F2points[0].size() + FLpoints[0].size()) << endl;
+    const int nF2points = F2points[0].size();
+    const int nFLpoints = FLpoints[0].size();
+    cout << "The F2 chi2 is " << F2chi2 / nF2points << endl;
+    cout << "The FL chi2 is " << FLchi2 / nFLpoints << endl;
+    cout << "Total chi2 is " << (F2chi2 + FLchi2) / (nF2points + nFLpoints) << endl;
     // Compute more predicted points in order to plot
     // Getting list of Q2s of F2
     std::vector<double> F2Q2s = f2.getDataPts()[0];
@@ -91,7 +87,6 @@ int main(int argc, char ** argv)
     F2points.clear(); FLpoints.clear();
     F2IzNBars.clear(); FLIzNBars.clear();
     F2IzNs.clear(); FLIzNs.clear();
-    F2pred.clear(); FLpred.clear();
 
     // Compute F2 points
     vector<double> Q2s(0), xs(0);
@@ -121,11 +116,11 @@ int main(int argc, char ** argv)
     // Predict the central values of F2
     F2IzNBars = f2.getIzsBar(F2points, spectrum, GNs);
     F2IzNs = f2.getIzs(F2points, spectrum);
-    F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, true);
+    vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, true);
     // Predict the central values of FL
     FLIzNBars = fl.getIzsBar(FLpoints, spectrum, GNs);
     FLIzNs = fl.getIzs(FLpoints, spectrum);
-    FLpred = fl.predict(FLIzNs, FLIzNBars, FLpoints, true);
+    vector<double> FLpred = fl.predict(FLIzNs, FLIzNBars, FLpoints, true);
  
     return 0;
 }

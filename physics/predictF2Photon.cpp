@@ -57,13 +57,14 @@ int main(int argc, char ** argv)
     cout << "Computing F2Photon IzNs" << endl;
     vector<kinStruct> F2IzNs = f2.getIzs(F2points, spectrum);
 
-    // Compute F2 and FL
-    std::cout << "Predicting F2Photon for the given values of Q2 and x" << std::endl;
-    vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, false);
     
     // Compute F2Photon chi2
     double F2chi2 = f2.chi2(F2IzNs, F2IzNBars, F2points);
-    cout << "The F2 chi2 is " << F2chi2 / (F2points[0].size() - 4) << endl;
+    const int nPoints = F2points[0].size();
+    cout << "Number of points: " << nPoints << endl;
+    cout << "The F2 chi2 / points is " << F2chi2 / nPoints << endl;
+    cout << "The F2 chi2 / Ndof is " << F2chi2 / (nPoints - 4) << endl;
+
 
     // Compute more predicted points in order to plot
     // Getting list of Q2s of F2
@@ -75,7 +76,7 @@ int main(int argc, char ** argv)
     // and also compute the predictions
     // Clear the necessary vectors
     F2points.clear(); F2IzNBars.clear();
-    F2IzNs.clear(); F2pred.clear();
+    F2IzNs.clear();
 
     // Compute F2 points
     vector<double> Q2s(0), xs(0);
@@ -94,7 +95,7 @@ int main(int argc, char ** argv)
     // Predict the central values of F2
     F2IzNBars = f2.getIzsBar(F2points, spectrum, GNs);
     F2IzNs = f2.getIzs(F2points, spectrum);
-    F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, true);
+    vector<double> F2pred = f2.predict(F2IzNs, F2IzNBars, F2points, true);
 
     return 0;
 }
