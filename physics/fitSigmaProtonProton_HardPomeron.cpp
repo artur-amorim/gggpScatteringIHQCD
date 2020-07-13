@@ -43,9 +43,9 @@ int main(int argc, char ** argv)
     // Compute the spectrum to check Reggeon properties
     chebSetN(1000);
     hqcdp.computeSpectrum();
-
+    
     vector<double> gns_guess = {g1, g2, g3, g4};
-    double gns_delta = 100;
+    double gns_delta = 1;
     hqcdp.fit(gns_guess, gns_delta);
 
     return 0;
