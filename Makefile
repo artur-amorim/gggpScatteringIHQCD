@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named fitGammaGammaGammaProtonAllPars.exe
+
+# Build rule for target.
+fitGammaGammaGammaProtonAllPars.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fitGammaGammaGammaProtonAllPars.exe
+.PHONY : fitGammaGammaGammaProtonAllPars.exe
+
+# fast build rule for target.
+fitGammaGammaGammaProtonAllPars.exe/fast:
+	$(MAKE) -f CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/build
+.PHONY : fitGammaGammaGammaProtonAllPars.exe/fast
+
+#=============================================================================
+# Target rules for targets named fitGammaProtonAllPars.exe
+
+# Build rule for target.
+fitGammaProtonAllPars.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fitGammaProtonAllPars.exe
+.PHONY : fitGammaProtonAllPars.exe
+
+# fast build rule for target.
+fitGammaProtonAllPars.exe/fast:
+	$(MAKE) -f CMakeFiles/fitGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaProtonAllPars.exe.dir/build
+.PHONY : fitGammaProtonAllPars.exe/fast
+
+#=============================================================================
+# Target rules for targets named fitGammaGammaAllPars.exe
+
+# Build rule for target.
+fitGammaGammaAllPars.exe: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 fitGammaGammaAllPars.exe
+.PHONY : fitGammaGammaAllPars.exe
+
+# fast build rule for target.
+fitGammaGammaAllPars.exe/fast:
+	$(MAKE) -f CMakeFiles/fitGammaGammaAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaAllPars.exe.dir/build
+.PHONY : fitGammaGammaAllPars.exe/fast
+
+#=============================================================================
 # Target rules for targets named test_f2Spectrum.exe
 
 # Build rule for target.
@@ -632,6 +671,87 @@ physics/fitF2Photon_HardPomeron_4Reggeons.s: physics/fitF2Photon_HardPomeron_4Re
 physics/fitF2Photon_HardPomeron_4Reggeons.cpp.s:
 	$(MAKE) -f CMakeFiles/fitF2Photon_HardPomeron_4Reggeons.exe.dir/build.make CMakeFiles/fitF2Photon_HardPomeron_4Reggeons.exe.dir/physics/fitF2Photon_HardPomeron_4Reggeons.cpp.s
 .PHONY : physics/fitF2Photon_HardPomeron_4Reggeons.cpp.s
+
+physics/fitGammaGammaAllPars.o: physics/fitGammaGammaAllPars.cpp.o
+
+.PHONY : physics/fitGammaGammaAllPars.o
+
+# target to build an object file
+physics/fitGammaGammaAllPars.cpp.o:
+	$(MAKE) -f CMakeFiles/fitGammaGammaAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaAllPars.exe.dir/physics/fitGammaGammaAllPars.cpp.o
+.PHONY : physics/fitGammaGammaAllPars.cpp.o
+
+physics/fitGammaGammaAllPars.i: physics/fitGammaGammaAllPars.cpp.i
+
+.PHONY : physics/fitGammaGammaAllPars.i
+
+# target to preprocess a source file
+physics/fitGammaGammaAllPars.cpp.i:
+	$(MAKE) -f CMakeFiles/fitGammaGammaAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaAllPars.exe.dir/physics/fitGammaGammaAllPars.cpp.i
+.PHONY : physics/fitGammaGammaAllPars.cpp.i
+
+physics/fitGammaGammaAllPars.s: physics/fitGammaGammaAllPars.cpp.s
+
+.PHONY : physics/fitGammaGammaAllPars.s
+
+# target to generate assembly for a file
+physics/fitGammaGammaAllPars.cpp.s:
+	$(MAKE) -f CMakeFiles/fitGammaGammaAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaAllPars.exe.dir/physics/fitGammaGammaAllPars.cpp.s
+.PHONY : physics/fitGammaGammaAllPars.cpp.s
+
+physics/fitGammaGammaGammaProtonAllPars.o: physics/fitGammaGammaGammaProtonAllPars.cpp.o
+
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.o
+
+# target to build an object file
+physics/fitGammaGammaGammaProtonAllPars.cpp.o:
+	$(MAKE) -f CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/physics/fitGammaGammaGammaProtonAllPars.cpp.o
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.cpp.o
+
+physics/fitGammaGammaGammaProtonAllPars.i: physics/fitGammaGammaGammaProtonAllPars.cpp.i
+
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.i
+
+# target to preprocess a source file
+physics/fitGammaGammaGammaProtonAllPars.cpp.i:
+	$(MAKE) -f CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/physics/fitGammaGammaGammaProtonAllPars.cpp.i
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.cpp.i
+
+physics/fitGammaGammaGammaProtonAllPars.s: physics/fitGammaGammaGammaProtonAllPars.cpp.s
+
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.s
+
+# target to generate assembly for a file
+physics/fitGammaGammaGammaProtonAllPars.cpp.s:
+	$(MAKE) -f CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaGammaGammaProtonAllPars.exe.dir/physics/fitGammaGammaGammaProtonAllPars.cpp.s
+.PHONY : physics/fitGammaGammaGammaProtonAllPars.cpp.s
+
+physics/fitGammaProtonAllPars.o: physics/fitGammaProtonAllPars.cpp.o
+
+.PHONY : physics/fitGammaProtonAllPars.o
+
+# target to build an object file
+physics/fitGammaProtonAllPars.cpp.o:
+	$(MAKE) -f CMakeFiles/fitGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaProtonAllPars.exe.dir/physics/fitGammaProtonAllPars.cpp.o
+.PHONY : physics/fitGammaProtonAllPars.cpp.o
+
+physics/fitGammaProtonAllPars.i: physics/fitGammaProtonAllPars.cpp.i
+
+.PHONY : physics/fitGammaProtonAllPars.i
+
+# target to preprocess a source file
+physics/fitGammaProtonAllPars.cpp.i:
+	$(MAKE) -f CMakeFiles/fitGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaProtonAllPars.exe.dir/physics/fitGammaProtonAllPars.cpp.i
+.PHONY : physics/fitGammaProtonAllPars.cpp.i
+
+physics/fitGammaProtonAllPars.s: physics/fitGammaProtonAllPars.cpp.s
+
+.PHONY : physics/fitGammaProtonAllPars.s
+
+# target to generate assembly for a file
+physics/fitGammaProtonAllPars.cpp.s:
+	$(MAKE) -f CMakeFiles/fitGammaProtonAllPars.exe.dir/build.make CMakeFiles/fitGammaProtonAllPars.exe.dir/physics/fitGammaProtonAllPars.cpp.s
+.PHONY : physics/fitGammaProtonAllPars.cpp.s
 
 physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.o: physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.cpp.o
 
@@ -2612,6 +2732,9 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... fitGammaGammaGammaProtonAllPars.exe"
+	@echo "... fitGammaProtonAllPars.exe"
+	@echo "... fitGammaGammaAllPars.exe"
 	@echo "... test_f2Spectrum.exe"
 	@echo "... gravitational_couplings_aux_calculations.exe"
 	@echo "... fitF2PhotonSigmaGammaGammaDISSigmaGammaProton.exe"
@@ -2655,6 +2778,15 @@ help:
 	@echo "... physics/fitF2Photon_HardPomeron_4Reggeons.o"
 	@echo "... physics/fitF2Photon_HardPomeron_4Reggeons.i"
 	@echo "... physics/fitF2Photon_HardPomeron_4Reggeons.s"
+	@echo "... physics/fitGammaGammaAllPars.o"
+	@echo "... physics/fitGammaGammaAllPars.i"
+	@echo "... physics/fitGammaGammaAllPars.s"
+	@echo "... physics/fitGammaGammaGammaProtonAllPars.o"
+	@echo "... physics/fitGammaGammaGammaProtonAllPars.i"
+	@echo "... physics/fitGammaGammaGammaProtonAllPars.s"
+	@echo "... physics/fitGammaProtonAllPars.o"
+	@echo "... physics/fitGammaProtonAllPars.i"
+	@echo "... physics/fitGammaProtonAllPars.s"
 	@echo "... physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.o"
 	@echo "... physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.i"
 	@echo "... physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.s"
