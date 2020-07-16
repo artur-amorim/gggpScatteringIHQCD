@@ -104,7 +104,7 @@ int main(int argc, char ** argv)
             complex<double> gn(1/tan(M_PI_2 * jn), 1);
             gn = - M_PI_2 * gn * djndt / pow(2, jn);
             // Now we make the specific computations
-            Im_gn_gg[i] = imag(gn * ks[i]*ks[i] * sigma_gg_IzNs[0].izns[i]);
+            Im_gn_gg[i] = imag(gn * ks[i] * ks[i] * sigma_gg_IzNs[0].izns[i]);
             Im_gn_gp[i] = imag(gn * ks[i] * kbars[i]);
             if(i == 0 or i == 3)
             {
@@ -126,13 +126,6 @@ int main(int argc, char ** argv)
         double sigma_gp_chi2 = sigma_gp.chi2(sigma_gp_IzNs, sigma_gp_IzNBars, sigma_gp_pts);
         double sigma_gg_chi2 = sigma_gg.chi2(sigma_gg_IzNs, sigma_gg_IzNBars, sigma_gg_pts);
 
-        cout << "Im_gn_gg:" << endl;
-        for(int i = 0; i < Im_gn_gg.size(); i++) cout << Im_gn_gg[i] << '\t';
-        cout << endl;
-        cout << "Im_gn_gp:" << endl;
-        for(int i = 0; i < Im_gn_gp.size(); i++) cout << Im_gn_gp[i] << '\t';
-        cout << endl;
-
         double chi2 = F2Photon_chi2 + F2_chi2 + FL_chi2 + sigma_gp_chi2 + sigma_gg_chi2;
         cout << "chi2: " << chi2 << endl; 
         return chi2;
@@ -152,13 +145,30 @@ int main(int argc, char ** argv)
     cout << "Number of degrees of freedom: " << npoints - X_opt.size() << endl;
     cout << "Best chi2 / Ndof: " << f(X_opt) / (npoints - X_opt.size()) << endl;
 
-    // Now let's make the predictions por all the observables.
-
-    // Predict F2Photon
-    // Predict F2
-    // Predict FL
-    // Predict sigma(gg->X)
-    // Predict sigma(gp->X)
+    cout << "Values of the imaginary parts:" << endl;
+    vector<double> ks = {X_opt[0], X_opt[1], X_opt[2], X_opt[3]};
+    vector<double> kbars = {X_opt[4], X_opt[5], X_opt[6], X_opt[7]};
+    vector<double> Im_gn_gg(reggeons.size()), Im_gn_gp(reggeons.size());
+    for(int i = 0; i < reggeons.size(); i++)
+    {
+        double jn = reggeons[i].getJ(), djndt = reggeons[i].getdJdt();
+        // Common factor
+        complex<double> gn(1/tan(M_PI_2 * jn), 1);
+        gn = - M_PI_2 * gn * djndt / pow(2, jn);
+        // Now we make the specific computations
+        Im_gn_gg[i] = imag(gn * ks[i] * ks[i] * sigma_gg_IzNs[0].izns[i]);
+        Im_gn_gp[i] = imag(gn * ks[i] * kbars[i]);
+        if(i == 0 or i == 3)
+        {
+            Im_gn_gg[i] = - Im_gn_gg[i]; Im_gn_gp[i] = - Im_gn_gp[i];
+        }
+    }
+    cout << "Im_gn_gg:" << endl;
+    for(int i = 0; i < Im_gn_gg.size(); i++) cout << Im_gn_gg[i] << '\t';
+    cout << endl;
+    cout << "Im_gn_gp:" << endl;
+    for(int i = 0; i < Im_gn_gp.size(); i++) cout << Im_gn_gp[i] << '\t';
+    cout << endl;
 
     return 0;
 }
