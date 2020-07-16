@@ -24,7 +24,7 @@ int main(int argc, char ** argv)
         f2_path = "expdata/DIS/F2_data.txt";
         fl_path = "expdata/DIS/FL_data.txt";
         sigma_gp_path = "expdata/GammaP/SigmaGammaProton_PDG_data_W_gt_10.txt";
-        Im_g0 = 0; Im_g1 = 0; Im_g2 = 0; Im_g3 = 0;
+        Im_g0 = -0.0498758; Im_g1 = 0.0199297; Im_g2 = -0.00480236; Im_g3 = 0.349284;
         invls = 6.491; a = -4.567; b = 1.485; c = 0.653; d = -0.113;
         cout << "Program usage: " + string(argv[0]) + " f2_path fl_path sigma_gp_path invls a b c d k1 k2 k3 k4" << endl;
         cout << "Using default values." << endl;

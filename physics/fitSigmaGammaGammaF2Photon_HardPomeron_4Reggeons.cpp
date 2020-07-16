@@ -16,7 +16,7 @@ int main(int argc, char ** argv)
     if (argc < 7)
     {
         g1 = 0.0; g2 = 0.0; g3 = 0.0; g4 = 0.0;
-        data_path_f2 = "expdata/F2_photon/F2_photon_xmax_0.01.txt";
+        data_path_f2 = "expdata/F2_photon/F2_photon_data.txt";
         data_path_sigma = "expdata/GammaGamma/gammagammaScatteringL3Processed.txt"; 
     }
     else

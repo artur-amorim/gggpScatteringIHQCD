@@ -31,8 +31,8 @@ int main(int argc, char ** argv)
         sigma_gp_path = "expdata/GammaP/SigmaGammaP_PDG_data_W_gt_10.txt";
         sigma_gg_path = "expdata/GammaGamma/SigmaGammaGamma_PDG_data_W_gt_10.txt";
         invls = 6.491; a = -4.567; b = 1.485; c = 0.653; d = -0.113;
-        k1 = 0; k2 = 0; k3 = 0; k4 = 0;
-        kbar1 = 0; kbar2 = 0; kbar3 = 0; kbar4 = 0;
+        k1 = 0.0482055; k2 = 0.0698707; k3 = 0.173638; k4= -0.262936;
+        kbar1= -16.8249; kbar2 = -5.82798; kbar3 = 0.194873; kbar4 = -51.7903;
         cout << "Program usage: " + string(argv[0]) + " f2photon_path f2_path fl_path sigma_gp_path sigma_gg_path invls a b c d k1 k2 k3 k4 kbar1 kbar2 kbar3 kbar4" << endl;
         cout << "Using default values." << endl;
     }
