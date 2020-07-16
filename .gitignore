@@ -32,7 +32,6 @@ _deps
 
 # Ignore .csv files
 *.csv
-*.txt
 
 *checkpoint.ipynb
 *.tar
