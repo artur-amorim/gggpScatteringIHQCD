@@ -284,6 +284,7 @@ As mentioned one the photons in this process is quasi-real. Let us assume that s
 Defining
 \begin{equation}
 g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n\left(0\right)}{2} \right) \frac{k^2_{j_n\left(0\right)}}{2^{j_n\left(0\right)}} j_n'\left(0\right) \int d\bar{z} e^{- \left(j_n - 3/2\right) A} {\psi_n \left(j_n\left(0\right), \bar{z}\right)}^*
+\label{eq:gn_def_gammagamma}
 \end{equation}
 and using the optical theorem we can write the total cross-sections $\sigma_{TT}$ and $\sigma_{LT}$ as
 \begin{align}
@@ -342,6 +343,7 @@ From the expression of $F_2^p$, using $x = Q^2 / s$ and that for $Q = 0, \, f_Q\
 The definition of $g_n$ for these processes is
 \begin{equation}
 g_n = - \frac{\pi}{2} \left( i + \cot \frac{\pi j_n}{2} \right) \frac{k_{j_n} \bar{k}_{j_n}}{2^{j_n}} \frac{d j_n}{dt} \int d\bar{z} e^{-\left(j_n - 7/2 \right)A} \upsilon_m^2 {\psi_n}^*
+\label{eq:gn_def_gammap}
 \end{equation}
 
 \section{$\sigma\left(p p \rightarrow X\right)$}
@@ -524,32 +526,32 @@ ${\rm Im} \, g_3$  & -0.361222\\
 \end{figure}
 
 
-%\begin{table}[b!]
-%\centering
-%\caption{Values of the parameters for $\sigma\left(p p \rightarrow X\right)$ data with $4.54 < \sqrt{s} \leq 386 \text{GeV}$. This results in a $\chi^2 / {N.d.o.f.}$ of 1.05721 with 113 experimental points.}
-%\vspace{0.5cm}
-%\begin{tabular}{|c|c|}
-%\hline
-%couplings   & value \\
-%\hline
-%$g_0$  & 33.4557\\ 
-%\hline
-%$g_1$  & -64.087 \\ 
-%\hline
-%$g_2$  & 91.6046  \\
-%\hline
-%$g_3$  & 56.0437\\ 
-%\hline
-%\end{tabular}
-%\label{table:SigmaPP_best_fit_W_lt_386}
-%\end{table}
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for $\sigma\left(p p \rightarrow X\right)$ data with $4.54 < \sqrt{s} \leq 386 \text{GeV}$. This results in a $\chi^2 / {N.d.o.f.}$ of 1.05721 with 113 experimental points.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+$g_0$  & 33.4557\\ 
+\hline
+$g_1$  & -64.087 \\ 
+\hline
+$g_2$  & 91.6046  \\
+\hline
+$g_3$  & 56.0437\\ 
+\hline
+\end{tabular}
+\label{table:SigmaPP_best_fit_W_lt_386}
+\end{table}
 
-%\begin{figure}[!h]
-%\center
-%\includegraphics[width = \textwidth]{images/SigmaProtonProton_HardPomeron_W_lt_386.pdf} 
-%\caption{Predicted $\sigma\left(p p \rightarrow X\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:SigmaPP_best_fit_W_lt_386}.}
-%\label{fig:SigmaPP_best_fit_W_lt_386}
-%\end{figure}
+\begin{figure}[!h]
+\center
+\includegraphics[width = \textwidth]{images/SigmaProtonProton_HardPomeron_W_lt_386.pdf} 
+\caption{Predicted $\sigma\left(p p \rightarrow X\right)$ vs experimental points. Our curve was obtained using the values from table ~\ref{table:SigmaPP_best_fit_W_lt_386}.}
+\label{fig:SigmaPP_best_fit_W_lt_386}
+\end{figure}
 
 Finally we present our best fit results for $\sigma\left(p p \rightarrow X\right)$. We got a $\chi^2$ of 0.9 for this process using the values of table~\ref{table:SigmaPP_best_fit}. For those values the predicted dependence of the total cross-section of proton-proton scattering is the one appearing in figure~\ref{fig:SigmaPP_best_fit}. Recall that the first parameter is associated with the hard pomeron while the second parameter is associated with the soft pomeron. Having said this we can tell that for high center of mass energies the hard pomeron's contribution is small as compared to the soft-pomeron one. This is consistent with the claims that the hard-pomeron is not important to describe hadron-hadron total cross-section for center of mass energies below $1 {\rm \, TeV}$. In~\cite{Donnachie:2011aa} Donnachie and Landshoff have argued that a moderate hard-pomeron contribution is also present in hadron-hadron scattering in order to describe total cross-section at center of mass energies above $1 {\rm \, TeV}$. In their work the hard-pomeron intercept is of $1.362$.
 
@@ -649,7 +651,146 @@ This last fit allowed us to determine the product of gravitational couplings $\b
 \end{align}
 Comparing these values with the ones obtained in the fit using only $\sigma\left(p p \rightarrow X\right)$ data we see that they are off by orders of magnitude. Moreover since the $\bar{k}_{j_n}$ are real numbers we can see from equation (\ref{eq:pp_fit_constant}) that ${\rm Im \, g_n}$ should be negative for all n. However, the fit using only $\sigma\left(p p \rightarrow X\right)$ data demanded that some of the constants to be positive.
 
-This week I have done a fit considering total cross-section data with $10 < \sqrt{s} < 10000 \, \rm{GeV}$. The results are shown in table~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_10000}. Considering only data with $10 < \sqrt{s} < 386 \, \rm{GeV}$ we have the results in table~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_386}.
+\section{Fits with cuts on $\sqrt{s}$}
+
+We noticed that  sometimes the best fit parameters of a joint fit are very different from fits using only data of one observable. This is seen both in $\gamma^{*} \gamma$ and $\gamma^{*} p$ processes. We believe that this is due to the fact that we try to apply our model in a region of low $\sqrt{s}$. This is the region where the meson trajectory, which has an intercept lower than 1, dominates. Our model besides the hard pomeron and soft pomeron trajectories has two more Regge trajectories with intercepts smaller than 1. However it does not include a trajectory dual to the meson trajectory. Then it is possible that that the two trajectories, for a given set of parameters, can mimic the meson trajectory in the low $\sqrt{s}$ region. Since these two trajectories are also important to describe the photon and proton structure functions it may happen that forcing our model to fit $\sigma$ data in this region may imply a poorer description of these functions. 
+
+Considering a fit using only $\sigma\left(\gamma p \rightarrow X\right)$ data with $\sqrt{s} > 10 \, \text{GeV}$ we obtained the best fit parameters present in table~\ref{table:SigmaGammaProton_W_gt_10_best_fit_scaled}. The parameters on that table are similar numerical values with the ones of table~\ref{table:GammaProton_best_joint_fit_scaled} except for the parameter $\rm{Im} \, g_2$. due to the experimental uncertainties there are uncertainties associated with the best fit parameters and it ma happen that the uncertainties are bigger than the parameter value, making them compatible. Considering fits using only $\sigma\left(\gamma \gamma \rightarrow X\right)$ data with $\sqrt{s} > 20 \, \text{GeV}$ we obtained the best fit parameters present in table~\ref{table:SigmaGammaGamma_W_gt_20_best_fit_scaled}. Again we verify the same pattern as in the previous case: excluding more low $\sqrt{s}$ points made the order of magnitude of the parameters to be the same or almost the same as the ones obtained in the fit using only $F_2^\gamma$ data. Notice that the parameters 1 and 4 of table~\ref{table:F2Photon_best_fit} need to be multiplied by $-1$ since in these new fits we have made $\psi_1\rightarrow -\psi_1$ and $\psi_4\rightarrow -\psi_4$.
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the best fit of $\sigma\left(\gamma p \rightarrow X\right)$ data from PDG with $\sqrt{s} > 10 \, \text{GeV}$. This means a ~$\chi^2 / {N.d.o.f.}$ of 0.693373 with 25 experimental points. The wavefunctions have been scaled.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+${\rm Im} \, g_0$  & -0.0531552\\ 
+\hline
+${\rm Im} \, g_1$  & 0.0332578 \\ 
+\hline
+${\rm Im} \, g_2$  & -0.0254186 \\
+\hline
+${\rm Im} \, g_3$  & 0.373644 \\ 
+\hline
+\end{tabular}
+\label{table:SigmaGammaProton_W_gt_10_best_fit_scaled}
+\end{table}
+
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the best fit of $\sigma\left(\gamma \gamma \rightarrow X\right)$ data from PDG with $\sqrt{s} > 20 \, \text{GeV}$. This means a ~$\chi^2 / {N.d.o.f.}$ of 0.512296 with 15 experimental points. The wavefunctions have been scaled.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+${\rm Im} \, g_0$  & -0.0003603\\ 
+\hline
+${\rm Im} \, g_1$  & 0.000655799 \\ 
+\hline
+${\rm Im} \, g_2$  & -0.000343226 \\
+\hline
+${\rm Im} \, g_3$  & 0.00125003 \\ 
+\hline
+\end{tabular}
+\label{table:SigmaGammaGamma_W_gt_20_best_fit_scaled}
+\end{table}
+With these cuts in the center-of-mass energy we can also do new joint fits to $\gamma^*\gamma$ and $\gamma^*p$ processes. For a cut of $\sqrt{s} > 10 \, {\rm GeV}$ for $\sigma\left(\gamma \gamma \rightarrow X \right)$ we get the best fit parameters of $\gamma^* \gamma$ processes of table~\ref{table:GammaGamma_best_joint_fit_scaled_W_gt_10} while for a cut of  $\sqrt{s} > 20 \, {\rm GeV}$ we get the ones of table~\ref{table:GammaGamma_best_joint_fit_scaled_W_gt_20}. For the $\gamma^* p$ processes with the cut of $\sqrt{s} > 10 \, {\rm GeV}$ we get the values of table~\ref{table:GammaProton_best_joint_fit_scaled_W_gt_10}. For the joint fit of $\gamma^* \gamma$ and $\gamma^* p$ processes they are displayed in tables~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_10} and~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_20}.
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the photon structure function $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data from PDG with $\sqrt{s} > 10 {\rm \, GeV}$. The total number of data points is 46 and a $\chi^2 / {N.d.o.f.}$ of 1.15531 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+${\rm Im} \, g_0$  & -0.000175226\\ 
+\hline
+${\rm Im} \, g_1$  & 0.000230161 \\ 
+\hline
+${\rm Im} \, g_2$  & -0.000154943 \\
+\hline
+${\rm Im} \, g_3$  & 0.0014227 \\ 
+\hline
+\end{tabular}
+\label{table:GammaGamma_best_joint_fit_scaled_W_gt_10}
+\end{table}
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the joint fit of the photon structure function $F_2^{\gamma}\left(x, Q^2\right)$ and $\sigma\left(\gamma \gamma \rightarrow X\right)$ data from PDG with $\sqrt{s} > 20 {\rm \, GeV}$. The total number of data points is 37 and a $\chi^2 / {N.d.o.f.}$ of 1.0556 was obtained.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+${\rm Im} \, g_0$  & -0.000163052\\ 
+\hline
+${\rm Im} \, g_1$  & 0.000273758 \\ 
+\hline
+${\rm Im} \, g_2$  & 6.51405e-05 \\
+\hline
+${\rm Im} \, g_3$  & 0.00168805 \\ 
+\hline
+\end{tabular}
+\label{table:GammaGamma_best_joint_fit_scaled_W_gt_20}
+\end{table}
+\begin{table}[b!]
+\centering
+\caption{Values of the parameters for the best joint fit of the proton structure functions $F_2\left(x, Q^2\right)$ and $F_L\left(x, Q^2\right)$ and $\sigma\left(\gamma p \rightarrow X\right)$ data from PDG with $x \leq 0.01$, $Q^2 \leq 400 \, \text{GeV}^2$ and $\sqrt{s} > 10 \, \text{GeV}$. This means a~$\chi^2 / {N.d.o.f.}$ of 1.39152 with 338 experimental points. The wavefunctions have been scaled.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|}
+\hline
+couplings   & value \\
+\hline
+${\rm Im} \, g_0$  & -0.0498758\\ 
+\hline
+${\rm Im} \, g_1$  & 0.0199297 \\ 
+\hline
+${\rm Im} \, g_2$  & -0.00480236 \\
+\hline
+${\rm Im} \, g_3$  & 0.349284 \\ 
+\hline
+\end{tabular}
+\label{table:GammaProton_best_joint_fit_scaled_W_gt_10}
+\end{table}
+\begin{table}[b!]
+\centering
+\caption{Best fit values for the joint fit of $\gamma^*\gamma$ and $\gamma^*p$ processes with $\sqrt{s} > 10 \, {\rm GeV }$ cuts on the total cross section data. 384 experimental points were used resulting in a $\chi^2$ of $1.37$.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$k_{j_n}$ & value & $\bar{k}_{j_n} \times \rm{\bar{z} \, integral \, value}$ & value \\
+\hline
+$n = 1$ & 0.0470443 & n = 1 & 62.767 \\
+\hline
+$n = 2$ & -0.0744605 & n = 2 & -40.5151 \\
+\hline
+$n = 3$ & 0.0720959 & n = 3 & 48.1009 \\
+\hline
+$n = 4$ & 0.275433 & n = 4 & 355.92 \\
+\hline
+\end{tabular}
+\label{table:GammaGamma_GammaProton_best_joint_fit_W_gt_10}
+\end{table}
+\begin{table}[b!]
+\centering
+\caption{Best fit values for the joint fit of $\gamma^*\gamma$ and $\gamma^*p$ processes with $\sqrt{s} > 10 \, {\rm GeV }$ cut for $\sigma\left(\gamma p \rightarrow X\right)$ and $\sqrt{s} > 20 \, {\rm GeV }$ cut for $\sigma\left(\gamma \gamma \rightarrow X\right)$. 375 experimental points were used resulting in a $\chi^2$ of $1.38$.}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$k_{j_n}$ & value & $\bar{k}_{j_n} \times \rm{\bar{z} \, integral \, value}$ & value \\
+\hline
+$n = 1$ & 0.0469159 & n = 1 & 62.5756 \\
+\hline
+$n = 2$ & -0.0749142 & n = 2 & -41.4804 \\
+\hline
+$n = 3$ & -0.0726996 & n = 3 & -2.37336\\
+\hline
+$n = 4$ & 0.282108 & n = 4 & 350.93 \\
+\hline
+\end{tabular}
+\label{table:GammaGamma_GammaProton_best_joint_fit_W_gt_20}
+\end{table}
+A fit considering total cross-section data with $10 < \sqrt{s} < 10000 \, \rm{GeV}$ for $pp$ scattering was also considered. The results are shown in table~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_10000}. Considering only data with $10 < \sqrt{s} < 386 \, \rm{GeV}$ we have the results in table~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_386}.
 \begin{table}[b!]
 \centering
 \caption{Values of the parameters for the best fit of  $\sigma\left(p p \rightarrow X\right)$ data from PDG with $10 < \sqrt{s} < 10000 \, \text{GeV}$. This means a~$\chi^2 / {N.d.o.f.}$ of 1.39786 with 77 experimental points.}
@@ -669,7 +810,6 @@ ${\rm Im} \, g_3$  & 36.8793 \\
 \end{tabular}
 \label{table:SigmaProtonProton_best_fit_10_lt_W_lt_10000}
 \end{table}
-
 \begin{table}[b!]
 \centering
 \caption{Values of the parameters for the best fit of  $\sigma\left(p p \rightarrow X\right)$ data from PDG with $10 < \sqrt{s} < 386 \, \text{GeV}$. This means a~$\chi^2 / {N.d.o.f.}$ of 1.22972 with 71 experimental points.}
@@ -688,6 +828,46 @@ ${\rm Im} \, g_3$  & 56.3791 \\
 \hline
 \end{tabular}
 \label{table:SigmaProtonProton_best_fit_10_lt_W_lt_386}
+\end{table}
+
+Given the values of the gravitational couplings in tables~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_10} and~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_20} we can compute the ${\rm Im} \, g_n$ of the $\gamma^{*} \gamma$, $\gamma^* p$ and pp processes using the definitions of equations (\ref{eq:gn_def_gammagamma}), (\ref{eq:gn_def_gammap}) and (\ref{eq:pp_fit_constant}). We note by definition the ${\rm Im} \, g_n$ of pp should all be negative while in tables~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_10000} and \ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_386} they are all positive. To make all of them positive we make the gravitational couplings of the proton to be redefined by $i \bar{k}_{j_n}$. This means that the definition of the ${\rm Im} \, g_n$ of the $\gamma^* p$ processes picks an extra factor of $\cot \frac{\pi j_n}{2}$. Having said this using the gravitational couplings values of table~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_10} we get the values of table~\ref{table:Im_gn_vals_1} while using the gravitational couplings values of table~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_20} we get the values of table~\ref{table:Im_gn_vals_2}. These values are compatible with those in tables~\ref{table:GammaGamma_best_joint_fit_scaled_W_gt_10}, ~\ref{table:GammaGamma_best_joint_fit_scaled_W_gt_20} and~\ref{table:GammaProton_best_joint_fit_scaled_W_gt_10} but not with the ones of tables~\ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_10000} and \ref{table:SigmaProtonProton_best_fit_10_lt_W_lt_386}.
+\begin{table}[b!]
+\centering
+\caption{Values of the $\rm{Im} , g_n$ for the $\gamma^* \gamma$, $\gamma^* p$ and pp processes using the gravitational coupling values of table~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_10}.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+couplings   & value & couplins & value & couplings & value \\
+\hline
+${\rm Im} \, g_0^{\gamma^*\gamma}$  & -0.000168736 & ${\rm Im} \, g_0^{\gamma^*p}$ & -0.0498678 & ${\rm Im} \, g_0^{pp}$ & 241.064 \\ 
+\hline
+${\rm Im} \, g_1^{\gamma^*\gamma}$  & 0.000257243 & ${\rm Im} \, g_1^{\gamma^*p}$ & 0.0198756 & ${\rm Im} \, g_1^{pp}$ & 82.4686 \\ 
+\hline
+${\rm Im} \, g_2^{\gamma^*\gamma}$  & -0.0000331526 & ${\rm Im} \, g_2^{\gamma^*p}$ & -0.00468239 & ${\rm Im} \, g_2^{pp}$ & 77.9993 \\ 
+\hline
+${\rm Im} \, g_3^{\gamma^*\gamma}$  & 0.00153715 & ${\rm Im} \, g_3^{\gamma^*p}$ & 0.349152 & ${\rm Im} \, g_3^{pp}$ & 3276.88 \\ 
+\hline
+\end{tabular}
+\label{table:Im_gn_vals_1}
+\end{table}
+\begin{table}[b!]
+\centering
+\caption{Values of the $\rm{Im} , g_n$ for the $\gamma^* \gamma$, $\gamma^* p$ and pp processes using the gravitational coupling values of table~\ref{table:GammaGamma_GammaProton_best_joint_fit_W_gt_20}.}
+\vspace{0.5cm}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+couplings   & value & couplins & value & couplings & value \\
+\hline
+${\rm Im} \, g_0^{\gamma^*\gamma}$  & -0.000167816 & ${\rm Im} \, g_0^{\gamma^*p}$ & -0.04958 & ${\rm Im} \, g_0^{pp}$ & 239.596 \\ 
+\hline
+${\rm Im} \, g_1^{\gamma^*\gamma}$  & 0.000260388 & ${\rm Im} \, g_1^{\gamma^*p}$ & 0.0204731 & ${\rm Im} \, g_1^{pp}$ & 86.4452 \\ 
+\hline
+${\rm Im} \, g_2^{\gamma^*\gamma}$  & -0.0000337101 & ${\rm Im} \, g_2^{\gamma^*p}$ & -0.00023297 & ${\rm Im} \, g_2^{pp}$ & 0.189894 \\ 
+\hline
+${\rm Im} \, g_3^{\gamma^*\gamma}$  & 0.00161256 & ${\rm Im} \, g_3^{\gamma^*p}$ & 0.352599 & ${\rm Im} \, g_3^{pp}$ & 3185.64 \\ 
+\hline
+\end{tabular}
+\label{table:Im_gn_vals_2}
 \end{table}
 
 
