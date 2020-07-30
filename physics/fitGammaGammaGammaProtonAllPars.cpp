@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
     npoints += sigma_gp_pts[0].size();
     vector<vector<double> > sigma_gg_pts = sigma_gg.expKinematics();
     npoints += sigma_gg_pts[0].size();
-
+    cout << "Number of experimental points: " << npoints << endl;
     // Setup Chebyschev computation
     chebSetN(1000);
 
