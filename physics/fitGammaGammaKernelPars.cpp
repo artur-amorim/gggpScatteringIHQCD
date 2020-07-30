@@ -21,7 +21,7 @@ int main(int argc, char ** argv)
     if(argc < 12)
     {
         f2photon_path = "expdata/F2_photon/F2Photon_data.txt";
-        sigma_gg_path = "expdata/GammaGamma/SigmaGammaGamma_PDG_data_W_gt_10.txt";
+        sigma_gg_path = "expdata/GammaGamma/SigmaGammaGamma_PDG_data_W_gt_4.txt";
         Im_g0 = -0.000175226; Im_g1 = 0.000230161; Im_g2 = -0.000154943; Im_g3 = 0.0014227;
         invls = 6.491; a = -4.567; b = 1.485; c = 0.653; d = -0.113;
         cout << "Program usage: " + string(argv[0]) + " f2photon_path sigma_gg_path invls a b c d k1 k2 k3 k4" << endl;

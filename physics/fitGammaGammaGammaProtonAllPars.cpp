@@ -28,8 +28,8 @@ int main(int argc, char ** argv)
         f2photon_path = "expdata/F2_photon/F2Photon_data.txt";
         f2_path = "expdata/DIS/F2_data.txt";
         fl_path = "expdata/DIS/FL_data.txt";
-        sigma_gp_path = "expdata/GammaP/SigmaGammaP_PDG_data_W_gt_10.txt";
-        sigma_gg_path = "expdata/GammaGamma/SigmaGammaGamma_PDG_data_W_gt_10.txt";
+        sigma_gp_path = "expdata/GammaP/SigmaGammaP_PDG_data_W_gt_461.txt";
+        sigma_gg_path = "expdata/GammaGamma/SigmaGammaGamma_PDG_data_W_gt_4.txt";
         invls = 6.491; a = -4.567; b = 1.485; c = 0.653; d = -0.113;
         k1 = 0.0482055; k2 = 0.0698707; k3 = 0.173638; k4= -0.262936;
         kbar1= -16.8249; kbar2 = -5.82798; kbar3 = 0.194873; kbar4 = -51.7903;
