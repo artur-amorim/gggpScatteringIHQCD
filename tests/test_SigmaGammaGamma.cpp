@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include "SigmaGammaGamma.h"
-#include "SoftPomeron.h"
+#include "HardPomeron.h"
 #include "schrodinger/schrodinger.h"
 #include "methods/search.hpp"
 
@@ -27,9 +27,9 @@ int main(int argc, char ** argv)
     chebSetN(1000);
 
     // Setup gluon kernel and compute the Reggeons for t = 0
-    SoftPomeron soft;
-    soft.computeReggeTrajectories();
-    vector<Reggeon> reggeons = computeReggeons(soft, 0.0, 2);
+    HardPomeron hard;
+    hard.computeReggeTrajectories();
+    vector<Reggeon> reggeons = computeReggeons(hard, 0.0, 2);
     Spectra spec(0.0, reggeons);
 
     // Compute the IzNs using the IzN function
