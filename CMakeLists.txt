@@ -64,14 +64,8 @@ target_link_libraries(test_F2Photon.exe ihqcd_lib blas armadillo)
 add_executable(test_HardPomeron.exe tests/test_HardPomeron.cpp)
 target_link_libraries(test_HardPomeron.exe ihqcd_lib blas armadillo)
 
-add_executable(test_SoftPomeron.exe tests/test_SoftPomeron.cpp)
-target_link_libraries(test_SoftPomeron.exe ihqcd_lib blas armadillo)
-
 add_executable(test_HQCDP_HardPomeron.exe tests/test_HQCDP_HardPomeron.cpp)
 target_link_libraries(test_HQCDP_HardPomeron.exe ihqcd_lib blas armadillo)
-
-add_executable(test_HQCDP_SoftPomeron.exe tests/test_HQCDP_SoftPomeron.cpp)
-target_link_libraries(test_HQCDP_SoftPomeron.exe ihqcd_lib blas armadillo)
 
 add_executable(test_schrodinger.exe tests/test_schrodinger.cpp)
 target_link_libraries(test_schrodinger.exe ihqcd_lib blas armadillo)
@@ -88,24 +82,14 @@ target_link_libraries(test_U1NNMode.exe ihqcd_lib blas)
 add_executable(fitF2Photon_HardPomeron_4Reggeons.exe physics/fitF2Photon_HardPomeron_4Reggeons.cpp)
 target_link_libraries(fitF2Photon_HardPomeron_4Reggeons.exe ihqcd_lib blas armadillo)
 
-add_executable(fitSigmaGammaGamma_HardPomeron_2Reggeons.exe physics/fitSigmaGammaGamma_HardPomeron_2Reggeons.cpp)
-target_link_libraries(fitSigmaGammaGamma_HardPomeron_2Reggeons.exe ihqcd_lib blas armadillo)
-
 add_executable(fitSigmaGammaGamma_HardPomeron_4Reggeons.exe physics/fitSigmaGammaGamma_HardPomeron_4Reggeons.cpp)
 target_link_libraries(fitSigmaGammaGamma_HardPomeron_4Reggeons.exe ihqcd_lib blas armadillo)
-
-add_executable(fitSigmaGammaGamma_SoftPomeron.exe physics/fitSigmaGammaGamma_SoftPomeron.cpp)
-target_link_libraries(fitSigmaGammaGamma_SoftPomeron.exe ihqcd_lib blas armadillo)
 
 add_executable(fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.exe physics/fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.cpp)
 target_link_libraries(fitSigmaGammaGammaF2Photon_HardPomeron_4Reggeons.exe ihqcd_lib blas armadillo)
 
 add_executable(fitSigmaGammaProton_HardPomeron.exe physics/fitSigmaGammaProton_HardPomeron.cpp)
 target_link_libraries(fitSigmaGammaProton_HardPomeron.exe ihqcd_lib blas armadillo)
-
-add_executable(fitSigmaGammaProton_SoftPomeron.exe physics/fitSigmaGammaProton_SoftPomeron.cpp)
-target_link_libraries(fitSigmaGammaProton_SoftPomeron.exe ihqcd_lib blas armadillo)
-
 
 add_executable(fitDIS_SigmaGammaProton.exe physics/fitDIS_SigmaGammaProton.cpp)
 target_link_libraries(fitDIS_SigmaGammaProton.exe ihqcd_lib blas armadillo)
@@ -116,29 +100,17 @@ target_link_libraries(predictDISStructureFunctions.exe ihqcd_lib blas armadillo)
 add_executable(predictSigmaGammaGamma_HardPomeron_4Reggeons.exe physics/predictSigmaGammaGamma_HardPomeron_4Reggeons.cpp)
 target_link_libraries(predictSigmaGammaGamma_HardPomeron_4Reggeons.exe ihqcd_lib blas armadillo)
 
-add_executable(predictSigmaGammaGamma_SoftPomeron.exe physics/predictSigmaGammaGamma_SoftPomeron.cpp)
-target_link_libraries(predictSigmaGammaGamma_SoftPomeron.exe ihqcd_lib blas armadillo)
-
 add_executable(predictF2Photon.exe physics/predictF2Photon.cpp)
 target_link_libraries(predictF2Photon.exe ihqcd_lib blas armadillo)
 
 add_executable(predictSigmaGammaProton_HardPomeron.exe physics/predictSigmaGammaProton_HardPomeron.cpp)
 target_link_libraries(predictSigmaGammaProton_HardPomeron.exe ihqcd_lib blas armadillo)
 
-add_executable(predictSigmaGammaProton_SoftPomeron.exe physics/predictSigmaGammaProton_SoftPomeron.cpp)
-target_link_libraries(predictSigmaGammaProton_SoftPomeron.exe ihqcd_lib blas armadillo)
-
 add_executable(fitSigmaProtonProton_HardPomeron.exe physics/fitSigmaProtonProton_HardPomeron.cpp)
 target_link_libraries(fitSigmaProtonProton_HardPomeron.exe ihqcd_lib blas armadillo)
 
-add_executable(fitSigmaProtonProton_SoftPomeron.exe physics/fitSigmaProtonProton_SoftPomeron.cpp)
-target_link_libraries(fitSigmaProtonProton_SoftPomeron.exe ihqcd_lib blas armadillo)
-
 add_executable(predictSigmaProtonProton_HardPomeron.exe physics/predictSigmaProtonProton_HardPomeron.cpp)
 target_link_libraries(predictSigmaProtonProton_HardPomeron.exe ihqcd_lib blas armadillo)
-
-add_executable(predictSigmaProtonProton_SoftPomeron.exe physics/predictSigmaProtonProton_SoftPomeron.cpp)
-target_link_libraries(predictSigmaProtonProton_SoftPomeron.exe ihqcd_lib blas armadillo)
 
 add_executable(globalFit_fixedKernel.exe physics/globalFit_fixedKernel.cpp)
 target_link_libraries(globalFit_fixedKernel.exe ihqcd_lib blas armadillo)
