@@ -144,3 +144,12 @@ target_link_libraries(fitGammaProtonKernelPars.exe ihqcd_lib blas armadillo)
 
 add_executable(fitGammaGammaGammaProtonKernelPars.exe physics/fitGammaGammaGammaProtonKernelPars.cpp)
 target_link_libraries(fitGammaGammaGammaProtonKernelPars.exe ihqcd_lib blas armadillo)
+
+add_executable(fitGammaProtonUncertainties.exe physics/fitGammaProtonUncertainties.cpp)
+target_link_libraries(fitGammaProtonUncertainties.exe ihqcd_lib blas armadillo)
+
+add_executable(fitGammaGammaUncertainties.exe physics/fitGammaGammaUncertainties.cpp)
+target_link_libraries(fitGammaGammaUncertainties.exe ihqcd_lib blas armadillo)
+
+add_executable(fitGammaGammaGammaProtonUncertainties.exe physics/fitGammaGammaGammaProtonUncertainties.cpp)
+target_link_libraries(fitGammaGammaGammaProtonUncertainties.exe ihqcd_lib blas armadillo)
