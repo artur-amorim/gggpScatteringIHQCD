@@ -138,11 +138,11 @@ struct NelderMead {
 };
 
 template<class T>
-std::vector<double> optimFunction(const std::vector<double> &x, T &func, double delta)
+std::vector<double> optimFunction(const std::vector<double> &x, T &func, double delta, const double tol = 1e-4)
 {
     // Given an initial guess of parameters X,
     // prints the value for which the function or functor f has a minimum
-    NelderMead NM(1e-4) ;
+    NelderMead NM(tol) ;
 	// Start the optimization process
 	std::vector<double> xguess = x;
 	std::vector<double> optParams = NM.minimize(xguess, delta, func);
@@ -151,11 +151,11 @@ std::vector<double> optimFunction(const std::vector<double> &x, T &func, double 
 };
 
 template<class T>
-std::vector<double> optimFunction(const std::vector<double> &x, T &func, std::vector<double> deltas)
+std::vector<double> optimFunction(const std::vector<double> &x, T &func, std::vector<double> deltas, const double tol = 1e-4)
 {
     // Given an initial guess of parameters X,
     // prints the value for which the function or functor f has a minimum
-    NelderMead NM(1e-4) ;
+    NelderMead NM(tol) ;
 	// Start the optimization process
 	std::vector<double> xguess = x;
 	std::vector<double> optParams = NM.minimize(xguess, deltas, func);

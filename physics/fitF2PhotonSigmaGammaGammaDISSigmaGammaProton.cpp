@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
     chebSetN(1000);
 
     // Setup HardPomeron Kernel and compute the Reggeons
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     hard.computeReggeTrajectories();
     vector<Reggeon> reggeons = computeReggeons(hard, 0, 4);
     Spectra spec(0, reggeons);
@@ -135,7 +135,7 @@ int main(int argc, char ** argv)
     // Start the fit now
     vector<double> X_guess = {k1, k2, k3, k4, kbar1, kbar2, kbar3, kbar4};
     vector<double> delta = {0.01,0.01,0.1,0.1,10,1,0.1,10};
-    vector<double> X_opt = optimFunction(X_guess, f, delta);
+    vector<double> X_opt = optimFunction(X_guess, f, delta, 1e-12);
     
     // Print X_opt
     cout << "Found a minimum for: ";
