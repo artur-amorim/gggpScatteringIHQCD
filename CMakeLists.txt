@@ -48,7 +48,7 @@ set(U1NNMODE src/U1NNMode.cpp)
 set(SPECTRA src/Spectra.cpp src/Reggeon.cpp src/Kernel.cpp src/HardPomeron.cpp)
 
 # ProcessObservable and its derived classes
-set(PROCESS src/Process.cpp src/DeepInelasticScattering.cpp src/Sigma.cpp src/F2.cpp src/FL.cpp src/F2Photon.cpp src/SigmaGammaGamma.cpp src/SigmaGammaProton.cpp src/SigmaProtonProton.cpp src/alphaQED.cpp)
+set(PROCESS src/Process.cpp src/DeepInelasticScattering.cpp src/Sigma.cpp src/F2.cpp src/FL.cpp src/F2Photon.cpp src/SigmaGammaGamma.cpp src/SigmaGammaProton.cpp src/SigmaProtonProton.cpp src/alphaQED.cpp src/gluonPDF.cpp)
 
 # HQCDP class
 set(HQCDP src/HQCDP.cpp)
@@ -153,3 +153,6 @@ target_link_libraries(fitGammaGammaUncertainties.exe ihqcd_lib blas armadillo)
 
 add_executable(fitGammaGammaGammaProtonUncertainties.exe physics/fitGammaGammaGammaProtonUncertainties.cpp)
 target_link_libraries(fitGammaGammaGammaProtonUncertainties.exe ihqcd_lib blas armadillo)
+
+add_executable(computeGluonPDF.exe physics/computeGluonPDF.cpp)
+target_link_libraries(computeGluonPDF.exe ihqcd_lib blas armadillo lhapdf)
