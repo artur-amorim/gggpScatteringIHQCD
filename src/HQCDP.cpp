@@ -174,7 +174,7 @@ void HQCDP::fit(const std::vector<double> &xguess, const double delta)
     int ndof  = this->NumberOfDegreesOfFreedom();
     // Optimize using Nelder-Mead algorithm
     std::function<double(std::vector<double>)> f = [this] (const std::vector<double> x) {return this->operator()(x);};
-    std::vector<double> xopt = optimFunction(xguess, f, delta);
+    std::vector<double> xopt = optimFunction(xguess, f, delta, 1e-12);
     // Update the GNs
     setGNs(xopt);
     // Compute chi2

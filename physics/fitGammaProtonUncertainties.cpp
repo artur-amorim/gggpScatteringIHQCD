@@ -92,7 +92,10 @@ int main(int argc, char ** argv)
         // Compute the hessian matrix and save it
         vector<double> X = {invls, a, b, c, d, Im_g0, Im_g1, Im_g2, Im_g3};
         hessian = computeHessian(f, X, h);
-        saveMatrix(hessian, "gamma_proton_hessian.txt");
+        string hessian_path;
+        cout << "Introduce the file name that will store the hessian of gamma proton processes." << endl;
+        cin >> hessian_path;
+        saveMatrix(hessian, hessian_path);
     }
     else
     {

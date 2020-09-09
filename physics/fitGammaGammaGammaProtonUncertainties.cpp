@@ -120,7 +120,10 @@ int main(int argc, char ** argv)
         // Compute the uncertainties
         vector<double> X = {k1, k2, k3, k4, kbar1, kbar2, kbar3, kbar4};
         hessian = computeHessian(f, X, h);
-        saveMatrix(hessian, "gamma_gamma_gamma_proton_hessian.txt");
+        string hessian_path;
+        cout << "Introduce the file name that will store the hessian of gamma gamma and gamma proton processes." << endl;
+        cin >> hessian_path;
+        saveMatrix(hessian, hessian_path);
     }
     else
     {

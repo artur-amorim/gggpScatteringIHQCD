@@ -34,7 +34,7 @@ int main(int argc, char ** argv)
     SigmaGammaProton sigma(data_path_sigma);
 
     // Setup HardPomeron Kernel and GNs vector
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     vector<double> GNs = {g1, g2, g3, g4};
 
     // Setup HQCDP object

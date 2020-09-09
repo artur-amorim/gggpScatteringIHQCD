@@ -60,7 +60,10 @@ int main(int argc, char ** argv)
             return hqcdp.chi2();
         };
         hessian = computeHessian(f, GNs, h);
-        saveMatrix(hessian, "gamma_gamma_hessian.txt");
+        string hessian_path;
+        cout << "Introduce the file name that will store the hessian of gamma gamma processes." << endl;
+        cin >> hessian_path;
+        saveMatrix(hessian, hessian_path);
     }
     else
     {
