@@ -17,7 +17,7 @@ int main(int argc, char ** argv)
 
     if (argc < 5)
     {
-        g1 = 0; g2 = 0; g3 = 0; g4 = 0;
+        g1 = -0.0510176; g2 = 0.017369; g3 = -0.0744977; g4 = 0.357739;
         cout << "Using default values:" << endl;
     }
     else
@@ -37,7 +37,7 @@ int main(int argc, char ** argv)
     // Setup HQCDP kernel and compute the reggeons
     HQCDP hqcdp;
     // Add kernel
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     hqcdp.addKernel(hard);
     // Add f2 and fl to the list of processes of HQCDP
     hqcdp.addProcessObservable(f2);

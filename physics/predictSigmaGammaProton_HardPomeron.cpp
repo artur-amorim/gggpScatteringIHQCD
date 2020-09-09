@@ -16,8 +16,8 @@ int main(int argc, char ** argv)
     string data_path;
     if (argc < 6)
     {
-        data_path = "expdata/GammaP/SigmaGammaProton.txt";
-        g1 = 0.508067; g2 = 1.23958; g3 = 0.981595; g4 = -2.16804;
+        data_path = "expdata/GammaP/SigmaGammaP_PDG_data_W_gt_461.txt";
+        g1 = -0.0510176; g2 = 0.017369; g3 = -0.0744977; g4 = 0.357739;
     }
     else
     {
@@ -33,7 +33,7 @@ int main(int argc, char ** argv)
     vector<vector<double> > sigma_points = sigma.expKinematics();
 
     /// Setup HardPomeron Kernel and GNs vector
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     vector<double> GNs = {g1, g2, g3, g4};
 
     // Setup HQCDP object

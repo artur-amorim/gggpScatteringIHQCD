@@ -17,8 +17,8 @@ int main(int argc, char ** argv)
 
     if (argc < 6)
     {
-        g1 = 2.6527e-05; g2 = 0.000229015; g3 = 0.000155743; g4 = -0.00101869;
-        data_path_f2 = "expdata/F2_photon/F2_photon_xmax_0.01.txt";
+        g1 = -0.000178883; g2 = 0.000193696; g3 = -0.000319052; g4 = 0.00133664;
+        data_path_f2 = "expdata/F2_photon/F2Photon_data.txt";
     }
     else
     {
@@ -34,7 +34,7 @@ int main(int argc, char ** argv)
     vector<vector<double> > F2points = f2.expKinematics();
 
     /// Setup HardPomeron Kernel and GNs vector
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     vector<double> GNs = {g1, g2, g3, g4};
 
     // Setup HQCDP object
