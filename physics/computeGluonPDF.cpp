@@ -48,7 +48,7 @@ int main(int argc, char ** argv)
      // Compute Mik
      arma::mat Mik = computeMik(hessian);
      // Define sqrtDeltaChi2 to 1
-     const double sqrtDeltaChi2 = 1;
+     const double sqrtDeltaChi2 = 10;
 
      // Now we compute the g(S^{+-}_k) and store them in a vector container
      vector<vector<double> > xgsVals = {xgs};

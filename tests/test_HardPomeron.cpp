@@ -10,10 +10,10 @@ using namespace std;
 int main()
 {
     // Compute Chebyschev matrices
-    chebSetN(800);
+    chebSetN(1000);
 
     // Setup gluon kernel and compute the Reggeons for t = 0
-    HardPomeron hard;
+    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
     hard.computeReggeTrajectories();
     vector<Reggeon> reggeons = computeReggeons(hard, 0.0, 4);
     // Print the J of each reggeon and save the wave function
