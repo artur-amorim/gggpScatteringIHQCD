@@ -133,6 +133,16 @@ target_link_libraries(fitGammaGammaAllPars.exe ihqcd_lib blas armadillo)
 add_executable(fitGammaProtonAllPars.exe physics/fitGammaProtonAllPars.cpp)
 target_link_libraries(fitGammaProtonAllPars.exe ihqcd_lib blas armadillo)
 
+add_executable(fitDIS.exe physics/fitDIS.cpp)
+target_link_libraries(fitDIS.exe ihqcd_lib blas armadillo)
+
+add_executable(fitF2SigmaGammaProton.exe physics/fitF2SigmaGammaProton.cpp)
+target_link_libraries(fitF2SigmaGammaProton.exe ihqcd_lib blas armadillo)
+
+add_executable(fitFLSigmaGammaProton.exe physics/fitFLSigmaGammaProton.cpp)
+target_link_libraries(fitFLSigmaGammaProton.exe ihqcd_lib blas armadillo)
+
+
 add_executable(fitGammaGammaGammaProtonAllPars.exe physics/fitGammaGammaGammaProtonAllPars.cpp)
 target_link_libraries(fitGammaGammaGammaProtonAllPars.exe ihqcd_lib blas armadillo)
 
@@ -156,3 +166,7 @@ target_link_libraries(fitGammaGammaGammaProtonUncertainties.exe ihqcd_lib blas a
 
 add_executable(computeGluonPDF.exe physics/computeGluonPDF.cpp)
 target_link_libraries(computeGluonPDF.exe ihqcd_lib blas armadillo lhapdf)
+
+add_executable(gluon_pdf_QCD.exe plots/gluonPDF/gluon_pdf_QCD.cpp)
+target_link_libraries(gluon_pdf_QCD.exe lhapdf)
+set_target_properties(gluon_pdf_QCD.exe PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/plots/gluonPDF")
