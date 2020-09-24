@@ -104,7 +104,7 @@ int main(int argc, char ** argv)
     }
     
     // Compute the parameter uncertainties
-    vector<double> parUncert = parameterUncertainties(hessian);
+    vector<double> parUncert = parameterUncertainties(hessian, 1);
 
     // Print the parameter values and the corresponding uncertainties
     cout << "Delta_invls: " << parUncert[0] << endl;

@@ -113,7 +113,7 @@ double computeDeltaChi2(int n_deg_freed, const double conf_limit)
     return Deltachi2;
 }
 
-std::vector<double> parameterUncertainties(const arma::mat &hessian)
+std::vector<double> parameterUncertainties(const arma::mat &hessian, const double Deltachi2 = 1)
 {
     /*
         Given the Hessian matrix it compute the parameter uncertainties of a fit.
@@ -135,7 +135,6 @@ std::vector<double> parameterUncertainties(const arma::mat &hessian)
     */
     // Computation of DeltaChi2
     const int n_pars = hessian.n_rows;
-    double Deltachi2 = 1;
 
     // Computation of the matrix Mik
     arma::mat Mik = computeMik(hessian);
