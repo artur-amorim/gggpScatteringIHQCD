@@ -13,19 +13,23 @@ using namespace std;
 
 int main(int argc, char ** argv)
 {
+    double invls, a, b, c, d;
     double g1, g2, g3, g4;
 
-    if (argc < 5)
+    if (argc < 10)
     {
+        invls = 6.46892; a = -4.69919; b = 1.12825; c = 0.664399; d = -0.0982592;
         g1 = -0.0510176; g2 = 0.017369; g3 = -0.0744977; g4 = 0.357739;
         cout << "Using default values:" << endl;
     }
     else
     {
-        g1 = stod(argv[1]); g2 = stod(argv[2]); g3 = stod(argv[3]); g4 = stod(argv[4]);
+        invls = stod(argv[1]); a = stod(argv[2]); b = stod(argv[3]); c = stod(argv[4]); d = stod(argv[5]);
+        g1 = stod(argv[6]); g2 = stod(argv[7]); g3 = stod(argv[8]); g4 = stod(argv[9]);
         cout << "Using values:" << endl;
     }
 
+    cout << "invls : " << invls << " a: " << a << " b: " << b << " c: " << c << " d: " << d << endl;
     cout << " g1: " << g1 << " g2: " << g2 << " g3: " << g3 << " g4: " << g4 << endl; 
     
     // Create F2 object
@@ -37,7 +41,7 @@ int main(int argc, char ** argv)
     // Setup HQCDP kernel and compute the reggeons
     HQCDP hqcdp;
     // Add kernel
-    HardPomeron hard(4, {6.46892, -4.69919, 1.12825, 0.664399, -0.0982592});
+    HardPomeron hard(4, {invls, a, b, c, d});
     hqcdp.addKernel(hard);
     // Add f2 and fl to the list of processes of HQCDP
     hqcdp.addProcessObservable(f2);
@@ -69,9 +73,12 @@ int main(int argc, char ** argv)
     double FLchi2 = fl.chi2(FLIzNs, FLIzNBars, FLpoints);
     const int nF2points = F2points[0].size();
     const int nFLpoints = FLpoints[0].size();
-    cout << "The F2 chi2 is " << F2chi2 / nF2points << endl;
-    cout << "The FL chi2 is " << FLchi2 / nFLpoints << endl;
-    cout << "Total chi2 is " << (F2chi2 + FLchi2) / (nF2points + nFLpoints) << endl;
+    cout << "F2 chi2: " << F2chi2 << endl;
+    cout << "F2 chi2 / Npoints: " << F2chi2 / nF2points << endl;
+    cout << "FL chi2: " << FLchi2 << endl;
+    cout << "FL chi2 / Npoints: " << FLchi2 / nFLpoints << endl;
+    cout << "Total chi2: " << F2chi2 + FLchi2 << endl;
+    cout << "Total chi2 / Npoints: " << (F2chi2 + FLchi2) / (nF2points + nFLpoints) << endl;
     // Compute more predicted points in order to plot
     // Getting list of Q2s of F2
     std::vector<double> F2Q2s = f2.getDataPts()[0];
