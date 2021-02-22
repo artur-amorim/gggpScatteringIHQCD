@@ -2,6 +2,10 @@
 C++ code that implements a holographic description of the following physical observables: photon structure function <a href="https://www.codecogs.com/eqnedit.php?latex=F^{\gamma}_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?F^{\gamma}_2" title="F^{\gamma}_2" /></a>, the hadronic photon-photon total cross-section <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma\left(\gamma&space;\gamma&space;\rightarrow&space;X\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma\left(\gamma&space;\gamma&space;\rightarrow&space;X\right)" title="\sigma\left(\gamma \gamma \rightarrow X\right)" /></a>,
 the proton structure functions <a href="https://www.codecogs.com/eqnedit.php?latex=F^{p}_2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?F^{p}_2" title="F^{p}_2" /></a> and <a href="https://www.codecogs.com/eqnedit.php?latex=F^{p}_L" target="_blank"><img src="https://latex.codecogs.com/gif.latex?F^{p}_L" title="F^{p}_L" /></a> and the hadronic photon-proton total cross section <a href="https://www.codecogs.com/eqnedit.php?latex=\sigma\left(\gamma&space;p&space;\rightarrow&space;X&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sigma\left(\gamma&space;p&space;\rightarrow&space;X&space;\right&space;)" title="\sigma\left(\gamma p \rightarrow X \right )" /></a>.
 
+This work is a collection of routines developed for the following papers:
+- Non-minimal coupling contribution to DIS at low $x$ in Holographic QCD (https://journals.aps.org/prd/abstract/10.1103/PhysRevD.98.026016)
+- γ* γ and γ*p scattering in improved holographic QCD (https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.026007)
+
 # Dependencies
 This packages requires the [Boost](https://www.boost.org/) libraries on your computer to solve numerically a set of differential equations.
  The minimum required version is 1.53.0. 
