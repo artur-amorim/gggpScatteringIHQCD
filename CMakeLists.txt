@@ -167,6 +167,5 @@ target_link_libraries(fitGammaGammaGammaProtonUncertainties.exe ihqcd_lib blas a
 add_executable(computeGluonPDF.exe physics/computeGluonPDF.cpp)
 target_link_libraries(computeGluonPDF.exe ihqcd_lib blas armadillo lhapdf)
 
-add_executable(gluon_pdf_QCD.exe plots/gluonPDF/gluon_pdf_QCD.cpp)
-target_link_libraries(gluon_pdf_QCD.exe lhapdf)
-set_target_properties(gluon_pdf_QCD.exe PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/plots/gluonPDF")
+add_executable(computeReggeTrajectories.exe physics/computeReggeTrajectories.cpp)
+target_link_libraries(computeReggeTrajectories.exe ihqcd_lib blas armadillo)
